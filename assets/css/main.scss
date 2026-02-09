@@ -1,0 +1,175 @@
+// Reset & Base
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: 1.6;
+  color: $color-text;
+  background: $color-white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-light;
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color $transition-base;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+// Utility classes
+.container {
+  width: 100%;
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 0 $spacing-xl;
+}
+
+// Button styles
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-md $spacing-xl;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: none;
+  cursor: pointer;
+  transition: all $transition-base;
+  position: relative;
+  overflow: hidden;
+
+  &--outline {
+    background: transparent;
+    border: 1px solid currentColor;
+    color: $color-dark;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, $color-gold, $color-copper, $color-gray, $color-blue);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform $transition-base;
+    }
+
+    &:hover::before {
+      transform: scaleX(1);
+    }
+  }
+
+  &--primary {
+    background: $color-blue;
+    color: $color-white;
+    border: 1px solid $color-blue;
+
+    &:hover {
+      background: darken($color-blue, 10%);
+    }
+  }
+
+  &--dark {
+    background: $color-dark;
+    color: $color-white;
+    border: 1px solid $color-dark;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, $color-gold, $color-copper, $color-gray, $color-blue);
+    }
+
+    &:hover {
+      background: lighten($color-dark, 10%);
+    }
+  }
+
+  .btn__arrow {
+    transition: transform $transition-base;
+  }
+
+  &:hover .btn__arrow {
+    transform: translateX(4px);
+  }
+}
+
+// Section styles
+.section {
+  padding: $spacing-4xl 0;
+
+  &--dark {
+    background: $color-dark;
+    color: $color-white;
+  }
+
+  &--light {
+    background: $color-light;
+  }
+
+  &--blue {
+    background: $color-blue;
+    color: $color-white;
+  }
+}
+
+// Scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-light;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-gray;
+  border-radius: 4px;
+}
+
+// Selection
+::selection {
+  background: $color-blue;
+  color: $color-white;
+}
