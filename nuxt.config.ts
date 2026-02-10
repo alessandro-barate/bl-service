@@ -13,11 +13,11 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'FramorPower - Metal Slitting Center',
+      title: 'BL Service - Lavorazioni meccaniche',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'FramorPower Srl - Esperti del Taglio dei Metalli' }
+        { name: 'description', content: 'BL Service - Lavorazioni meccaniche' }
       ],
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },

@@ -1,10 +1,6 @@
 <template>
   <!-- Sidebar colorata cliccabile -->
   <div class="sidebar" @click="openPanel">
-    <div class="sidebar__segment sidebar__segment--gold"></div>
-    <div class="sidebar__segment sidebar__segment--copper"></div>
-    <div class="sidebar__segment sidebar__segment--gray"></div>
-    <div class="sidebar__segment sidebar__segment--blue"></div>
     <span class="sidebar__arrow">‹</span>
   </div>
 
@@ -32,30 +28,26 @@
             <span class="contact-panel__label">SCRIVICI</span>
             <form class="contact-panel__form" @submit.prevent="submitForm">
               <div class="contact-panel__field">
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   placeholder="Nome e Cognome / Azienda"
                   v-model="form.name"
                   required
-                >
+                />
               </div>
               <div class="contact-panel__field">
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   placeholder="Email"
                   v-model="form.email"
                   required
-                >
+                />
               </div>
               <div class="contact-panel__field">
-                <input 
-                  type="tel" 
-                  placeholder="Telefono"
-                  v-model="form.phone"
-                >
+                <input type="tel" placeholder="Telefono" v-model="form.phone" />
               </div>
               <div class="contact-panel__field">
-                <textarea 
+                <textarea
                   placeholder="Messaggio"
                   v-model="form.message"
                   rows="3"
@@ -63,8 +55,11 @@
               </div>
               <div class="contact-panel__footer">
                 <p class="contact-panel__privacy">
-                  Inviando dichiaro di aver letto e compreso le finalità e le modalità del
-                  <a href="/privacy">trattamento dei dati personali ivi descritte</a>
+                  Inviando dichiaro di aver letto e compreso le finalità e le
+                  modalità del
+                  <a href="/privacy"
+                    >trattamento dei dati personali ivi descritte</a
+                  >
                 </p>
                 <button type="submit" class="contact-panel__submit">
                   INVIA
@@ -79,34 +74,34 @@
 </template>
 
 <script setup>
-const isOpen = ref(false)
+const isOpen = ref(false);
 
 const form = reactive({
-  name: '',
-  email: '',
-  phone: '',
-  message: ''
-})
+  name: "",
+  email: "",
+  phone: "",
+  message: "",
+});
 
 const openPanel = () => {
-  isOpen.value = true
-  document.body.style.overflow = 'hidden'
-}
+  isOpen.value = true;
+  document.body.style.overflow = "hidden";
+};
 
 const closePanel = () => {
-  isOpen.value = false
-  document.body.style.overflow = ''
-}
+  isOpen.value = false;
+  document.body.style.overflow = "";
+};
 
 const submitForm = () => {
-  console.log('Form submitted:', form)
+  console.log("Form submitted:", form);
   // Reset form
-  Object.keys(form).forEach(key => form[key] = '')
-  closePanel()
-}
+  Object.keys(form).forEach((key) => (form[key] = ""));
+  closePanel();
+};
 
 // Expose methods
-defineExpose({ openPanel, closePanel })
+defineExpose({ openPanel, closePanel });
 </script>
 
 <style lang="scss" scoped>
@@ -121,10 +116,16 @@ defineExpose({ openPanel, closePanel })
   flex-direction: column;
   cursor: pointer;
   transition: transform $transition-base;
+  background: linear-gradient(
+    180deg,
+    rgba($color-copper, 1) 0%,
+    rgba($color-gold, 1) 50%,
+    rgba($color-gold, 1) 100%
+  );
 
   &:hover {
     transform: translateX(-3px);
-    
+
     .sidebar__arrow {
       opacity: 1;
     }
@@ -132,11 +133,19 @@ defineExpose({ openPanel, closePanel })
 
   &__segment {
     flex: 1;
-    
-    &--gold { background: $color-gold; }
-    &--copper { background: $color-copper; }
-    &--gray { background: $color-gray; }
-    &--blue { background: $color-blue; }
+
+    &--gold {
+      background: $color-gold;
+    }
+    &--copper {
+      background: $color-copper;
+    }
+    &--gray {
+      background: $color-gray;
+    }
+    &--blue {
+      background: $color-blue;
+    }
   }
 
   &__arrow {
@@ -144,11 +153,11 @@ defineExpose({ openPanel, closePanel })
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 20px;
-    color: white;
-    opacity: 0;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    opacity: 1;
     transition: opacity $transition-base;
-    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
 }
 
@@ -161,12 +170,12 @@ defineExpose({ openPanel, closePanel })
 
   &__content {
     width: 100%;
-    max-width: 450px;
+    max-width: 600px;
     height: 100%;
     background: linear-gradient(
       180deg,
-      rgba($color-copper, 0.9) 0%,
-      rgba($color-gold, 0.95) 50%,
+      rgba($color-copper, 1) 0%,
+      rgba($color-gold, 1) 50%,
       rgba($color-gold, 1) 100%
     );
     padding: $spacing-3xl;
@@ -187,7 +196,7 @@ defineExpose({ openPanel, closePanel })
     font-size: 32px;
     cursor: pointer;
     color: $color-dark;
-    
+
     @media (max-width: 500px) {
       right: auto;
       left: $spacing-md;

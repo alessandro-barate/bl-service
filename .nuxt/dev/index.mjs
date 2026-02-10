@@ -2016,7 +2016,7 @@ async function errorHandler(error, event) {
 
 const rootDir = "/Users/alessandrobarate/Desktop/Miei Progetti/bl-service/bl-service";
 
-const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"description","content":"FramorPower Srl - Esperti del Taglio dei Metalli"}],"link":[{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com","crossorigin":""},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"}],"style":[],"script":[],"noscript":[],"title":"FramorPower - Metal Slitting Center"};
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"description","content":"BL Service - Lavorazioni meccaniche"}],"link":[{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com","crossorigin":""},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"}],"style":[],"script":[],"noscript":[],"title":"BL Service - Lavorazioni meccaniche"};
 
 const appRootTag = "div";
 

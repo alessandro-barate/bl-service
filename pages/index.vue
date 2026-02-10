@@ -12,6 +12,6 @@
 
 <script setup>
 useHead({
-  title: 'FramorPower - Metal Slitting Center | Esperti del Taglio dei Metalli'
-})
+  title: "BL Service - Lavorazioni meccaniche",
+});
 </script>
