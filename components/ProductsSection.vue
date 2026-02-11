@@ -4,7 +4,12 @@
       <!-- Nastri -->
       <div class="products__item">
         <div class="products__icon">
-          <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.5">
+          <svg
+            viewBox="0 0 120 120"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
             <!-- Cerchi concentrici per nastri -->
             <circle cx="60" cy="60" r="50" />
             <circle cx="60" cy="60" r="35" />
@@ -17,8 +22,8 @@
             <h3 class="products__title">Nastri</h3>
           </div>
           <p class="products__description">
-            Lavorazione e fornitura di Nastri in accordo alle normative Europee UNI EN 
-            su differenti diametri interni: 300mm/400mm/500mm
+            Lavorazione e fornitura di Nastri in accordo alle normative Europee
+            UNI EN su differenti diametri interni: 300mm/400mm/500mm
           </p>
         </div>
       </div>
@@ -26,7 +31,12 @@
       <!-- Lastre -->
       <div class="products__item">
         <div class="products__icon">
-          <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.5">
+          <svg
+            viewBox="0 0 120 120"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
             <!-- Rettangoli sovrapposti per lastre -->
             <rect x="25" y="30" width="60" height="80" />
             <rect x="30" y="25" width="60" height="80" />
@@ -39,8 +49,9 @@
             <h3 class="products__title">Lastre</h3>
           </div>
           <p class="products__description">
-            A richiesta FramorPower srl al fine di soddisfare i propri clienti può fornire 
-            Lastre in differenti formati, stati fisici e leghe in accordo alle normative UNI EN di riferimento.
+            A richiesta BL Service al fine di soddisfare i propri clienti può
+            fornire Lastre in differenti formati, stati fisici e leghe in
+            accordo alle normative UNI EN di riferimento.
           </p>
         </div>
       </div>
@@ -107,7 +118,7 @@
     align-items: center;
     gap: $spacing-md;
     margin-bottom: $spacing-md;
-    
+
     @include responsive(md) {
       justify-content: flex-start;
     }

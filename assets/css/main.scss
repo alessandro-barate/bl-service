@@ -75,7 +75,7 @@ ul, ol {
 
   &--outline {
     background: transparent;
-    border: 1px solid currentColor;
+    border: 2px solid currentColor;
     color: $color-dark;
 
     &::before {

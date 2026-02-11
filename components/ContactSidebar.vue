@@ -14,58 +14,65 @@
             <span>›</span>
           </button>
 
-          <!-- Call section -->
-          <div class="contact-panel__section">
-            <span class="contact-panel__label">CHIAMACI</span>
-            <a href="tel:+390459616007" class="contact-panel__phone">
-              +39 0459616007
-            </a>
-            <span class="contact-panel__sublabel">Centralino</span>
-          </div>
+          <!-- Wrapper scrollabile -->
+          <div class="contact-panel__scroll">
+            <!-- Call section -->
+            <div class="contact-panel__section">
+              <span class="contact-panel__label">CHIAMACI</span>
+              <a href="tel:+390459616007" class="contact-panel__phone">
+                +39 0459616007
+              </a>
+              <span class="contact-panel__sublabel">Centralino</span>
+            </div>
 
-          <!-- Form section -->
-          <div class="contact-panel__section">
-            <span class="contact-panel__label">SCRIVICI</span>
-            <form class="contact-panel__form" @submit.prevent="submitForm">
-              <div class="contact-panel__field">
-                <input
-                  type="text"
-                  placeholder="Nome e Cognome / Azienda"
-                  v-model="form.name"
-                  required
-                />
-              </div>
-              <div class="contact-panel__field">
-                <input
-                  type="email"
-                  placeholder="Email"
-                  v-model="form.email"
-                  required
-                />
-              </div>
-              <div class="contact-panel__field">
-                <input type="tel" placeholder="Telefono" v-model="form.phone" />
-              </div>
-              <div class="contact-panel__field">
-                <textarea
-                  placeholder="Messaggio"
-                  v-model="form.message"
-                  rows="3"
-                ></textarea>
-              </div>
-              <div class="contact-panel__footer">
-                <p class="contact-panel__privacy">
-                  Inviando dichiaro di aver letto e compreso le finalità e le
-                  modalità del
-                  <a href="/privacy"
-                    >trattamento dei dati personali ivi descritte</a
-                  >
-                </p>
-                <button type="submit" class="contact-panel__submit">
-                  INVIA
-                </button>
-              </div>
-            </form>
+            <!-- Form section -->
+            <div class="contact-panel__section">
+              <span class="contact-panel__label">SCRIVICI</span>
+              <form class="contact-panel__form" @submit.prevent="submitForm">
+                <div class="contact-panel__field">
+                  <input
+                    type="text"
+                    placeholder="Nome e Cognome / Azienda"
+                    v-model="form.name"
+                    required
+                  />
+                </div>
+                <div class="contact-panel__field">
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    v-model="form.email"
+                    required
+                  />
+                </div>
+                <div class="contact-panel__field">
+                  <input
+                    type="tel"
+                    placeholder="Telefono"
+                    v-model="form.phone"
+                  />
+                </div>
+                <div class="contact-panel__field">
+                  <textarea
+                    placeholder="Messaggio"
+                    v-model="form.message"
+                    rows="3"
+                  ></textarea>
+                </div>
+                <div class="contact-panel__footer">
+                  <p class="contact-panel__privacy">
+                    Inviando dichiaro di aver letto e compreso le finalità e le
+                    modalità del
+                    <a href="/privacy"
+                      >trattamento dei dati personali ivi descritte</a
+                    >
+                  </p>
+                  <button type="submit" class="contact-panel__submit">
+                    INVIA
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -169,6 +176,7 @@ defineExpose({ openPanel, closePanel });
   justify-content: flex-end;
 
   &__content {
+    position: relative;
     width: 100%;
     max-width: 600px;
     height: 100%;
@@ -178,6 +186,12 @@ defineExpose({ openPanel, closePanel });
       rgba($color-gold, 1) 50%,
       rgba($color-gold, 1) 100%
     );
+    // NO overflow qui — così il bottone close può uscire a sinistra
+  }
+
+  // Wrapper scrollabile interno
+  &__scroll {
+    height: 100%;
     padding: $spacing-3xl;
     display: flex;
     flex-direction: column;
@@ -187,18 +201,23 @@ defineExpose({ openPanel, closePanel });
   &__close {
     position: absolute;
     top: 50%;
-    right: calc(100% - 450px + 20px);
-    transform: translateY(-50%);
+    left: 0;
+    transform: translate(-100%, -50%);
     width: 40px;
     height: 40px;
     background: none;
     border: none;
     font-size: 32px;
     cursor: pointer;
-    color: $color-dark;
+    color: black;
+    z-index: 1;
 
-    @media (max-width: 500px) {
-      right: auto;
+    span {
+      position: relative;
+      left: 3rem;
+    }
+
+    @media (max-width: 640px) {
       left: $spacing-md;
       top: $spacing-xl;
       transform: none;
@@ -302,7 +321,7 @@ defineExpose({ openPanel, closePanel });
 // Panel transitions
 .panel-enter-active,
 .panel-leave-active {
-  transition: opacity 0.3s ease;
+  transition: opacity 0.5s ease;
 
   .contact-panel__content {
     transition: transform $transition-menu;

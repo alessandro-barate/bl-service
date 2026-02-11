@@ -18,7 +18,7 @@
         </div>
       </NuxtLink>
 
-      <!-- Menu Toggle - posizionato alla fine della colonna sinistra -->
+      <!-- Menu Toggle -->
       <button
         class="header__menu-btn"
         :class="{ 'is-active': isMenuOpen }"
@@ -26,15 +26,17 @@
         aria-label="Menu"
       >
         <span class="header__menu-label">
-          {{ isMenuOpen ? "CHIUDI" : "MENU" }}
+          <span class="header__menu-label-text header__menu-label-text--menu"
+            >MENU</span
+          >
+          <span class="header__menu-label-text header__menu-label-text--close"
+            >CHIUDI</span
+          >
         </span>
         <span class="header__menu-icon">
-          <span class="header__menu-line header__menu-line--top"></span>
-          <span class="header__menu-lines">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
+          <span class="header__menu-line"></span>
+          <span class="header__menu-line"></span>
+          <span class="header__menu-line"></span>
         </span>
       </button>
     </div>
@@ -180,104 +182,113 @@ onUnmounted(() => {
     }
   }
 
+  // ─────────────────────────────────────────────────────
+  // HAMBURGER MENU BUTTON
+  // ─────────────────────────────────────────────────────
   &__menu-btn {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row;
+    align-items: center;
     gap: $spacing-sm;
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
 
-    // Hover effect quando il menu è chiuso
-    &:not(.is-active):hover .header__menu-lines span {
-      &:nth-child(1) {
-        width: 50%;
-        transform: translateX(50%);
-      }
-      &:nth-child(2) {
-        width: 100%;
-      }
-      &:nth-child(3) {
-        width: 50%;
-        transform: translateX(50%);
+    // ── Hover: linee si restringono/spostano ──
+    &:not(.is-active):hover .header__menu-icon {
+      .header__menu-line {
+        &:nth-child(1) {
+          width: 50%;
+          transform: translateX(50%);
+        }
+        &:nth-child(2) {
+          width: 100%;
+        }
+        &:nth-child(3) {
+          width: 50%;
+          transform: translateX(50%);
+        }
       }
     }
 
-    // Animazione quando il menu è aperto
+    // ── Stato attivo: le 3 linee collassano in 1 ──
     &.is-active {
-      .header__menu-line--top {
-        // La linea superiore rimane visibile
+      // Label: MENU sfuma, CHIUDI appare
+      .header__menu-label-text--menu {
+        opacity: 0;
+        transform: rotate(180deg) translateX(8px);
+      }
+      .header__menu-label-text--close {
         opacity: 1;
+        transform: rotate(180deg) translateX(0);
       }
 
-      .header__menu-lines {
-        span {
-          // Tutte le tre linee si fondono in una posizione centrale
-          &:nth-child(1),
-          &:nth-child(2),
-          &:nth-child(3) {
-            opacity: 0;
-            transform: scaleX(0);
-            width: 100%;
-          }
-        }
+      // Icona: gap → 0, tutte le linee diventano 100% e 1px
+      .header__menu-icon {
+        gap: 0;
+      }
+
+      .header__menu-line {
+        width: 100%;
+        height: 1px;
       }
     }
   }
 
+  // ── Label container (posizione relativa per il crossfade) ──
   &__menu-label {
+    position: relative;
+    width: 1.2em;
+    height: 3.5em;
+  }
+
+  // ── Testo MENU / CHIUDI (sovrapposti, crossfade) ──
+  &__menu-label-text {
+    position: absolute;
+    top: 0;
+    left: 0;
     font-size: $font-size-xs;
     font-weight: $font-weight-medium;
     letter-spacing: 0.1em;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    transition: opacity 0.3s ease;
+    white-space: nowrap;
+    transition:
+      opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &--menu {
+      opacity: 1;
+      transform: rotate(180deg) translateX(0);
+    }
+
+    &--close {
+      opacity: 0;
+      transform: rotate(180deg) translateX(-8px);
+    }
   }
 
+  // ── Container delle 3 linee ──
   &__menu-icon {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    width: 40px;
-    position: relative;
+    align-items: flex-end;
+    gap: 14px;
+    width: 80px;
+    // Il gap si anima per il collasso
+    transition: gap 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+  // ── Singola linea ──
   &__menu-line {
     width: 100%;
     height: 1px;
     background: $color-dark;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
-    &--top {
-      // Linea superiore che rimane sempre visibile
-      opacity: 1;
-    }
-  }
-
-  &__menu-lines {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-
-    span {
-      height: 2px;
-      background: $color-dark;
-      transform-origin: right center;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
-      &:nth-child(1) {
-        width: 100%;
-      }
-      &:nth-child(2) {
-        width: 70%;
-        margin-left: auto;
-      }
-      &:nth-child(3) {
-        width: 100%;
-      }
-    }
+    transition:
+      width 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -418,7 +429,6 @@ onUnmounted(() => {
       opacity 0.4s ease,
       transform 0.4s ease;
 
-    // Apertura: dal primo all'ultimo
     @for $i from 1 through 7 {
       &:nth-child(#{$i}) {
         transition-delay: #{0.1 + ($i * 0.05)}s;
@@ -439,7 +449,6 @@ onUnmounted(() => {
       opacity 0.4s ease,
       transform 0.4s ease;
 
-    // Chiusura: dall'ultimo al primo (speculare)
     @for $i from 1 through 7 {
       &:nth-child(#{$i}) {
         transition-delay: #{0.1 + ((7 - $i) * 0.05)}s;

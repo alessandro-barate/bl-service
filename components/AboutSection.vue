@@ -4,16 +4,16 @@
       <!-- Left side - Image with overlay text -->
       <div class="about__visual">
         <div class="about__image">
-          <img 
-            src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&q=80" 
+          <img
+            src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&q=80"
             alt="Metal coils"
           />
         </div>
         <div class="about__overlay">
           <h2 class="about__title">
-            FramorPower<br>
-            Partner<br>
-            per i Vostri<br>
+            BL Service<br />
+            Partner<br />
+            per i Vostri<br />
             Affari
           </h2>
         </div>
@@ -26,18 +26,21 @@
         </div>
         <div class="about__text">
           <p>
-            FramorPower srl è una giovane e dinamica Azienda specializzata nella 
-            lavorazione e fornitura di Nastri, Bandelle, Lastre in Alluminio & sue Leghe, 
-            Rame, Ottone, Lamierino Magnetico in differenti formati e per svariati campi 
-            di applicazioni tra cui: Elettriche ed Elettroniche, Automotive, Stampaggio, 
-            Tranciatura Minuterie Metalliche.
+            BL Service è una giovane e dinamica Azienda specializzata nella
+            lavorazione e fornitura di Nastri, Bandelle, Lastre in Alluminio &
+            sue Leghe, Rame, Ottone, Lamierino Magnetico in differenti formati e
+            per svariati campi di applicazioni tra cui: Elettriche ed
+            Elettroniche, Automotive, Stampaggio, Tranciatura Minuterie
+            Metalliche.
           </p>
           <p>
-            I materiali forniti da FramorPower srl sono lavorati con Impianti muniti di 
-            speciali accorgimenti tecnici, l'elevata preparazione ed esperienza dei nostri 
-            tecnici consentono alla FramorPower srl di soddisfare le più svariate richieste 
-            tecniche di mercato producendo materiale esente Bava e con Bordi Arrotondati 
-            particolarmente apprezzati nel settore della produzione di Trasformatori di corrente.
+            I materiali forniti da BL Service sono lavorati con Impianti muniti
+            di speciali accorgimenti tecnici, l'elevata preparazione ed
+            esperienza dei nostri tecnici consentono alla BL Service di
+            soddisfare le più svariate richieste tecniche di mercato producendo
+            materiale esente Bava e con Bordi Arrotondati particolarmente
+            apprezzati nel settore della produzione di Trasformatori di
+            corrente.
           </p>
         </div>
         <NuxtLink to="/qualita" class="btn btn--outline">

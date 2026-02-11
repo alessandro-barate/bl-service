@@ -13,24 +13,28 @@
 
       <!-- Company Info -->
       <div class="footer__column">
-        <h4 class="footer__title">FramorPower S.r.l</h4>
+        <h4 class="footer__title">BL Service</h4>
         <div class="footer__info">
           <p><strong>Sede operativa:</strong></p>
-          <p>Via Monte Fiorino, 19</p>
-          <p>37057 - S. Giovanni Lupatoto (VR) - Italy</p>
+          <p>Via Finta, 19</p>
+          <p>00000 - Parabiago (MI) - Italy</p>
         </div>
         <div class="footer__info">
           <p><strong>Sede legale:</strong></p>
-          <p>Via Valcava, 15</p>
-          <p>20900 Monza (MB) - Italy</p>
+          <p>Via Fintissima, 15</p>
+          <p>00000 Parabiago (MI) - Italy</p>
         </div>
       </div>
 
       <!-- Contact -->
       <div class="footer__column">
         <h4 class="footer__title">Contact</h4>
-        <p><a href="tel:+390459616007">+390459616007</a></p>
-        <p><a href="mailto:commerciale@framorpower.com">commerciale@framorpower.com</a></p>
+        <p><a href="tel:+390000000000">+390000000000</a></p>
+        <p>
+          <a href="mailto:commerciale@blservice.com"
+            >commerciale@blservice.com</a
+          >
+        </p>
       </div>
 
       <!-- Website -->
@@ -60,18 +64,18 @@
 
     <!-- Bottom bar -->
     <div class="footer__bottom">
-      <p>© {{ currentYear }} FramorPower S.r.l - P.IVA 12345678901</p>
+      <p>© {{ currentYear }} BL Service - P.IVA 1234567890</p>
     </div>
   </footer>
 </template>
 
 <script setup>
-const currentYear = new Date().getFullYear()
+const currentYear = new Date().getFullYear();
 
 const openCookieSettings = () => {
   // Cookie settings logic
-  console.log('Open cookie settings')
-}
+  console.log("Open cookie settings");
+};
 </script>
 
 <style lang="scss" scoped>
@@ -116,7 +120,6 @@ const openCookieSettings = () => {
   }
 
   &__column {
-    
   }
 
   &__title {
@@ -148,7 +151,8 @@ const openCookieSettings = () => {
     flex-direction: column;
     gap: $spacing-sm;
 
-    a, button {
+    a,
+    button {
       font-size: $font-size-sm;
       color: $color-text-light;
       transition: color $transition-base;

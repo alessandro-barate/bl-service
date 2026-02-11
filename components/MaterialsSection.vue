@@ -1,52 +1,48 @@
 <template>
   <section class="materials">
     <div class="materials__container">
-      <div 
-        v-for="material in materials" 
+      <div
+        v-for="material in materials"
         :key="material.name"
         class="materials__card"
         :style="{ backgroundColor: material.bgColor }"
       >
         <h3 class="materials__title">{{ material.name }}</h3>
         <div class="materials__icons">
-          <div class="materials__icon" v-for="icon in material.icons" :key="icon">
+          <div
+            class="materials__icon"
+            v-for="icon in material.icons"
+            :key="icon"
+          >
             <component :is="icon" />
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Color bar -->
-    <div class="materials__bar">
-      <div class="materials__bar-segment" style="background: #d4a853"></div>
-      <div class="materials__bar-segment" style="background: #c47369"></div>
-      <div class="materials__bar-segment" style="background: #8a9bae"></div>
-      <div class="materials__bar-segment" style="background: #0066cc"></div>
-    </div>
   </section>
 </template>
 
 <script setup>
-import IconNastro from '~/components/icons/IconNastro.vue'
-import IconLastra from '~/components/icons/IconLastra.vue'
+import IconNastro from "~/components/icons/IconNastro.vue";
+import IconLastra from "~/components/icons/IconLastra.vue";
 
 const materials = [
   {
-    name: 'Alluminio & sue Leghe',
-    bgColor: '#8a9bae',
-    icons: ['IconNastro', 'IconLastra']
+    name: "Alluminio & sue Leghe",
+    bgColor: "#2d2d2d",
+    icons: ["IconNastro", "IconLastra"],
   },
   {
-    name: 'Rame & Ottone',
-    bgColor: '#c47369',
-    icons: ['IconNastro', 'IconLastra']
+    name: "Rame & Ottone",
+    bgColor: "#e6b03f",
+    icons: ["IconNastro", "IconLastra"],
   },
   {
-    name: 'Lamierino Magnetico',
-    bgColor: '#2d2d2d',
-    icons: ['IconNastro', 'IconLastra']
-  }
-]
+    name: "Lamierino Magnetico",
+    bgColor: "#c47369",
+    icons: ["IconNastro", "IconLastra"],
+  },
+];
 </script>
 
 <style lang="scss" scoped>
