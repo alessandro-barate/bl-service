@@ -195,33 +195,24 @@ onUnmounted(() => {
     cursor: pointer;
     padding: 0;
 
-    // ── Hover: linee si restringono/spostano ──
-    &:not(.is-active):hover .header__menu-icon {
-      .header__menu-line {
-        &:nth-child(1) {
-          width: 50%;
-          transform: translateX(50%);
-        }
-        &:nth-child(2) {
-          width: 100%;
-        }
-        &:nth-child(3) {
-          width: 50%;
-          transform: translateX(50%);
-        }
-      }
-    }
-
     // ── Stato attivo: le 3 linee collassano in 1 ──
     &.is-active {
-      // Label: MENU sfuma, CHIUDI appare
+      // Label: MENU scorre a sinistra e sfuma, CHIUDI entra nella posizione di MENU
       .header__menu-label-text--menu {
         opacity: 0;
-        transform: rotate(180deg) translateX(8px);
+        transform: rotate(180deg) translateX(15px);
+        // Esce subito
+        transition:
+          opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+          transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
       }
       .header__menu-label-text--close {
         opacity: 1;
         transform: rotate(180deg) translateX(0);
+        // Entra dopo che MENU è uscito
+        transition:
+          opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1) 0.15s,
+          transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
       }
 
       // Icona: gap → 0, tutte le linee diventano 100% e 1px
@@ -240,13 +231,13 @@ onUnmounted(() => {
   &__menu-label {
     position: relative;
     width: 1.2em;
-    height: 3.5em;
+    height: 4.5em;
   }
 
-  // ── Testo MENU / CHIUDI (sovrapposti, crossfade) ──
+  // ── Testo MENU / CHIUDI (sovrapposti, crossfade con shift) ──
   &__menu-label-text {
     position: absolute;
-    top: 0;
+    top: 0.5rem;
     left: 0;
     font-size: $font-size-xs;
     font-weight: $font-weight-medium;
@@ -254,18 +245,23 @@ onUnmounted(() => {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
     white-space: nowrap;
-    transition:
-      opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
     &--menu {
       opacity: 1;
       transform: rotate(180deg) translateX(0);
+      // Chiusura: MENU ritorna con ritardo (dopo che CHIUDI è uscito)
+      transition:
+        opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1) 0.15s,
+        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
     }
 
     &--close {
       opacity: 0;
-      transform: rotate(180deg) translateX(-8px);
+      transform: rotate(180deg) translateX(-15px);
+      // Chiusura: CHIUDI esce subito
+      transition:
+        opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
 
