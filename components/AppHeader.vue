@@ -48,6 +48,9 @@
       <!-- Reveal panel sinistro (grigio, scaleX da sinistra) -->
       <div class="menu-overlay__reveal" @click="closeMenu"></div>
 
+      <!-- Blur backdrop (SOPRA il reveal) -->
+      <div class="menu-overlay__blur-backdrop" @click="closeMenu"></div>
+
       <!-- Pannello destro (bianco, scaleX da destra) -->
       <nav class="menu-overlay__panel">
         <!-- Header con linea e sottotitolo -->
@@ -358,19 +361,28 @@ onUnmounted(() => {
 
   // ── Stato attivo ──
   &.is-active {
-    pointer-events: auto;
+    pointer-events: none;
     visibility: visible;
 
-    // Reveal sinistro: scaleX da 0 a 1 (da sinistra)
+    // Blur backdrop: riceve i pointer-events
+    .menu-overlay__blur-backdrop {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    // Reveal sinistro: perde i pointer-events
     .menu-overlay__reveal {
       transform: scaleX(1);
       transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+      pointer-events: none;
+      background: transparent;
     }
 
     // Pannello destro: scaleX da 0 a 1 (da destra)
     .menu-overlay__panel {
       transform: scaleX(1);
       transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+      pointer-events: auto;
     }
 
     // Linea header
@@ -407,9 +419,27 @@ onUnmounted(() => {
     background: #f2f2f2;
     transform: scaleX(0);
     transform-origin: left center;
-    // CHIUSURA: si chiude con delay dopo che il pannello destro si chiude
     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
     z-index: 1;
+    cursor: pointer;
+    pointer-events: auto;
+
+    @media (max-width: $breakpoint-lg) {
+      display: none;
+    }
+  }
+
+  // ── Blur backdrop (SOPRA il reveal, con z-index > reveal) ──
+  &__blur-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100vh;
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+    pointer-events: none;
     cursor: pointer;
 
     @media (max-width: $breakpoint-lg) {
@@ -434,6 +464,7 @@ onUnmounted(() => {
     flex-direction: column;
     padding: $spacing-3xl;
     overflow-y: auto;
+    pointer-events: none;
 
     @media (max-width: $breakpoint-lg) {
       width: 100%;
@@ -496,6 +527,7 @@ onUnmounted(() => {
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: $font-weight-light;
     transition: color $transition-base;
+    pointer-events: auto;
 
     &:hover {
       color: $color-blue;
