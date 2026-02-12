@@ -198,8 +198,7 @@ onUnmounted(() => {
     border: none;
     cursor: pointer;
     padding: 0;
-    // Spazio per l'icon (absolute) a destra della label
-    padding-right: 80px;
+    padding-right: 80px; // spazio per l'icon (absolute)
 
     // ── Stato attivo: le 3 linee convergono e si fondono, poi si espandono ──
     &.is-active {
@@ -221,24 +220,33 @@ onUnmounted(() => {
         transition: width 0.5s ease 0.5s;
       }
 
-      // Le linee convergono al centro SUBITO (no delay)
+      // Le linee convergono al centro SUBITO (no delay), poi 1 e 3 scompaiono
       .header__menu-line {
-        transition: transform 0.3s ease 0s;
-
         &:nth-child(1) {
           transform: translateY(17px);
+          opacity: 0;
+          // Converge in 0.3s, poi sfuma dopo 0.25s
+          transition:
+            transform 0.3s ease 0s,
+            opacity 0.2s ease 0.25s;
         }
         &:nth-child(2) {
           transform: none;
+          // Resta visibile, solo transform
+          transition: transform 0.3s ease 0s;
         }
         &:nth-child(3) {
           transform: translateY(-17px);
+          opacity: 0;
+          transition:
+            transform 0.3s ease 0s,
+            opacity 0.2s ease 0.25s;
         }
       }
     }
   }
 
-  // ── Label container ──
+  // ── Label container (posizione relativa per il crossfade) ──
   &__menu-label {
     position: relative;
     width: 1.2em;
@@ -246,7 +254,7 @@ onUnmounted(() => {
     flex-shrink: 0;
   }
 
-  // ── Testo MENU / CHIUDI ──
+  // ── Testo MENU / CHIUDI (sovrapposti, crossfade con shift) ──
   &__menu-label-text {
     position: absolute;
     top: 0.9rem;
@@ -262,6 +270,7 @@ onUnmounted(() => {
       opacity: 1;
       visibility: visible;
       transform: rotate(180deg) translateX(0);
+      // Chiusura: MENU ritorna con ritardo
       transition:
         opacity 0.3s ease 0.15s,
         visibility 0s linear 0.15s,
@@ -272,6 +281,7 @@ onUnmounted(() => {
       opacity: 0;
       visibility: hidden;
       transform: rotate(180deg) translateX(-10px);
+      // Chiusura: CHIUDI esce subito
       transition:
         opacity 0.3s ease,
         visibility 0s linear 0.3s,
@@ -279,14 +289,13 @@ onUnmounted(() => {
     }
   }
 
-  // ── Container delle 3 linee (non influenza il layout del bottone) ──
+  // ── Container delle 3 linee (absolute: non influenza il layout) ──
   &__menu-icon {
     position: absolute;
-    left: 1.2em; // parte subito dopo la label
+    left: 1.2em;
     top: 0;
     display: block;
     width: 80px;
-    // CHIUSURA: la larghezza si restringe SUBITO (no delay)
     transition: width 0.5s ease 0s;
   }
 
@@ -298,8 +307,11 @@ onUnmounted(() => {
     background: $color-dark;
     margin: 17px 0;
     position: relative;
-    // CHIUSURA: le linee si separano DOPO che la larghezza si è ristretta (delay 0.5s)
-    transition: transform 0.3s ease 0.5s;
+    opacity: 1;
+    // CHIUSURA: opacity torna a 1 leggermente prima, poi le linee si separano (delay 0.5s)
+    transition:
+      transform 0.3s ease 0.5s,
+      opacity 0.2s ease 0.4s;
   }
 }
 
@@ -374,6 +386,8 @@ onUnmounted(() => {
       transition:
         opacity 0.4s ease 0.65s,
         transform 0.4s ease 0.65s;
+      position: relative;
+      top: -0.5rem;
     }
 
     // Items: appaiono in stagger (delay calcolato inline dallo :style)
@@ -429,9 +443,11 @@ onUnmounted(() => {
   // ── Header con linea + sottotitolo ──
   &__header {
     display: flex;
-    align-items: center;
     gap: $spacing-lg;
     margin-bottom: $spacing-3xl;
+    position: relative;
+    margin-left: 5rem;
+    top: -0.3rem;
   }
 
   &__line {
