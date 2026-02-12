@@ -42,45 +42,46 @@
     </div>
   </header>
 
-  <!-- Menu Overlay -->
+  <!-- Menu Overlay (class-based, sempre nel DOM per animazioni scaleX) -->
   <Teleport to="body">
-    <Transition name="menu">
-      <div v-if="isMenuOpen" class="menu-overlay" @click.self="closeMenu">
-        <div class="menu-overlay__backdrop"></div>
-        <nav class="menu-overlay__panel">
-          <!-- Close button -->
-          <button class="menu-overlay__close" @click="closeMenu">
-            <span>CHIUDI</span>
-          </button>
+    <div class="menu-overlay" :class="{ 'is-active': isMenuOpen }">
+      <!-- Reveal panel sinistro (grigio, scaleX da sinistra) -->
+      <div class="menu-overlay__reveal" @click="closeMenu"></div>
 
-          <!-- Header -->
-          <div class="menu-overlay__header">
-            <span class="menu-overlay__line"></span>
-            <span class="menu-overlay__subtitle"
-              >BL SERVICE - Lavorazioni meccaniche</span
-            >
-          </div>
+      <!-- Pannello destro (bianco, scaleX da destra) -->
+      <nav class="menu-overlay__panel">
+        <!-- Header con linea e sottotitolo -->
+        <div class="menu-overlay__header">
+          <span class="menu-overlay__line"></span>
+          <span class="menu-overlay__subtitle"
+            >BL SERVICE - Lavorazioni meccaniche</span
+          >
+        </div>
 
-          <!-- Menu items -->
-          <ul class="menu-overlay__list">
-            <li
-              v-for="(item, index) in menuItems"
-              :key="item.path"
-              class="menu-overlay__item"
+        <!-- Menu items -->
+        <ul class="menu-overlay__list">
+          <li
+            v-for="(item, index) in menuItems"
+            :key="item.path"
+            class="menu-overlay__item"
+            :style="{
+              transitionDelay: isMenuOpen
+                ? `${0.6 + index * 0.06}s`
+                : `${(menuItems.length - 1 - index) * 0.04}s`,
+            }"
+          >
+            <NuxtLink
+              :to="item.path"
+              class="menu-overlay__link"
+              :class="{ 'is-featured': item.featured }"
+              @click="closeMenu"
             >
-              <NuxtLink
-                :to="item.path"
-                class="menu-overlay__link"
-                :class="{ 'is-featured': item.featured }"
-                @click="closeMenu"
-              >
-                {{ item.label }}
-              </NuxtLink>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </Transition>
+              {{ item.label }}
+            </NuxtLink>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </Teleport>
 </template>
 
@@ -184,60 +185,71 @@ onUnmounted(() => {
 
   // ─────────────────────────────────────────────────────
   // HAMBURGER MENU BUTTON
+  // Animazione replicata da framorpower.com:
+  // APERTURA: le 3 linee convergono al centro (0.3s) → poi la linea si espande (0.5s con delay)
+  // CHIUSURA: la linea si restringe (0.5s) → poi le linee si separano (0.3s con delay 0.5s)
   // ─────────────────────────────────────────────────────
   &__menu-btn {
+    position: relative;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    gap: $spacing-sm;
+    align-items: flex-start;
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
+    // Spazio per l'icon (absolute) a destra della label
+    padding-right: 80px;
 
-    // ── Stato attivo: le 3 linee collassano in 1 ──
+    // ── Stato attivo: le 3 linee convergono e si fondono, poi si espandono ──
     &.is-active {
-      // Label: MENU scorre a sinistra e sfuma, CHIUDI entra nella posizione di MENU
+      // Label crossfade: MENU esce, CHIUDI entra
       .header__menu-label-text--menu {
         opacity: 0;
-        transform: rotate(180deg) translateX(15px);
-        // Esce subito
-        transition:
-          opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-          transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        visibility: hidden;
+        transform: rotate(180deg) translateX(10px);
       }
       .header__menu-label-text--close {
         opacity: 1;
+        visibility: visible;
         transform: rotate(180deg) translateX(0);
-        // Entra dopo che MENU è uscito
-        transition:
-          opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1) 0.15s,
-          transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
       }
 
-      // Icona: gap → 0, tutte le linee diventano 100% e 1px
+      // Larghezza si espande DOPO che le linee si sono fuse (delay 0.5s)
       .header__menu-icon {
-        gap: 0;
+        width: min(18.45vw, 280px);
+        transition: width 0.5s ease 0.5s;
       }
 
+      // Le linee convergono al centro SUBITO (no delay)
       .header__menu-line {
-        width: 100%;
-        height: 1px;
+        transition: transform 0.3s ease 0s;
+
+        &:nth-child(1) {
+          transform: translateY(17px);
+        }
+        &:nth-child(2) {
+          transform: none;
+        }
+        &:nth-child(3) {
+          transform: translateY(-17px);
+        }
       }
     }
   }
 
-  // ── Label container (posizione relativa per il crossfade) ──
+  // ── Label container ──
   &__menu-label {
     position: relative;
     width: 1.2em;
-    height: 4.5em;
+    height: 4em;
+    flex-shrink: 0;
   }
 
-  // ── Testo MENU / CHIUDI (sovrapposti, crossfade con shift) ──
+  // ── Testo MENU / CHIUDI ──
   &__menu-label-text {
     position: absolute;
-    top: 0.5rem;
+    top: 0.9rem;
     left: 0;
     font-size: $font-size-xs;
     font-weight: $font-weight-medium;
@@ -248,43 +260,46 @@ onUnmounted(() => {
 
     &--menu {
       opacity: 1;
+      visibility: visible;
       transform: rotate(180deg) translateX(0);
-      // Chiusura: MENU ritorna con ritardo (dopo che CHIUDI è uscito)
       transition:
-        opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1) 0.15s,
-        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
+        opacity 0.3s ease 0.15s,
+        visibility 0s linear 0.15s,
+        transform 0.3s ease 0.15s;
     }
 
     &--close {
       opacity: 0;
-      transform: rotate(180deg) translateX(-15px);
-      // Chiusura: CHIUDI esce subito
+      visibility: hidden;
+      transform: rotate(180deg) translateX(-10px);
       transition:
-        opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        opacity 0.3s ease,
+        visibility 0s linear 0.3s,
+        transform 0.3s ease;
     }
   }
 
-  // ── Container delle 3 linee ──
+  // ── Container delle 3 linee (non influenza il layout del bottone) ──
   &__menu-icon {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 14px;
+    position: absolute;
+    left: 1.2em; // parte subito dopo la label
+    top: 0;
+    display: block;
     width: 80px;
-    // Il gap si anima per il collasso
-    transition: gap 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    // CHIUSURA: la larghezza si restringe SUBITO (no delay)
+    transition: width 0.5s ease 0s;
   }
 
   // ── Singola linea ──
   &__menu-line {
+    display: block;
     width: 100%;
     height: 1px;
     background: $color-dark;
-    transition:
-      width 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-      height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-      transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 17px 0;
+    position: relative;
+    // CHIUSURA: le linee si separano DOPO che la larghezza si è ristretta (delay 0.5s)
+    transition: transform 0.3s ease 0.5s;
   }
 }
 
@@ -316,48 +331,102 @@ onUnmounted(() => {
   }
 }
 
-// Menu Overlay
+// ─────────────────────────────────────────────────────
+// MENU OVERLAY
+// Animazione replicata da framorpower.com:
+// APERTURA: reveal sinistro scaleX(0→1) da sinistra + pannello destro scaleX(0→1) da destra → items stagger
+// CHIUSURA: items scompaiono → pannelli scaleX(1→0) → nascosto
+// ─────────────────────────────────────────────────────
 .menu-overlay {
   position: fixed;
   inset: 0;
   z-index: $z-menu;
+  pointer-events: none;
+  visibility: hidden;
 
-  &__backdrop {
-    @include absolute-fill;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(20px);
-  }
+  // ── Stato attivo ──
+  &.is-active {
+    pointer-events: auto;
+    visibility: visible;
 
-  &__panel {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: $color-white;
-    padding: $spacing-3xl;
-    display: flex;
-    flex-direction: column;
+    // Reveal sinistro: scaleX da 0 a 1 (da sinistra)
+    .menu-overlay__reveal {
+      transform: scaleX(1);
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
+    }
 
-    @include responsive(md) {
-      width: 55%;
+    // Pannello destro: scaleX da 0 a 1 (da destra)
+    .menu-overlay__panel {
+      transform: scaleX(1);
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+    }
+
+    // Linea header
+    .menu-overlay__line {
+      transform: scaleX(1);
+      transition: transform 0.5s ease 0.6s;
+    }
+
+    // Sottotitolo
+    .menu-overlay__subtitle {
+      opacity: 1;
+      transform: translateY(0);
+      transition:
+        opacity 0.4s ease 0.65s,
+        transform 0.4s ease 0.65s;
+    }
+
+    // Items: appaiono in stagger (delay calcolato inline dallo :style)
+    .menu-overlay__item {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
-  &__close {
-    position: absolute;
-    top: $spacing-xl;
-    left: $spacing-xl;
-    background: none;
-    border: none;
-    font-size: $font-size-xs;
-    font-weight: $font-weight-medium;
-    letter-spacing: 0.1em;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
+  // ── Reveal sinistro (sfondo grigio) ──
+  &__reveal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100vh;
+    background: #f2f2f2;
+    transform: scaleX(0);
+    transform-origin: left center;
+    // CHIUSURA: si chiude con delay dopo che il pannello destro si chiude
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+    z-index: 1;
     cursor: pointer;
+
+    @media (max-width: $breakpoint-lg) {
+      display: none;
+    }
   }
 
+  // ── Pannello destro (contenuto menu) ──
+  &__panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100vh;
+    background: $color-white;
+    transform: scaleX(0);
+    transform-origin: right center;
+    // CHIUSURA: si chiude subito
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-3xl;
+    overflow-y: auto;
+
+    @media (max-width: $breakpoint-lg) {
+      width: 100%;
+    }
+  }
+
+  // ── Header con linea + sottotitolo ──
   &__header {
     display: flex;
     align-items: center;
@@ -369,14 +438,23 @@ onUnmounted(() => {
     width: 60px;
     height: 1px;
     background: $color-dark;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.3s ease 0s;
   }
 
   &__subtitle {
     font-size: $font-size-xs;
     letter-spacing: 0.1em;
     color: $color-text-light;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition:
+      opacity 0.3s ease 0s,
+      transform 0.3s ease 0s;
   }
 
+  // ── Lista menu ──
   &__list {
     flex: 1;
     display: flex;
@@ -387,6 +465,12 @@ onUnmounted(() => {
 
   &__item {
     overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    // CHIUSURA: gli items scompaiono (delay calcolato inline dallo :style)
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s ease;
   }
 
   &__link {
@@ -409,61 +493,6 @@ onUnmounted(() => {
   &__icon {
     width: 40px;
     height: 40px;
-  }
-}
-
-// Menu transitions
-.menu-enter-active {
-  transition: opacity 0.3s ease;
-
-  .menu-overlay__panel {
-    transition: transform $transition-menu;
-  }
-
-  .menu-overlay__item {
-    transition:
-      opacity 0.4s ease,
-      transform 0.4s ease;
-
-    @for $i from 1 through 7 {
-      &:nth-child(#{$i}) {
-        transition-delay: #{0.1 + ($i * 0.05)}s;
-      }
-    }
-  }
-}
-
-.menu-leave-active {
-  transition: opacity 0.3s ease;
-
-  .menu-overlay__panel {
-    transition: transform $transition-menu;
-  }
-
-  .menu-overlay__item {
-    transition:
-      opacity 0.4s ease,
-      transform 0.4s ease;
-
-    @for $i from 1 through 7 {
-      &:nth-child(#{$i}) {
-        transition-delay: #{0.1 + ((7 - $i) * 0.05)}s;
-      }
-    }
-  }
-}
-
-.menu-enter-from,
-.menu-leave-to {
-  opacity: 0;
-
-  .menu-overlay__panel {
-    transform: translateX(100%);
-  }
-
-  .menu-overlay__item {
-    opacity: 0;
-    transform: translateX(30px);
   }
 }
 </style>
