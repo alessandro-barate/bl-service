@@ -188,7 +188,6 @@ onUnmounted(() => {
 
   // ─────────────────────────────────────────────────────
   // HAMBURGER MENU BUTTON
-  // Animazione replicata da framorpower.com:
   // APERTURA: le 3 linee convergono al centro (0.3s) → poi la linea si espande (0.5s con delay)
   // CHIUSURA: la linea si restringe (0.5s) → poi le linee si separano (0.3s con delay 0.5s)
   // ─────────────────────────────────────────────────────
@@ -209,12 +208,20 @@ onUnmounted(() => {
       .header__menu-label-text--menu {
         opacity: 0;
         visibility: hidden;
-        transform: rotate(180deg) translateX(10px);
+        transform: rotate(180deg) translateX(20px);
+        transition:
+          opacity 0.3s ease 0s,
+          visibility 0s linear 0.3s,
+          transform 0.3s ease 0s;
       }
       .header__menu-label-text--close {
         opacity: 1;
         visibility: visible;
         transform: rotate(180deg) translateX(0);
+        transition:
+          opacity 0.3s ease 0.15s,
+          visibility 0s linear 0.15s,
+          transform 0.3s ease 0.15s;
       }
 
       // Larghezza si espande DOPO che le linee si sono fuse (delay 0.5s)
@@ -275,20 +282,20 @@ onUnmounted(() => {
       transform: rotate(180deg) translateX(0);
       // Chiusura: MENU ritorna con ritardo
       transition:
-        opacity 0.3s ease 0.15s,
-        visibility 0s linear 0.15s,
-        transform 0.3s ease 0.15s;
+        opacity 0.3s ease 0s,
+        visibility 0s linear 0.3s,
+        transform 0.3s ease 0s;
     }
 
     &--close {
       opacity: 0;
       visibility: hidden;
-      transform: rotate(180deg) translateX(-10px);
+      transform: rotate(180deg) translateX(20px);
       // Chiusura: CHIUDI esce subito
       transition:
-        opacity 0.3s ease,
-        visibility 0s linear 0.3s,
-        transform 0.3s ease;
+        opacity 0.3s ease 0.15s,
+        visibility 0s linear 0.15s,
+        transform 0.3s ease 0.15s;
     }
   }
 
@@ -348,7 +355,6 @@ onUnmounted(() => {
 
 // ─────────────────────────────────────────────────────
 // MENU OVERLAY
-// Animazione replicata da framorpower.com:
 // APERTURA: reveal sinistro scaleX(0→1) da sinistra + pannello destro scaleX(0→1) da destra → items stagger
 // CHIUSURA: items scompaiono → pannelli scaleX(1→0) → nascosto
 // ─────────────────────────────────────────────────────
