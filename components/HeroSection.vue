@@ -19,10 +19,18 @@
             {{ line }}
           </span>
         </h1>
-        <NuxtLink :to="currentSlide.link" class="btn btn--outline">
-          {{ currentSlide.cta }}
-          <span class="btn__arrow">›</span>
-        </NuxtLink>
+        <div class="btn-container">
+          <NuxtLink :to="currentSlide.link" class="btn btn--outline">
+            <div class="btn__borders">
+              <div class="btn__border-top"></div>
+              <div class="btn__border-right"></div>
+              <div class="btn__border-bottom"></div>
+              <div class="btn__border-left"></div>
+            </div>
+            {{ currentSlide.cta }}
+            <span class="btn__arrow">›</span>
+          </NuxtLink>
+        </div>
       </div>
 
       <!-- Right side - Image -->
@@ -150,6 +158,92 @@ onUnmounted(() => {
     &:nth-child(2),
     &:nth-child(3) {
       color: $color-text-light;
+    }
+  }
+
+  // Button styles override for hero section
+  .btn--outline {
+    position: relative;
+    border: none;
+    background: white;
+  }
+
+  .btn__borders {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  // Right border - scompare per primo (da bottom a top)
+  .btn__border-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, $color-gray 0%, $color-blue 100%);
+    transform-origin: bottom;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  }
+
+  // Top border - scompare per secondo (da destra a sinistra)
+  .btn__border-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(
+      90deg,
+      $color-gold 0%,
+      $color-copper 33%,
+      $color-gray 66%,
+      $color-blue 100%
+    );
+    transform-origin: right;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+  }
+
+  // Left border - scompare per terzo (da top a bottom)
+  .btn__border-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, $color-gold 0%, $color-copper 100%);
+    transform-origin: top;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.6s;
+  }
+
+  // Bottom border - rimane sempre visibile
+  .btn__border-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(
+      90deg,
+      $color-gold 0%,
+      $color-copper 25%,
+      $color-gray 50%,
+      $color-blue 100%
+    );
+  }
+
+  // Hover state: movimento rotatorio antiorario
+  .btn--outline:hover {
+    .btn__border-right {
+      transform: scaleY(0);
+    }
+
+    .btn__border-top {
+      transform: scaleX(0);
+    }
+
+    .btn__border-left {
+      transform: scaleY(0);
     }
   }
 

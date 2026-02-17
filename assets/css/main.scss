@@ -60,7 +60,11 @@ ul, ol {
 }
 
 // Button styles
-.btn {
+.btn-container {
+  width: 100%;
+  text-align: center;
+
+  .btn {
   display: inline-flex;
   align-items: center;
   gap: $spacing-sm;
@@ -75,69 +79,55 @@ ul, ol {
   position: relative;
   overflow: hidden;
 
-  &--outline {
-    background: transparent;
-    border: 2px solid currentColor;
-    color: $color-dark;
+    &--outline {
+      background: transparent;
+      border: 5px solid;
+      border-image: linear-gradient(90deg, $color-gold, $color-copper, $color-gray, $color-blue) 1;
+      color: $color-dark;
+    }
 
-    &::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, $color-gold, $color-copper, $color-gray, $color-blue);
-      transform: scaleX(0);
-      transform-origin: left;
+    &--primary {
+      background: $color-blue;
+      color: $color-white;
+      border: 1px solid $color-blue;
+
+      &:hover {
+        // background: darken($color-blue, 10%);
+        background: color.adjust($color-blue, $lightness: -10%);
+      }
+    }
+
+    &--dark {
+      background: $color-dark;
+      color: $color-white;
+      border: 1px solid $color-dark;
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, $color-gold, $color-copper, $color-gray, $color-blue);
+      }
+
+      &:hover {
+        // background: lighten($color-dark, 10%);
+        background: color.adjust($color-dark, $lightness: 10%);
+      }
+    }
+
+    .btn__arrow {
       transition: transform $transition-base;
     }
 
-    &:hover::before {
-      transform: scaleX(1);
+    &:hover .btn__arrow {
+      transform: translateX(4px);
     }
-  }
-
-  &--primary {
-    background: $color-blue;
-    color: $color-white;
-    border: 1px solid $color-blue;
-
-    &:hover {
-      // background: darken($color-blue, 10%);
-      background: color.adjust($color-blue, $lightness: -10%);
-    }
-  }
-
-  &--dark {
-    background: $color-dark;
-    color: $color-white;
-    border: 1px solid $color-dark;
-
-    &::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, $color-gold, $color-copper, $color-gray, $color-blue);
-    }
-
-    &:hover {
-      // background: lighten($color-dark, 10%);
-      background: color.adjust($color-dark, $lightness: 10%);
-    }
-  }
-
-  .btn__arrow {
-    transition: transform $transition-base;
-  }
-
-  &:hover .btn__arrow {
-    transform: translateX(4px);
   }
 }
+
 
 // Section styles
 .section {

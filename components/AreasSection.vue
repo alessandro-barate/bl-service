@@ -69,10 +69,12 @@
       <!-- CTA -->
       <div class="areas__cta">
         <p class="areas__text">BL Service</p>
-        <NuxtLink to="/aree" class="btn btn--outline">
-          SCOPRI DI PIÙ
-          <span class="btn__arrow">›</span>
-        </NuxtLink>
+        <div class="btn-container">
+          <NuxtLink to="/aree" class="btn btn--outline">
+            SCOPRI DI PIÙ
+            <span class="btn__arrow">›</span>
+          </NuxtLink>
+        </div>
       </div>
     </div>
   </section>

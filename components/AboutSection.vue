@@ -43,10 +43,12 @@
             corrente.
           </p>
         </div>
-        <NuxtLink to="/qualita" class="btn btn--outline">
-          QUALITÀ
-          <span class="btn__arrow">›</span>
-        </NuxtLink>
+        <div class="btn-container">
+          <NuxtLink to="/qualita" class="btn btn--outline">
+            QUALITÀ
+            <span class="btn__arrow">›</span>
+          </NuxtLink>
+        </div>
       </div>
     </div>
   </section>
