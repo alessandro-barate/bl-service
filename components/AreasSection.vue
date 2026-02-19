@@ -71,6 +71,12 @@
         <p class="areas__text">BL Service</p>
         <div class="btn-container">
           <NuxtLink to="/aree" class="btn btn--outline">
+            <div class="btn__borders">
+              <div class="btn__border-top"></div>
+              <div class="btn__border-right"></div>
+              <div class="btn__border-bottom"></div>
+              <div class="btn__border-left"></div>
+            </div>
             SCOPRI DI PIÙ
             <span class="btn__arrow">›</span>
           </NuxtLink>

@@ -19,6 +19,7 @@ interface _GlobalComponents {
   AppFooter: typeof import("../../components/AppFooter.vue")['default']
   AppHeader: typeof import("../../components/AppHeader.vue")['default']
   AreasSection: typeof import("../../components/AreasSection.vue")['default']
+  BtnOutline: typeof import("../../components/BtnOutline.vue")['default']
   ContactSidebar: typeof import("../../components/ContactSidebar.vue")['default']
   HeroSection: typeof import("../../components/HeroSection.vue")['default']
   MaterialsSection: typeof import("../../components/MaterialsSection.vue")['default']
@@ -56,6 +57,7 @@ interface _GlobalComponents {
   LazyAppFooter: LazyComponent<typeof import("../../components/AppFooter.vue")['default']>
   LazyAppHeader: LazyComponent<typeof import("../../components/AppHeader.vue")['default']>
   LazyAreasSection: LazyComponent<typeof import("../../components/AreasSection.vue")['default']>
+  LazyBtnOutline: LazyComponent<typeof import("../../components/BtnOutline.vue")['default']>
   LazyContactSidebar: LazyComponent<typeof import("../../components/ContactSidebar.vue")['default']>
   LazyHeroSection: LazyComponent<typeof import("../../components/HeroSection.vue")['default']>
   LazyMaterialsSection: LazyComponent<typeof import("../../components/MaterialsSection.vue")['default']>

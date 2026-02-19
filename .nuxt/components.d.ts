@@ -19,6 +19,7 @@ export const AlupowerSection: typeof import("../components/AlupowerSection.vue")
 export const AppFooter: typeof import("../components/AppFooter.vue")['default']
 export const AppHeader: typeof import("../components/AppHeader.vue")['default']
 export const AreasSection: typeof import("../components/AreasSection.vue")['default']
+export const BtnOutline: typeof import("../components/BtnOutline.vue")['default']
 export const ContactSidebar: typeof import("../components/ContactSidebar.vue")['default']
 export const HeroSection: typeof import("../components/HeroSection.vue")['default']
 export const MaterialsSection: typeof import("../components/MaterialsSection.vue")['default']
@@ -56,6 +57,7 @@ export const LazyAlupowerSection: LazyComponent<typeof import("../components/Alu
 export const LazyAppFooter: LazyComponent<typeof import("../components/AppFooter.vue")['default']>
 export const LazyAppHeader: LazyComponent<typeof import("../components/AppHeader.vue")['default']>
 export const LazyAreasSection: LazyComponent<typeof import("../components/AreasSection.vue")['default']>
+export const LazyBtnOutline: LazyComponent<typeof import("../components/BtnOutline.vue")['default']>
 export const LazyContactSidebar: LazyComponent<typeof import("../components/ContactSidebar.vue")['default']>
 export const LazyHeroSection: LazyComponent<typeof import("../components/HeroSection.vue")['default']>
 export const LazyMaterialsSection: LazyComponent<typeof import("../components/MaterialsSection.vue")['default']>

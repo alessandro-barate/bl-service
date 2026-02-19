@@ -59,12 +59,14 @@ ul, ol {
   padding: 0 $spacing-xl;
 }
 
-// Button styles
+// ─── Button base ────────────────────────────────────────────────────────────
+
 .btn-container {
   width: 100%;
   text-align: center;
+}
 
-  .btn {
+.btn {
   display: inline-flex;
   align-items: center;
   gap: $spacing-sm;
@@ -77,59 +79,103 @@ ul, ol {
   cursor: pointer;
   transition: all $transition-base;
   position: relative;
-  overflow: hidden;
+}
 
-    &--outline {
-      background: transparent;
-      border: 5px solid;
-      border-image: linear-gradient(90deg, $color-gold, $color-copper, $color-gray, $color-blue) 1;
-      color: $color-dark;
+// ─── btn--outline: bordo SVG stroke-dasharray ───────────────────────────────
+//
+//  Struttura HTML (generata da BtnOutline.vue):
+//    <div class="btn-container">
+//      <div class="btn-outline-wrapper">               ← ref per ResizeObserver
+//        <a class="btn btn--outline" :style="...">     ← CSS vars iniettate qui
+//          <svg class="btn__svg-border">
+//            <rect :x :y :width :height />             ← coordinate da composable
+//          </svg>
+//          TESTO
+//          <span class="btn__arrow">›</span>
+//        </a>
+//      </div>
+//    </div>
+//
+//  Le CSS vars --btn-dash, --btn-gap, --btn-offset, --btn-perimeter
+//  vengono calcolate da useBtnBorder() e applicate inline sul .btn--outline.
+
+.btn--outline {
+  color: $color-dark;
+  background: white;
+
+  .btn__svg-border {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+
+    rect {
+      fill: none;
+      stroke: url(#btn-gradient);
+      stroke-width: 5px;
+      stroke-dasharray: var(--btn-dash) var(--btn-gap);
+      stroke-dashoffset: var(--btn-offset);
+      transition:
+        stroke-dasharray 0.7s cubic-bezier(0.76, 0, 0.24, 1),
+        stroke-dashoffset 0.7s cubic-bezier(0.76, 0, 0.24, 1);
     }
+  }
 
-    &--primary {
-      background: $color-blue;
-      color: $color-white;
-      border: 1px solid $color-blue;
-
-      &:hover {
-        // background: darken($color-blue, 10%);
-        background: color.adjust($color-blue, $lightness: -10%);
-      }
-    }
-
-    &--dark {
-      background: $color-dark;
-      color: $color-white;
-      border: 1px solid $color-dark;
-
-      &::before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background: linear-gradient(90deg, $color-gold, $color-copper, $color-gray, $color-blue);
-      }
-
-      &:hover {
-        // background: lighten($color-dark, 10%);
-        background: color.adjust($color-dark, $lightness: 10%);
-      }
-    }
-
-    .btn__arrow {
-      transition: transform $transition-base;
-    }
-
-    &:hover .btn__arrow {
-      transform: translateX(4px);
-    }
+  &:hover .btn__svg-border rect {
+    stroke-dasharray: 0 var(--btn-perimeter);
+    stroke-dashoffset: 0;
   }
 }
 
+// ─── btn--primary ────────────────────────────────────────────────────────────
 
-// Section styles
+.btn--primary {
+  background: $color-blue;
+  color: $color-white;
+  border: 1px solid $color-blue;
+
+  &:hover {
+    background: color.adjust($color-blue, $lightness: -10%);
+  }
+}
+
+// ─── btn--dark ───────────────────────────────────────────────────────────────
+
+.btn--dark {
+  background: $color-dark;
+  color: $color-white;
+  border: 1px solid $color-dark;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, $color-gold, $color-copper, $color-gray, $color-blue);
+  }
+
+  &:hover {
+    background: color.adjust($color-dark, $lightness: 10%);
+  }
+}
+
+// ─── Arrow ───────────────────────────────────────────────────────────────────
+
+.btn__arrow {
+  transition: transform $transition-base;
+}
+
+.btn:hover .btn__arrow {
+  transform: translateX(4px);
+}
+
+
+// ─── Section styles ──────────────────────────────────────────────────────────
+
 .section {
   padding: $spacing-4xl 0;
 
@@ -148,7 +194,8 @@ ul, ol {
   }
 }
 
-// Scrollbar
+// ─── Scrollbar ───────────────────────────────────────────────────────────────
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -162,7 +209,8 @@ ul, ol {
   border-radius: 4px;
 }
 
-// Selection
+// ─── Selection ───────────────────────────────────────────────────────────────
+
 ::selection {
   background: $color-blue;
   color: $color-white;

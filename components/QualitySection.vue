@@ -1,38 +1,36 @@
 <template>
   <section class="quality">
     <div class="quality__container">
-      <!-- Left - Content -->
-      <div class="quality__content">
-        <h2 class="quality__title">
-          Qualità<br>
-          Focalizzata al<br>
-          CLIENTE
-        </h2>
-        <NuxtLink to="/qualita" class="btn btn--dark">
-          PUNTI DI FORZA
-          <span class="btn__arrow">›</span>
-        </NuxtLink>
-      </div>
-
       <!-- Right - Image -->
       <div class="quality__image">
-        <img 
-          src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1200&q=80" 
+        <img
+          src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1200&q=80"
           alt="Metal sheets quality"
         />
+        <!-- Left - Dark content -->
+        <div class="quality__content">
+          <h2 class="quality__title">
+            Qualità,Velocità di Consegna, Attenzione Focalizzata al CLIENTE
+          </h2>
+          <BtnOutline to="/qualita" id="btn-dark">PUNTI DI FORZA</BtnOutline>
+        </div>
       </div>
     </div>
   </section>
 </template>
+
+<script setup>
+import BtnOutline from "@/components/BtnOutline.vue";
+</script>
 
 <style lang="scss" scoped>
 .quality {
   padding-right: $sidebar-width;
 
   &__container {
-    display: grid;
-    grid-template-columns: 1fr;
-    min-height: 500px;
+    width: 100%;
+    margin-top: 10rem;
+    position: relative;
 
     @include responsive(lg) {
       grid-template-columns: 1fr 1.5fr;
@@ -44,8 +42,11 @@
     color: $color-white;
     padding: $spacing-4xl $spacing-3xl;
     display: flex;
+    width: 40%;
     flex-direction: column;
     justify-content: center;
+    position: absolute;
+    bottom: 5rem;
   }
 
   &__title {
@@ -53,16 +54,28 @@
     font-weight: $font-weight-light;
     line-height: 1.2;
     margin-bottom: $spacing-3xl;
+    white-space: pre-line;
   }
 
   &__image {
     position: relative;
+    order: -1;
+
+    @include responsive(lg) {
+      order: 1;
+    }
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
+  }
+
+  #btn-dark {
+    color: white;
+    background: unset;
   }
 }
 </style>

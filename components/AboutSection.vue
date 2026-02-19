@@ -45,6 +45,12 @@
         </div>
         <div class="btn-container">
           <NuxtLink to="/qualita" class="btn btn--outline">
+            <div class="btn__borders">
+              <div class="btn__border-top"></div>
+              <div class="btn__border-right"></div>
+              <div class="btn__border-bottom"></div>
+              <div class="btn__border-left"></div>
+            </div>
             QUALITÀ
             <span class="btn__arrow">›</span>
           </NuxtLink>
@@ -77,6 +83,8 @@
   &__image {
     aspect-ratio: 4/3;
     overflow: hidden;
+    z-index: 2;
+    position: relative;
 
     img {
       width: 100%;
@@ -92,7 +100,7 @@
     right: $spacing-xl;
     background: $color-dark;
     color: $color-white;
-    padding: $spacing-2xl;
+    padding: 7rem 3rem 3rem 3rem;
     transform: translateY(30%);
 
     @include responsive(lg) {
