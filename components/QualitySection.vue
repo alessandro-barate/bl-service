@@ -12,7 +12,7 @@
           <h2 class="quality__title">
             Qualità,Velocità di Consegna, Attenzione Focalizzata al CLIENTE
           </h2>
-          <BtnOutline to="/qualita" id="btn-dark">PUNTI DI FORZA</BtnOutline>
+          <BtnOutline to="/qualita" :dark="true">PUNTI DI FORZA</BtnOutline>
         </div>
       </div>
     </div>
@@ -67,15 +67,10 @@ import BtnOutline from "@/components/BtnOutline.vue";
 
     img {
       width: 100%;
-      height: 100%;
+      height: 600px;
       object-fit: cover;
       display: block;
     }
-  }
-
-  #btn-dark {
-    color: white;
-    background: unset;
   }
 }
 </style>

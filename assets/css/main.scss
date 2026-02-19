@@ -81,54 +81,6 @@ ul, ol {
   position: relative;
 }
 
-// ─── btn--outline: bordo SVG stroke-dasharray ───────────────────────────────
-//
-//  Struttura HTML (generata da BtnOutline.vue):
-//    <div class="btn-container">
-//      <div class="btn-outline-wrapper">               ← ref per ResizeObserver
-//        <a class="btn btn--outline" :style="...">     ← CSS vars iniettate qui
-//          <svg class="btn__svg-border">
-//            <rect :x :y :width :height />             ← coordinate da composable
-//          </svg>
-//          TESTO
-//          <span class="btn__arrow">›</span>
-//        </a>
-//      </div>
-//    </div>
-//
-//  Le CSS vars --btn-dash, --btn-gap, --btn-offset, --btn-perimeter
-//  vengono calcolate da useBtnBorder() e applicate inline sul .btn--outline.
-
-.btn--outline {
-  color: $color-dark;
-  background: white;
-
-  .btn__svg-border {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: visible;
-
-    rect {
-      fill: none;
-      stroke: url(#btn-gradient);
-      stroke-width: 5px;
-      stroke-dasharray: var(--btn-dash) var(--btn-gap);
-      stroke-dashoffset: var(--btn-offset);
-      transition:
-        stroke-dasharray 0.7s cubic-bezier(0.76, 0, 0.24, 1),
-        stroke-dashoffset 0.7s cubic-bezier(0.76, 0, 0.24, 1);
-    }
-  }
-
-  &:hover .btn__svg-border rect {
-    stroke-dasharray: 0 var(--btn-perimeter);
-    stroke-dashoffset: 0;
-  }
-}
-
 // ─── btn--primary ────────────────────────────────────────────────────────────
 
 .btn--primary {
@@ -138,28 +90,6 @@ ul, ol {
 
   &:hover {
     background: color.adjust($color-blue, $lightness: -10%);
-  }
-}
-
-// ─── btn--dark ───────────────────────────────────────────────────────────────
-
-.btn--dark {
-  background: $color-dark;
-  color: $color-white;
-  border: 1px solid $color-dark;
-
-  &::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, $color-gold, $color-copper, $color-gray, $color-blue);
-  }
-
-  &:hover {
-    background: color.adjust($color-dark, $lightness: 10%);
   }
 }
 

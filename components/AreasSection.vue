@@ -88,6 +88,7 @@
 
 <style lang="scss" scoped>
 .areas {
+  margin-top: 8rem;
   padding: $spacing-4xl 0;
   padding-right: $sidebar-width;
   background: $color-white;

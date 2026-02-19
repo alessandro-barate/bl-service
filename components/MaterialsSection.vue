@@ -5,7 +5,7 @@
         v-for="material in materials"
         :key="material.name"
         class="materials__card"
-        :style="{ backgroundColor: material.bgColor }"
+        :style="{ backgroundColor: material.bgColor, top: material.top || '0' }"
       >
         <h3 class="materials__title">{{ material.name }}</h3>
         <div class="materials__icons">
@@ -35,11 +35,13 @@ const materials = [
   {
     name: "Rame & Ottone",
     bgColor: "#e6b03f",
+    top: "2rem",
     icons: ["IconNastro", "IconLastra"],
   },
   {
     name: "Lamierino Magnetico",
     bgColor: "#c47369",
+    top: "4rem",
     icons: ["IconNastro", "IconLastra"],
   },
 ];
@@ -51,6 +53,7 @@ const materials = [
 
   &__container {
     display: grid;
+    position: relative;
     grid-template-columns: 1fr;
 
     @include responsive(md) {
@@ -65,6 +68,7 @@ const materials = [
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    position: relative;
   }
 
   &__title {
