@@ -8,13 +8,7 @@
       <!-- Logo -->
       <NuxtLink to="/" class="header__logo">
         <div class="logo">
-          <div class="logo__circles">
-            <span class="logo__circle" style="border-color: #d4a853"></span>
-            <span class="logo__circle" style="border-color: #c47369"></span>
-            <span class="logo__circle" style="border-color: #8a9bae"></span>
-            <span class="logo__circle" style="border-color: #0066cc"></span>
-          </div>
-          <span class="logo__text">BL<br />SERVICE</span>
+          <img src="../assets/Logo_BLService/SVG/LogoColore.svg" alt="" />
         </div>
       </NuxtLink>
 
@@ -177,6 +171,10 @@ onUnmounted(() => {
       opacity: 1;
       transform: translateY(0);
       transition-delay: 0s;
+
+      img {
+        width: 100%;
+      }
     }
 
     .header__menu-btn {
@@ -330,12 +328,6 @@ onUnmounted(() => {
   display: flex;
   align-items: flex-start;
   gap: $spacing-md;
-
-  &__circles {
-    display: flex;
-    gap: 2px;
-    padding-top: 4px;
-  }
 
   &__circle {
     width: 16px;

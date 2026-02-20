@@ -119,13 +119,13 @@ onUnmounted(() => {
   }
 
   &__text {
-    padding: calc($header-height + $spacing-3xl) $spacing-xl $spacing-3xl;
+    padding: calc($header-height + $spacing-4xl) $spacing-xl $spacing-3xl;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
     @include responsive(lg) {
-      padding: calc($header-height + $spacing-4xl) $spacing-3xl $spacing-4xl;
+      padding: calc($header-height + $spacing-7xl) $spacing-3xl $spacing-4xl;
     }
   }
 
