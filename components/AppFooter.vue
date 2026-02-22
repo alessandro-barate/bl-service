@@ -8,11 +8,10 @@
 
       <!-- Company Info -->
       <div class="footer__column">
-        <h4 class="footer__title">BL Service</h4>
         <div class="footer__info">
-          <p><strong>Sede:</strong></p>
+          <h4 class="footer__title">Sede</h4>
           <p>Via Elvezia, 24</p>
-          <p>20015 Parabiago (MI) - Italy</p>
+          <p>20015 Parabiago (MI) - Italia</p>
         </div>
       </div>
 
@@ -32,11 +31,10 @@
         <h4 class="footer__title">Website</h4>
         <nav class="footer__nav">
           <NuxtLink to="/">Home</NuxtLink>
-          <NuxtLink to="/prodotti">Prodotti</NuxtLink>
+          <NuxtLink to="/prodotti">Servizi</NuxtLink>
           <NuxtLink to="/alupower">Alupower</NuxtLink>
-          <NuxtLink to="/servizi">Servizi</NuxtLink>
+          <NuxtLink to="/servizi">Prodotti</NuxtLink>
           <NuxtLink to="/aree">Aree</NuxtLink>
-          <NuxtLink to="/qualita">Qualità</NuxtLink>
           <NuxtLink to="/contatti">Contatti</NuxtLink>
         </nav>
       </div>
@@ -100,6 +98,10 @@ const openCookieSettings = () => {
     }
   }
 
+  &__column a {
+    font-size: 0.875rem;
+  }
+
   &__title {
     font-size: $font-size-sm;
     font-weight: $font-weight-semibold;
@@ -131,7 +133,7 @@ const openCookieSettings = () => {
 
     a,
     button {
-      font-size: $font-size-sm;
+      font-size: 0.875rem;
       color: $color-text-light;
       transition: color $transition-base;
       text-align: left;

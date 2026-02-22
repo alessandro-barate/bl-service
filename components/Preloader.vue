@@ -18,10 +18,6 @@
           <div class="logo">
             <img src="../assets/Logo_BLService/SVG/LogoBianco.svg" alt="" />
           </div>
-          <div class="preloader__text">
-            <span class="preloader__text-line">BL</span>
-            <span class="preloader__text-line">SERVICE</span>
-          </div>
         </div>
 
         <!-- Progress bar -->
@@ -94,48 +90,6 @@ onMounted(() => {
 
     img {
       width: 100%;
-    }
-  }
-
-  // &__circles {
-  //   display: flex;
-  //   gap: 4px;
-  // }
-
-  // &__circle {
-  //   width: 24px;
-  //   height: 24px;
-  //   border: 3px solid;
-  //   border-radius: 50%;
-  //   border-bottom-color: transparent !important;
-  //   opacity: 0;
-  //   transform: scale(0.5) rotate(-90deg);
-  //   animation:
-  //     circleAppear 0.6s ease forwards,
-  //     circleRotate 2s linear infinite;
-  // }
-
-  &__text {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  &__text-line {
-    font-size: $font-size-lg;
-    font-weight: $font-weight-bold;
-    letter-spacing: 0.2em;
-    color: rgba(255, 255, 255, 0.9);
-    opacity: 0;
-    transform: translateY(10px);
-    animation: textAppear 0.5s ease forwards;
-
-    &:first-child {
-      animation-delay: 0.4s;
-    }
-
-    &:last-child {
-      animation-delay: 0.5s;
     }
   }
 
