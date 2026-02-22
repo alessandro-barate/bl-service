@@ -4,7 +4,7 @@
       <div class="preloader__content">
         <!-- Logo circles -->
         <div class="preloader__logo">
-          <div class="preloader__circles">
+          <!-- <div class="preloader__circles">
             <span
               v-for="(color, index) in colors"
               :key="index"
@@ -14,6 +14,9 @@
                 animationDelay: `${index * 0.15}s`,
               }"
             ></span>
+          </div> -->
+          <div class="logo">
+            <img src="../assets/Logo_BLService/SVG/LogoBianco.svg" alt="" />
           </div>
           <div class="preloader__text">
             <span class="preloader__text-line">BL</span>
@@ -88,25 +91,29 @@ onMounted(() => {
   &__logo {
     @include flex-center;
     gap: $spacing-lg;
+
+    img {
+      width: 100%;
+    }
   }
 
-  &__circles {
-    display: flex;
-    gap: 4px;
-  }
+  // &__circles {
+  //   display: flex;
+  //   gap: 4px;
+  // }
 
-  &__circle {
-    width: 24px;
-    height: 24px;
-    border: 3px solid;
-    border-radius: 50%;
-    border-bottom-color: transparent !important;
-    opacity: 0;
-    transform: scale(0.5) rotate(-90deg);
-    animation:
-      circleAppear 0.6s ease forwards,
-      circleRotate 2s linear infinite;
-  }
+  // &__circle {
+  //   width: 24px;
+  //   height: 24px;
+  //   border: 3px solid;
+  //   border-radius: 50%;
+  //   border-bottom-color: transparent !important;
+  //   opacity: 0;
+  //   transform: scale(0.5) rotate(-90deg);
+  //   animation:
+  //     circleAppear 0.6s ease forwards,
+  //     circleRotate 2s linear infinite;
+  // }
 
   &__text {
     display: flex;

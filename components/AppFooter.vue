@@ -3,36 +3,26 @@
     <div class="footer__container">
       <!-- Logo -->
       <div class="footer__logo">
-        <div class="footer__circles">
-          <span class="footer__circle" style="border-color: #d4a853"></span>
-          <span class="footer__circle" style="border-color: #c47369"></span>
-          <span class="footer__circle" style="border-color: #8a9bae"></span>
-          <span class="footer__circle" style="border-color: #0066cc"></span>
-        </div>
+        <img src="../assets/Logo_BLService/SVG/LogoColore.svg" alt="" />
       </div>
 
       <!-- Company Info -->
       <div class="footer__column">
         <h4 class="footer__title">BL Service</h4>
         <div class="footer__info">
-          <p><strong>Sede operativa:</strong></p>
-          <p>Via Finta, 19</p>
-          <p>00000 - Parabiago (MI) - Italy</p>
-        </div>
-        <div class="footer__info">
-          <p><strong>Sede legale:</strong></p>
-          <p>Via Fintissima, 15</p>
-          <p>00000 Parabiago (MI) - Italy</p>
+          <p><strong>Sede:</strong></p>
+          <p>Via Elvezia, 24</p>
+          <p>20015 Parabiago (MI) - Italy</p>
         </div>
       </div>
 
       <!-- Contact -->
       <div class="footer__column">
         <h4 class="footer__title">Contact</h4>
-        <p><a href="tel:+390000000000">+390000000000</a></p>
+        <p><a href="tel:+393341823595">+39 3341823595</a></p>
         <p>
           <a href="mailto:commerciale@blservice.com"
-            >commerciale@blservice.com</a
+            >blservice.bianchi@gmail.com</a
           >
         </p>
       </div>
@@ -64,7 +54,7 @@
 
     <!-- Bottom bar -->
     <div class="footer__bottom">
-      <p>© {{ currentYear }} BL Service - P.IVA 1234567890</p>
+      <p>© {{ currentYear }} BL Service - P.IVA 14468320966</p>
     </div>
   </footer>
 </template>
@@ -104,22 +94,10 @@ const openCookieSettings = () => {
     @include responsive(md) {
       margin-bottom: 0;
     }
-  }
 
-  &__circles {
-    display: flex;
-    gap: $spacing-sm;
-  }
-
-  &__circle {
-    width: 40px;
-    height: 40px;
-    border: 3px solid;
-    border-radius: 50%;
-    border-bottom-color: transparent !important;
-  }
-
-  &__column {
+    img {
+      width: 100%;
+    }
   }
 
   &__title {
