@@ -1,30 +1,41 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2026-02-12',
+  compatibilityDate: "2026-02-12",
   devtools: { enabled: false },
-  css: ['~/assets/css/main.scss'],
+  devServer: {
+    port: 3000,
+    host: "0.0.0.0",
+  },
+  css: ["~/assets/css/main.scss"],
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@use "~/assets/css/_variables.scss" as *;`
-        }
-      }
-    }
+          additionalData: `@use "~/assets/css/_variables.scss" as *;`,
+        },
+      },
+    },
   },
   app: {
     head: {
-      title: 'BL Service - Lavorazioni meccaniche',
+      title: "BL Service - Lavorazioni meccaniche",
       meta: [
-        { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'BL Service - Lavorazioni meccaniche' }
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "description", content: "BL Service - Lavorazioni meccaniche" },
       ],
       link: [
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap' }
-      ]
-    }
-  }
-})
+        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        {
+          rel: "preconnect",
+          href: "https://fonts.gstatic.com",
+          crossorigin: "",
+        },
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap",
+        },
+      ],
+    },
+  },
+});
