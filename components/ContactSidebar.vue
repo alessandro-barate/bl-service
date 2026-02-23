@@ -19,8 +19,8 @@
             <!-- Call section -->
             <div class="contact-panel__section">
               <span class="contact-panel__label">CHIAMACI</span>
-              <a href="tel:+390459616007" class="contact-panel__phone">
-                +39 0459616007
+              <a href="tel:+393341823595" class="contact-panel__phone">
+                +39 3341823595
               </a>
               <span class="contact-panel__sublabel">Centralino</span>
             </div>

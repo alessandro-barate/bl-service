@@ -62,7 +62,6 @@
 
 <style lang="scss" scoped>
 .about {
-  padding: $spacing-4xl 0;
   padding-right: $sidebar-width;
 
   &__container {
@@ -77,6 +76,7 @@
   }
 
   &__visual {
+    width: 85%;
     position: relative;
   }
 
@@ -95,7 +95,7 @@
 
   &__overlay {
     position: absolute;
-    bottom: 0;
+    bottom: -40px;
     left: $spacing-xl;
     right: $spacing-xl;
     background: $color-dark;
@@ -105,7 +105,7 @@
 
     @include responsive(lg) {
       left: auto;
-      right: -$spacing-3xl;
+      right: -$spacing-6xl;
       width: 80%;
     }
   }

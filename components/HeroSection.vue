@@ -65,18 +65,17 @@ const currentIndex = ref(0);
 const slides = [
   {
     title: ["Metal", "Slitting", "Center"],
-    image:
-      "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=1200&q=80",
+    image: "/images/hero-section/luca-above.JPG",
     cta: "PRODOTTI",
     link: "/prodotti",
-  },
+  }, // https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=1200&q=80
   {
     title: ["Partner", "per i Vostri", "Affari"],
-    image:
-      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&q=80",
+    image: "/images/hero-section/luca-foot.JPG",
     cta: "SCOPRI DI PIÙ",
     link: "/azienda",
-  },
+    id: 1,
+  }, // https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&q=80
 ];
 
 const currentSlide = computed(() => slides[currentIndex.value]);

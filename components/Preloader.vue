@@ -2,21 +2,13 @@
   <Transition name="preloader">
     <div v-if="isVisible" class="preloader">
       <div class="preloader__content">
-        <!-- Logo circles -->
+        <!-- Logo -->
         <div class="preloader__logo">
-          <!-- <div class="preloader__circles">
-            <span
-              v-for="(color, index) in colors"
-              :key="index"
-              class="preloader__circle"
-              :style="{
-                borderColor: color,
-                animationDelay: `${index * 0.15}s`,
-              }"
-            ></span>
-          </div> -->
           <div class="logo">
-            <img src="../assets/Logo_BLService/SVG/LogoBianco.svg" alt="" />
+            <img
+              src="../assets/logo/bl-logo-bianco.svg"
+              alt="Logo bianco di BL Service"
+            />
           </div>
         </div>
 
