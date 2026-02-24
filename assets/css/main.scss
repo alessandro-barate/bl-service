@@ -1,7 +1,9 @@
 @use "sass:color";
 
 // Reset & Base
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -25,7 +27,12 @@ body {
 }
 
 // Typography
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: $font-weight-light;
   line-height: 1.2;
 }
@@ -47,8 +54,13 @@ button {
   cursor: pointer;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
 
 // Utility classes
@@ -102,7 +114,6 @@ ul, ol {
 .btn:hover .btn__arrow {
   transform: translateX(4px);
 }
-
 
 // ─── Section styles ──────────────────────────────────────────────────────────
 

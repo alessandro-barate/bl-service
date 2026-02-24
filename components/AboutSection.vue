@@ -1,5 +1,5 @@
 <template>
-  <section class="about">
+  <section ref="sectionRef" class="about" :class="{ 'is-visible': isVisible }">
     <div class="about__container">
       <!-- Left side - Image with overlay text -->
       <div class="about__visual">
@@ -57,9 +57,72 @@
   </section>
 </template>
 
+<script setup>
+const sectionRef = ref(null);
+const isVisible = ref(false);
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        // Attiva/disattiva l'animazione ogni volta che entra/esce dal viewport
+        isVisible.value = entry.isIntersecting;
+      });
+    },
+    {
+      threshold: 0.5, // Trigger quando il 50% della sezione è visibile
+    },
+  );
+
+  if (sectionRef.value) {
+    observer.observe(sectionRef.value);
+  }
+
+  onUnmounted(() => {
+    if (sectionRef.value) {
+      observer.unobserve(sectionRef.value);
+    }
+  });
+});
+</script>
+
 <style lang="scss" scoped>
 .about {
   padding-right: $sidebar-width;
+  opacity: 0;
+  transform: translateY(80px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+
+    // Animazione immagine da sinistra
+    .about__image {
+      &::before {
+        transform: translateX(100%);
+      }
+
+      img {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  // Stato quando non è visibile - reset dell'immagine
+  &:not(.is-visible) {
+    .about__image {
+      &::before {
+        transform: translateX(0);
+      }
+
+      img {
+        transform: translateX(-30px);
+      }
+    }
+  }
 
   &__container {
     display: grid;
@@ -83,10 +146,28 @@
     z-index: 2;
     position: relative;
 
+    // Overlay bianco che copre l'immagine inizialmente
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $color-dark;
+      z-index: 3;
+      transform: translateX(0);
+      transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+      transition-delay: 0.5s;
+    }
+
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transform: translateX(-30px);
+      transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+      transition-delay: 0.3s;
     }
   }
 
@@ -120,7 +201,7 @@
     justify-content: center;
 
     @include responsive(lg) {
-      padding: $spacing-4xl $spacing-3xl $spacing-3xl;
+      padding: 0rem 6rem;
     }
   }
 
@@ -142,7 +223,7 @@
     p {
       margin-bottom: $spacing-lg;
       line-height: 1.8;
-      color: $color-text;
+      color: $color-text-light;
 
       &:last-child {
         margin-bottom: 0;

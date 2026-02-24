@@ -1,13 +1,18 @@
 <template>
-  <section class="materials">
+  <section ref="sectionRef" class="materials">
     <div class="materials__container">
       <div
-        v-for="material in materials"
+        v-for="(material, index) in materials"
         :key="material.name"
         class="materials__card"
-        :style="{ backgroundColor: material.bgColor, top: material.top || '0' }"
+        :class="{ 'is-visible': isVisible }"
+        :style="{
+          backgroundColor: material.bgColor,
+          top: material.top || '0',
+          transitionDelay: `${index * 0.3}s`,
+        }"
       >
-        <h3 class="materials__title">{{ material.name }}</h3>
+        <h3 class="materials__title uppercase">{{ material.name }}</h3>
         <div class="materials__icons">
           <div
             class="materials__icon"
@@ -28,23 +33,50 @@ import IconLastra from "~/components/icons/IconLastra.vue";
 
 const materials = [
   {
-    name: "Alluminio & sue Leghe",
+    name: "manutenzione, riparazione & revisione",
     bgColor: "#2d2d2d",
     icons: ["IconNastro", "IconLastra"],
   },
   {
-    name: "Rame & Ottone",
+    name: "montaggi meccanici, cambi gamma & utensili",
     bgColor: "#e6b03f",
     top: "2rem",
     icons: ["IconNastro", "IconLastra"],
   },
   {
-    name: "Lamierino Magnetico",
+    name: "ripristino geometrie, raschiettatura & accoppiamenti di precisione",
     bgColor: "#c47369",
     top: "4rem",
     icons: ["IconNastro", "IconLastra"],
   },
 ];
+
+const sectionRef = ref(null);
+const isVisible = ref(false);
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        // Attiva/disattiva l'animazione ogni volta che entra/esce dal viewport
+        isVisible.value = entry.isIntersecting;
+      });
+    },
+    {
+      threshold: 0.5, // Trigger quando il 50% della sezione è visibile
+    },
+  );
+
+  if (sectionRef.value) {
+    observer.observe(sectionRef.value);
+  }
+
+  onUnmounted(() => {
+    if (sectionRef.value) {
+      observer.unobserve(sectionRef.value);
+    }
+  });
+});
 </script>
 
 <style lang="scss" scoped>
@@ -64,14 +96,28 @@ const materials = [
   &__card {
     padding: $spacing-3xl;
     color: $color-white;
-    min-height: 300px;
+    min-height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     position: relative;
+
+    // Stato iniziale - invisibile e spostata in basso
+    opacity: 0;
+    transform: translateY(60px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+
+    // Stato visibile
+    &.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   &__title {
+    text-align: center;
     font-size: $font-size-lg;
     font-weight: $font-weight-normal;
     margin-bottom: $spacing-lg;

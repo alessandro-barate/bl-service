@@ -1,28 +1,13 @@
 <template>
   <section class="areas">
+    <div class="areas__text-container">
+      <p class="areas__description">
+        Operiamo su una vasta gamma di macchine utensili
+      </p>
+    </div>
     <div class="areas__container">
       <div class="areas__grid">
-        <!-- Automotive -->
-        <div class="areas__item">
-          <div class="areas__icon">
-            <svg
-              viewBox="0 0 100 60"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-            >
-              <!-- Car shape -->
-              <path
-                d="M20 40 Q10 40 10 35 L10 30 Q10 25 15 25 L25 25 L30 15 Q35 10 45 10 L55 10 Q65 10 70 15 L75 25 L85 25 Q90 25 90 30 L90 35 Q90 40 80 40"
-              />
-              <circle cx="25" cy="40" r="8" />
-              <circle cx="75" cy="40" r="8" />
-            </svg>
-          </div>
-          <h3 class="areas__title">Automotive</h3>
-        </div>
-
-        <!-- Trasformatori Elettrici -->
+        <!-- Tornio -->
         <div class="areas__item">
           <div class="areas__icon">
             <svg
@@ -31,21 +16,26 @@
               stroke="currentColor"
               stroke-width="1.5"
             >
-              <!-- Transformer coil -->
-              <path
-                d="M30 20 Q20 20 20 30 L20 50 Q20 60 30 60 L70 60 Q80 60 80 50 L80 30 Q80 20 70 20 L30 20"
-              />
-              <path d="M35 35 L35 45 L65 45 L65 35 L35 35" />
-              <path d="M40 20 L40 10" />
-              <path d="M60 20 L60 10" />
-              <path d="M40 60 L40 70" />
-              <path d="M60 60 L60 70" />
+              <!-- Base -->
+              <rect x="10" y="60" width="80" height="15" />
+              <!-- Chuck/Mandrino -->
+              <circle cx="25" cy="40" r="12" />
+              <circle cx="25" cy="40" r="6" />
+              <line x1="19" y1="40" x2="31" y2="40" />
+              <line x1="25" y1="34" x2="25" y2="46" />
+              <!-- Pezzo in lavorazione -->
+              <rect x="37" y="35" width="30" height="10" rx="2" />
+              <!-- Contropunta -->
+              <path d="M70 40 L80 40" />
+              <circle cx="80" cy="40" r="4" />
+              <!-- Supporto -->
+              <rect x="20" y="52" width="50" height="8" />
             </svg>
           </div>
-          <h3 class="areas__title">Trasformatori Elettrici</h3>
+          <h3 class="areas__title">Tornio</h3>
         </div>
 
-        <!-- Stampaggio -->
+        <!-- Rettificatrice -->
         <div class="areas__item">
           <div class="areas__icon">
             <svg
@@ -54,15 +44,114 @@
               stroke="currentColor"
               stroke-width="1.5"
             >
-              <!-- Press/stamping machine -->
-              <rect x="20" y="50" width="60" height="20" />
-              <rect x="35" y="10" width="30" height="40" />
-              <path d="M40 50 L40 30 L60 30 L60 50" />
+              <!-- Base -->
+              <rect x="10" y="60" width="80" height="15" />
+              <!-- Tavola porta pezzo -->
+              <rect x="20" y="45" width="60" height="10" />
+              <!-- Pezzo -->
+              <rect x="35" y="40" width="30" height="5" />
+              <!-- Mola (ruota abrasiva) -->
+              <circle cx="50" cy="25" r="12" />
+              <circle cx="50" cy="25" r="8" />
+              <!-- Supporto mola -->
+              <rect x="48" y="37" width="4" height="8" />
+              <!-- Asse mola -->
+              <path d="M50 13 L50 5" />
             </svg>
           </div>
-          <h3 class="areas__title">
-            Stampaggio, Tranceria, Minuterie Metalliche
-          </h3>
+          <h3 class="areas__title">Rettificatrice</h3>
+        </div>
+
+        <!-- Centro di Lavoro CNC -->
+        <div class="areas__item">
+          <div class="areas__icon">
+            <svg
+              viewBox="0 0 100 80"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <!-- Base macchina -->
+              <rect x="10" y="55" width="80" height="20" />
+              <!-- Colonna -->
+              <rect x="15" y="25" width="20" height="30" />
+              <!-- Mandrino/Testa -->
+              <rect x="40" y="15" width="20" height="15" />
+              <!-- Utensile -->
+              <path d="M50 30 L50 40" stroke-width="2" />
+              <circle cx="50" cy="42" r="2" fill="currentColor" />
+              <!-- Tavola -->
+              <rect x="25" y="45" width="50" height="10" />
+              <!-- Pezzo -->
+              <rect x="40" y="40" width="20" height="5" />
+              <!-- Guide lineari -->
+              <line x1="20" y1="50" x2="75" y2="50" stroke-dasharray="2,2" />
+            </svg>
+          </div>
+          <h3 class="areas__title">Centro di Lavoro</h3>
+        </div>
+
+        <!-- Alesatrice -->
+        <div class="areas__item">
+          <div class="areas__icon">
+            <svg
+              viewBox="0 0 100 80"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <!-- Base -->
+              <rect x="10" y="60" width="80" height="15" />
+              <!-- Colonna verticale -->
+              <rect x="40" y="20" width="20" height="40" />
+              <!-- Testa orientabile -->
+              <path d="M35 25 L35 15 L65 15 L65 25" />
+              <!-- Barra di alesatura (orizzontale) -->
+              <line x1="50" y1="35" x2="75" y2="35" stroke-width="2.5" />
+              <!-- Utensile di alesatura -->
+              <circle cx="75" cy="35" r="4" />
+              <circle cx="75" cy="35" r="2" />
+              <!-- Tavola porta pezzo -->
+              <rect x="15" y="50" width="30" height="10" />
+              <!-- Pezzo con foro -->
+              <rect x="20" y="45" width="20" height="5" />
+              <circle cx="30" cy="47.5" r="2" fill="none" />
+            </svg>
+          </div>
+          <h3 class="areas__title">Alesatrice</h3>
+        </div>
+
+        <!-- Fresatrice -->
+        <div class="areas__item">
+          <div class="areas__icon">
+            <svg
+              viewBox="0 0 100 80"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <!-- Base -->
+              <rect x="10" y="60" width="80" height="15" />
+              <!-- Colonna verticale -->
+              <rect x="35" y="20" width="30" height="40" />
+              <!-- Testa con mandrino -->
+              <rect x="43" y="10" width="14" height="15" />
+              <!-- Mandrino verticale -->
+              <line x1="50" y1="25" x2="50" y2="40" stroke-width="2" />
+              <!-- Fresa (utensile) -->
+              <circle cx="50" cy="42" r="4" />
+              <line x1="47" y1="40" x2="47" y2="44" stroke-width="0.5" />
+              <line x1="50" y1="40" x2="50" y2="44" stroke-width="0.5" />
+              <line x1="53" y1="40" x2="53" y2="44" stroke-width="0.5" />
+              <!-- Tavola mobile -->
+              <rect x="20" y="48" width="60" height="12" />
+              <!-- Pezzo in lavorazione -->
+              <rect x="35" y="43" width="30" height="5" />
+              <!-- Guide scorrimento -->
+              <line x1="15" y1="55" x2="85" y2="55" stroke-dasharray="2,2" />
+            </svg>
+          </div>
+          <h3 class="areas__title">Fresatrice</h3>
         </div>
       </div>
 
@@ -93,6 +182,17 @@
   padding-right: $sidebar-width;
   background: $color-white;
 
+  &__text-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 6rem;
+  }
+
+  &__description {
+    font-size: 1.2rem;
+    color: $color-text-light;
+  }
+
   &__container {
     max-width: $container-max;
     margin: 0 auto;
@@ -107,6 +207,10 @@
 
     @include responsive(md) {
       grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include responsive(lg) {
+      grid-template-columns: repeat(5, 1fr);
     }
   }
 

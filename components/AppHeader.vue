@@ -266,7 +266,7 @@ onUnmounted(() => {
   &__menu-label-text {
     position: absolute;
     top: 0.9rem;
-    left: 0;
+    left: -10px;
     font-size: $font-size-xs;
     font-weight: $font-weight-medium;
     letter-spacing: 0.1em;

@@ -10,30 +10,13 @@
           materiali di "Qualità".
         </p>
         <h1 class="hero__title">
-          <span
-            v-for="(line, index) in currentSlide.title"
-            :key="index"
-            class="hero__title-line"
-            :style="{ animationDelay: `${index * 0.1}s` }"
-          >
-            {{ line }}
-          </span>
+          <span class="hero__title-line">Partner</span>
+          <span class="hero__title-line">per i Vostri</span>
+          <span class="hero__title-line">Affari</span>
         </h1>
-        <div class="btn-container">
-          <NuxtLink :to="currentSlide.link" class="btn btn--outline">
-            <div class="btn__borders">
-              <div class="btn__border-top"></div>
-              <div class="btn__border-right"></div>
-              <div class="btn__border-bottom"></div>
-              <div class="btn__border-left"></div>
-            </div>
-            {{ currentSlide.cta }}
-            <span class="btn__arrow">›</span>
-          </NuxtLink>
-        </div>
       </div>
 
-      <!-- Right side - Image -->
+      <!-- Right side - Image slider -->
       <div class="hero__image">
         <div
           v-for="(slide, index) in slides"
@@ -41,12 +24,12 @@
           class="hero__slide"
           :class="{ 'is-active': currentIndex === index }"
         >
-          <img :src="slide.image" :alt="slide.title.join(' ')" />
+          <img :src="slide.image" :alt="slide.alt" />
         </div>
       </div>
     </div>
 
-    <!-- Slide navigation dots (optional) -->
+    <!-- Slide navigation dots -->
     <div class="hero__dots">
       <button
         v-for="(slide, index) in slides"
@@ -54,6 +37,7 @@
         class="hero__dot"
         :class="{ 'is-active': currentIndex === index }"
         @click="goToSlide(index)"
+        :aria-label="`Vai all'immagine ${index + 1}`"
       ></button>
     </div>
   </section>
@@ -64,21 +48,14 @@ const currentIndex = ref(0);
 
 const slides = [
   {
-    title: ["Metal", "Slitting", "Center"],
     image: "/images/hero-section/luca-above.webp",
-    cta: "PRODOTTI",
-    link: "/prodotti",
-  }, // https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=1200&q=80
+    alt: "Luca fotografato al lavoro dall'alto",
+  },
   {
-    title: ["Partner", "per i Vostri", "Affari"],
     image: "/images/hero-section/luca-foot.webp",
-    cta: "SCOPRI DI PIÙ",
-    link: "/azienda",
-    id: 1,
-  }, // https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&q=80
+    alt: "Luca mentre lavora su un macchinario a binari",
+  },
 ];
-
-const currentSlide = computed(() => slides[currentIndex.value]);
 
 const goToSlide = (index) => {
   currentIndex.value = index;
@@ -88,7 +65,7 @@ const nextSlide = () => {
   currentIndex.value = (currentIndex.value + 1) % slides.length;
 };
 
-// Auto-advance slides
+// Auto-advance slides every 6 seconds
 let slideInterval;
 
 onMounted(() => {
@@ -154,8 +131,17 @@ onUnmounted(() => {
     animation: fadeInUp 0.6s ease forwards;
     opacity: 0;
 
-    &:nth-child(2),
+    &:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: 0.1s;
+      color: $color-text-light;
+    }
+
     &:nth-child(3) {
+      animation-delay: 0.2s;
       color: $color-text-light;
     }
   }
