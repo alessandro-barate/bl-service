@@ -4,7 +4,7 @@
       <!-- Right - Image -->
       <div class="quality__image">
         <img
-          src="../public/images/quality-section/tornio-circolare.JPG"
+          src="/images/quality-section/tornio-circolare.webp"
           alt="Metal sheets quality"
         />
         <!-- Left - Dark content -->
@@ -45,8 +45,8 @@ import BtnOutline from "@/components/BtnOutline.vue";
     width: 40%;
     flex-direction: column;
     justify-content: center;
-    position: absolute;
-    bottom: 12rem;
+    position: relative;
+    top: -42rem;
   }
 
   &__title {

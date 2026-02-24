@@ -65,13 +65,13 @@ const currentIndex = ref(0);
 const slides = [
   {
     title: ["Metal", "Slitting", "Center"],
-    image: "/images/hero-section/luca-above.JPG",
+    image: "/images/hero-section/luca-above.webp",
     cta: "PRODOTTI",
     link: "/prodotti",
   }, // https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=1200&q=80
   {
     title: ["Partner", "per i Vostri", "Affari"],
-    image: "/images/hero-section/luca-foot.JPG",
+    image: "/images/hero-section/luca-foot.webp",
     cta: "SCOPRI DI PIÙ",
     link: "/azienda",
     id: 1,

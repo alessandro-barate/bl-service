@@ -61,7 +61,7 @@
 
 <style lang="scss" scoped>
 .products {
-  padding: $spacing-9xl 0;
+  padding: $spacing-3xl 0;
   padding-right: $sidebar-width;
   background: $color-white;
 

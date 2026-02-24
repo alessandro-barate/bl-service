@@ -4,10 +4,7 @@
       <!-- Left side - Image with overlay text -->
       <div class="about__visual">
         <div class="about__image">
-          <img
-            src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&q=80"
-            alt="Metal coils"
-          />
+          <img src="/images/about-section/main-image.webp" alt="Metal coils" />
         </div>
         <div class="about__overlay">
           <h2 class="about__title">
@@ -94,8 +91,8 @@
   }
 
   &__overlay {
-    position: absolute;
-    bottom: -40px;
+    position: relative;
+    top: -175px;
     left: $spacing-xl;
     right: $spacing-xl;
     background: $color-dark;
@@ -105,8 +102,8 @@
 
     @include responsive(lg) {
       left: auto;
-      right: -$spacing-6xl;
-      width: 80%;
+      left: 300px;
+      width: 70%;
     }
   }
 
