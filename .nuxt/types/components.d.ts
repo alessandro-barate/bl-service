@@ -28,7 +28,10 @@ interface _GlobalComponents {
   QualitySection: typeof import("../../components/QualitySection.vue")['default']
   IconsIconAlupower: typeof import("../../components/icons/IconAlupower.vue")['default']
   IconsIconLastra: typeof import("../../components/icons/IconLastra.vue")['default']
+  IconsIconManutenzione: typeof import("../../components/icons/IconManutenzione.vue")['default']
+  IconsIconMontaggi: typeof import("../../components/icons/IconMontaggi.vue")['default']
   IconsIconNastro: typeof import("../../components/icons/IconNastro.vue")['default']
+  IconsIconPrecisione: typeof import("../../components/icons/IconPrecisione.vue")['default']
   NuxtWelcome: typeof import("../../node_modules/nuxt/dist/app/components/welcome.vue")['default']
   NuxtLayout: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
   NuxtErrorBoundary: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
@@ -66,7 +69,10 @@ interface _GlobalComponents {
   LazyQualitySection: LazyComponent<typeof import("../../components/QualitySection.vue")['default']>
   LazyIconsIconAlupower: LazyComponent<typeof import("../../components/icons/IconAlupower.vue")['default']>
   LazyIconsIconLastra: LazyComponent<typeof import("../../components/icons/IconLastra.vue")['default']>
+  LazyIconsIconManutenzione: LazyComponent<typeof import("../../components/icons/IconManutenzione.vue")['default']>
+  LazyIconsIconMontaggi: LazyComponent<typeof import("../../components/icons/IconMontaggi.vue")['default']>
   LazyIconsIconNastro: LazyComponent<typeof import("../../components/icons/IconNastro.vue")['default']>
+  LazyIconsIconPrecisione: LazyComponent<typeof import("../../components/icons/IconPrecisione.vue")['default']>
   LazyNuxtWelcome: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
   LazyNuxtLayout: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
   LazyNuxtErrorBoundary: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>

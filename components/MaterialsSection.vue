@@ -9,18 +9,12 @@
         :style="{
           backgroundColor: material.bgColor,
           top: material.top || '0',
-          transitionDelay: `${index * 0.3}s`,
+          transitionDelay: `${index * 0.2}s`,
         }"
       >
         <h3 class="materials__title uppercase">{{ material.name }}</h3>
-        <div class="materials__icons">
-          <div
-            class="materials__icon"
-            v-for="icon in material.icons"
-            :key="icon"
-          >
-            <component :is="icon" />
-          </div>
+        <div class="materials__icon">
+          <component :is="material.icon" />
         </div>
       </div>
     </div>
@@ -28,26 +22,27 @@
 </template>
 
 <script setup>
-import IconNastro from "~/components/icons/IconNastro.vue";
-import IconLastra from "~/components/icons/IconLastra.vue";
+import IconManutenzione from "~/components/icons/IconManutenzione.vue";
+import IconMontaggi from "~/components/icons/IconMontaggi.vue";
+import IconPrecisione from "~/components/icons/IconPrecisione.vue";
 
 const materials = [
   {
     name: "manutenzione, riparazione & revisione",
     bgColor: "#2d2d2d",
-    icons: ["IconNastro", "IconLastra"],
+    icon: IconManutenzione,
   },
   {
     name: "montaggi meccanici, cambi gamma & utensili",
     bgColor: "#e6b03f",
     top: "2rem",
-    icons: ["IconNastro", "IconLastra"],
+    icon: IconMontaggi,
   },
   {
     name: "ripristino geometrie, raschiettatura & accoppiamenti di precisione",
     bgColor: "#c47369",
     top: "4rem",
-    icons: ["IconNastro", "IconLastra"],
+    icon: IconPrecisione,
   },
 ];
 
@@ -63,7 +58,7 @@ onMounted(() => {
       });
     },
     {
-      threshold: 0.5, // Trigger quando il 50% della sezione è visibile
+      threshold: 0.3, // Trigger quando il 30% della sezione è visibile
     },
   );
 
@@ -94,12 +89,13 @@ onMounted(() => {
   }
 
   &__card {
-    padding: $spacing-3xl;
+    padding: 2rem 4rem;
     color: $color-white;
     min-height: 350px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
     position: relative;
 
     // Stato iniziale - invisibile e spostata in basso
@@ -116,22 +112,11 @@ onMounted(() => {
     }
   }
 
-  &__title {
-    text-align: center;
-    font-size: $font-size-lg;
-    font-weight: $font-weight-normal;
-    margin-bottom: $spacing-lg;
-  }
-
-  &__icons {
-    display: flex;
-    gap: $spacing-lg;
-  }
-
   &__icon {
-    width: 50px;
-    height: 50px;
-    color: rgba(255, 255, 255, 0.8);
+    width: 120px;
+    height: 120px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: auto;
 
     svg {
       width: 100%;
@@ -139,13 +124,11 @@ onMounted(() => {
     }
   }
 
-  &__bar {
-    display: flex;
-    height: 8px;
-  }
-
-  &__bar-segment {
-    flex: 1;
+  &__title {
+    text-align: center;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-normal;
+    padding-top: 5rem;
   }
 }
 </style>
