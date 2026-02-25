@@ -45,10 +45,6 @@ const slides = [
   },
 ];
 
-const goToSlide = (index) => {
-  currentIndex.value = index;
-};
-
 const nextSlide = () => {
   currentIndex.value = (currentIndex.value + 1) % slides.length;
 };
@@ -156,33 +152,6 @@ onUnmounted(() => {
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-  }
-
-  &__dots {
-    display: flex;
-    gap: $spacing-sm;
-    padding: $spacing-xl;
-    justify-content: center;
-
-    @include responsive(lg) {
-      position: absolute;
-      bottom: $spacing-xl;
-      left: $spacing-xl;
-    }
-  }
-
-  &__dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 1px solid $color-dark;
-    background: transparent;
-    cursor: pointer;
-    transition: all $transition-base;
-
-    &.is-active {
-      background: $color-dark;
     }
   }
 }

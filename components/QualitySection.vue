@@ -5,7 +5,7 @@
       <div class="quality__image">
         <img
           src="/images/quality-section/tornio-circolare.webp"
-          alt="Metal sheets quality"
+          alt="Immagine di un tornio circolare"
         />
         <!-- Left - Dark content -->
         <div class="quality__content">
