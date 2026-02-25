@@ -18,27 +18,29 @@
 
       <!-- Right side - Text content -->
       <div class="about__content">
-        <div class="about__header">
-          <span class="about__label">L' Azienda</span>
-        </div>
-        <div class="about__text">
-          <p>
-            BL Service è una giovane e dinamica Azienda specializzata nella
-            lavorazione e fornitura di Nastri, Bandelle, Lastre in Alluminio &
-            sue Leghe, Rame, Ottone, Lamierino Magnetico in differenti formati e
-            per svariati campi di applicazioni tra cui: Elettriche ed
-            Elettroniche, Automotive, Stampaggio, Tranciatura Minuterie
-            Metalliche.
-          </p>
-          <p>
-            I materiali forniti da BL Service sono lavorati con Impianti muniti
-            di speciali accorgimenti tecnici, l'elevata preparazione ed
-            esperienza dei nostri tecnici consentono alla BL Service di
-            soddisfare le più svariate richieste tecniche di mercato producendo
-            materiale esente Bava e con Bordi Arrotondati particolarmente
-            apprezzati nel settore della produzione di Trasformatori di
-            corrente.
-          </p>
+        <div class="about__upper-container">
+          <div class="about__header">
+            <span class="about__label">L' Azienda</span>
+          </div>
+          <div class="about__text">
+            <p>
+              BL Service è una giovane e dinamica Azienda specializzata nella
+              lavorazione e fornitura di Nastri, Bandelle, Lastre in Alluminio &
+              sue Leghe, Rame, Ottone, Lamierino Magnetico in differenti formati
+              e per svariati campi di applicazioni tra cui: Elettriche ed
+              Elettroniche, Automotive, Stampaggio, Tranciatura Minuterie
+              Metalliche.
+            </p>
+            <p>
+              I materiali forniti da BL Service sono lavorati con Impianti
+              muniti di speciali accorgimenti tecnici, l'elevata preparazione ed
+              esperienza dei nostri tecnici consentono alla BL Service di
+              soddisfare le più svariate richieste tecniche di mercato
+              producendo materiale esente Bava e con Bordi Arrotondati
+              particolarmente apprezzati nel settore della produzione di
+              Trasformatori di corrente.
+            </p>
+          </div>
         </div>
         <div class="btn-container">
           <NuxtLink to="/qualita" class="btn btn--outline">
@@ -183,7 +185,7 @@ onMounted(() => {
 
     @include responsive(lg) {
       left: auto;
-      left: 300px;
+      left: 240px;
       width: 70%;
     }
   }
@@ -196,13 +198,15 @@ onMounted(() => {
 
   &__content {
     padding: $spacing-xl;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
 
     @include responsive(lg) {
-      padding: 0rem 6rem;
+      padding: 2rem 6rem;
     }
+  }
+
+  &__upper-container {
+    display: flex;
   }
 
   &__header {
