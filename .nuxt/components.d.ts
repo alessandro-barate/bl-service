@@ -15,7 +15,6 @@ type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {},
 
 
 export const AboutSection: typeof import("../components/AboutSection.vue")['default']
-export const AlupowerSection: typeof import("../components/AlupowerSection.vue")['default']
 export const AppFooter: typeof import("../components/AppFooter.vue")['default']
 export const AppHeader: typeof import("../components/AppHeader.vue")['default']
 export const AreasSection: typeof import("../components/AreasSection.vue")['default']
@@ -26,6 +25,7 @@ export const MaterialsSection: typeof import("../components/MaterialsSection.vue
 export const Preloader: typeof import("../components/Preloader.vue")['default']
 export const ProductsSection: typeof import("../components/ProductsSection.vue")['default']
 export const QualitySection: typeof import("../components/QualitySection.vue")['default']
+export const ServicesSection: typeof import("../components/ServicesSection.vue")['default']
 export const IconsIconAlupower: typeof import("../components/icons/IconAlupower.vue")['default']
 export const IconsIconLastra: typeof import("../components/icons/IconLastra.vue")['default']
 export const IconsIconManutenzione: typeof import("../components/icons/IconManutenzione.vue")['default']
@@ -56,7 +56,6 @@ export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const LazyAboutSection: LazyComponent<typeof import("../components/AboutSection.vue")['default']>
-export const LazyAlupowerSection: LazyComponent<typeof import("../components/AlupowerSection.vue")['default']>
 export const LazyAppFooter: LazyComponent<typeof import("../components/AppFooter.vue")['default']>
 export const LazyAppHeader: LazyComponent<typeof import("../components/AppHeader.vue")['default']>
 export const LazyAreasSection: LazyComponent<typeof import("../components/AreasSection.vue")['default']>
@@ -67,6 +66,7 @@ export const LazyMaterialsSection: LazyComponent<typeof import("../components/Ma
 export const LazyPreloader: LazyComponent<typeof import("../components/Preloader.vue")['default']>
 export const LazyProductsSection: LazyComponent<typeof import("../components/ProductsSection.vue")['default']>
 export const LazyQualitySection: LazyComponent<typeof import("../components/QualitySection.vue")['default']>
+export const LazyServicesSection: LazyComponent<typeof import("../components/ServicesSection.vue")['default']>
 export const LazyIconsIconAlupower: LazyComponent<typeof import("../components/icons/IconAlupower.vue")['default']>
 export const LazyIconsIconLastra: LazyComponent<typeof import("../components/icons/IconLastra.vue")['default']>
 export const LazyIconsIconManutenzione: LazyComponent<typeof import("../components/icons/IconManutenzione.vue")['default']>

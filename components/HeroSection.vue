@@ -28,18 +28,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Slide navigation dots -->
-    <div class="hero__dots">
-      <button
-        v-for="(slide, index) in slides"
-        :key="index"
-        class="hero__dot"
-        :class="{ 'is-active': currentIndex === index }"
-        @click="goToSlide(index)"
-        :aria-label="`Vai all'immagine ${index + 1}`"
-      ></button>
-    </div>
   </section>
 </template>
 

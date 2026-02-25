@@ -15,7 +15,6 @@ type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {},
 
 interface _GlobalComponents {
   AboutSection: typeof import("../../components/AboutSection.vue")['default']
-  AlupowerSection: typeof import("../../components/AlupowerSection.vue")['default']
   AppFooter: typeof import("../../components/AppFooter.vue")['default']
   AppHeader: typeof import("../../components/AppHeader.vue")['default']
   AreasSection: typeof import("../../components/AreasSection.vue")['default']
@@ -26,6 +25,7 @@ interface _GlobalComponents {
   Preloader: typeof import("../../components/Preloader.vue")['default']
   ProductsSection: typeof import("../../components/ProductsSection.vue")['default']
   QualitySection: typeof import("../../components/QualitySection.vue")['default']
+  ServicesSection: typeof import("../../components/ServicesSection.vue")['default']
   IconsIconAlupower: typeof import("../../components/icons/IconAlupower.vue")['default']
   IconsIconLastra: typeof import("../../components/icons/IconLastra.vue")['default']
   IconsIconManutenzione: typeof import("../../components/icons/IconManutenzione.vue")['default']
@@ -56,7 +56,6 @@ interface _GlobalComponents {
   Body: typeof import("../../node_modules/nuxt/dist/head/runtime/components")['Body']
   NuxtIsland: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-island")['default']
   LazyAboutSection: LazyComponent<typeof import("../../components/AboutSection.vue")['default']>
-  LazyAlupowerSection: LazyComponent<typeof import("../../components/AlupowerSection.vue")['default']>
   LazyAppFooter: LazyComponent<typeof import("../../components/AppFooter.vue")['default']>
   LazyAppHeader: LazyComponent<typeof import("../../components/AppHeader.vue")['default']>
   LazyAreasSection: LazyComponent<typeof import("../../components/AreasSection.vue")['default']>
@@ -67,6 +66,7 @@ interface _GlobalComponents {
   LazyPreloader: LazyComponent<typeof import("../../components/Preloader.vue")['default']>
   LazyProductsSection: LazyComponent<typeof import("../../components/ProductsSection.vue")['default']>
   LazyQualitySection: LazyComponent<typeof import("../../components/QualitySection.vue")['default']>
+  LazyServicesSection: LazyComponent<typeof import("../../components/ServicesSection.vue")['default']>
   LazyIconsIconAlupower: LazyComponent<typeof import("../../components/icons/IconAlupower.vue")['default']>
   LazyIconsIconLastra: LazyComponent<typeof import("../../components/icons/IconLastra.vue")['default']>
   LazyIconsIconManutenzione: LazyComponent<typeof import("../../components/icons/IconManutenzione.vue")['default']>

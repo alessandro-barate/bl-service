@@ -71,9 +71,21 @@
         />
         <rect x="76" y="30" width="5" height="11" rx="1" />
 
-        <!-- Punta conica finale -->
-        <path d="M 85 33 L 85 37 L 90 35 Z" fill="currentColor" opacity="0.1" />
-        <path d="M 85 33 L 85 37 L 90 35 Z" />
+        <!-- Terzo cilindro (più piccolo, più lungo verso destra) -->
+        <rect
+          x="81"
+          y="32"
+          width="10"
+          height="6"
+          rx="1"
+          fill="currentColor"
+          opacity="0.05"
+        />
+        <rect x="81" y="32" width="10" height="6" rx="1" />
+
+        <!-- Punta conica finale (spostata a destra, collegata al terzo cilindro) -->
+        <path d="M 91 32 L 91 38 L 98 35 Z" fill="currentColor" opacity="0.1" />
+        <path d="M 91 32 L 91 38 L 98 35 Z" />
       </g>
 
       <!-- Gamba/ganascia sinistra (fissa) -->

@@ -5,7 +5,11 @@
         Operiamo su una vasta gamma di macchine utensili
       </p>
     </div>
-    <div class="areas__container">
+    <div
+      ref="containerRef"
+      class="areas__container"
+      :class="{ 'is-visible': isVisible }"
+    >
       <div class="areas__grid">
         <!-- Tornio -->
         <div class="areas__item">
@@ -154,26 +158,38 @@
           <h3 class="areas__title">Fresatrice</h3>
         </div>
       </div>
-
-      <!-- CTA -->
-      <div class="areas__cta">
-        <p class="areas__text">BL Service</p>
-        <div class="btn-container">
-          <NuxtLink to="/aree" class="btn btn--outline">
-            <div class="btn__borders">
-              <div class="btn__border-top"></div>
-              <div class="btn__border-right"></div>
-              <div class="btn__border-bottom"></div>
-              <div class="btn__border-left"></div>
-            </div>
-            SCOPRI DI PIÙ
-            <span class="btn__arrow">›</span>
-          </NuxtLink>
-        </div>
-      </div>
+      <hr />
     </div>
   </section>
 </template>
+
+<script setup>
+const containerRef = ref(null);
+const isVisible = ref(false);
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        isVisible.value = entry.isIntersecting;
+      });
+    },
+    {
+      threshold: 0.5, // Trigger quando il 50% del container è visibile
+    },
+  );
+
+  if (containerRef.value) {
+    observer.observe(containerRef.value);
+  }
+
+  onUnmounted(() => {
+    if (containerRef.value) {
+      observer.unobserve(containerRef.value);
+    }
+  });
+});
+</script>
 
 <style lang="scss" scoped>
 .areas {
@@ -197,13 +213,31 @@
     max-width: $container-max;
     margin: 0 auto;
     padding: 0 $spacing-xl;
+
+    // Stato iniziale - invisibile e spostato in basso
+    opacity: 0;
+    transform: translateY(80px);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease;
+
+    // Stato visibile
+    &.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
   }
 
   &__grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: $spacing-3xl;
-    margin-bottom: $spacing-4xl;
+    margin-bottom: $spacing-3xl;
 
     @include responsive(md) {
       grid-template-columns: repeat(3, 1fr);
@@ -234,12 +268,6 @@
     font-size: $font-size-sm;
     font-weight: $font-weight-normal;
     color: $color-text-light;
-  }
-
-  &__cta {
-    text-align: center;
-    padding-top: $spacing-2xl;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   &__text {

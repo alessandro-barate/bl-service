@@ -5,7 +5,7 @@
     <ProductsSection />
     <MaterialsSection />
     <AreasSection />
-    <AlupowerSection />
+    <ServicesSection />
     <QualitySection />
   </div>
 </template>

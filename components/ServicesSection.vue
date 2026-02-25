@@ -1,30 +1,27 @@
 <template>
-  <section class="alupower">
-    <div class="alupower__container">
+  <section class="services">
+    <div class="services__container">
       <!-- Left - Image -->
-      <div class="alupower__image">
-        <img 
-          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" 
+      <div class="services__image">
+        <img
+          src="/public/images/services-section/services-image.webp"
           alt="Aluminum texture"
         />
-        <div class="alupower__logo">
-          <span class="alupower__logo-text">ALUPOWER</span>
-        </div>
       </div>
 
       <!-- Right - Content -->
-      <div class="alupower__content">
-        <h2 class="alupower__title">
-          Settore dei<br>
-          Trasformatori<br>
-          Elettrici.
+      <div class="services__content">
+        <h2 class="services__title">
+          Scopri tutti<br />
+          I nostri<br />
+          Servizi
         </h2>
-        <p class="alupower__description">
-          ALUPOWER, la nostra linea progettata in collaborazione con i nostri maggiori 
-          fornitori al fine di soddisfare particolari esigenze tecniche ove sono necessari 
-          elevati valori di Conducibilità Elettrica.
+        <p class="services__description">
+          ALUPOWER, la nostra linea progettata in collaborazione con i nostri
+          maggiori fornitori al fine di soddisfare particolari esigenze tecniche
+          ove sono necessari elevati valori di Conducibilità Elettrica.
         </p>
-        <NuxtLink to="/alupower" class="btn btn--outline alupower__btn">
+        <NuxtLink to="/services" class="btn btn--outline services__btn">
           SCOPRI ALUPOWER
           <span class="btn__arrow">›</span>
         </NuxtLink>
@@ -34,7 +31,7 @@
 </template>
 
 <style lang="scss" scoped>
-.alupower {
+.services {
   padding-right: $sidebar-width;
   background: $color-blue;
   color: $color-white;
@@ -58,20 +55,6 @@
       height: 100%;
       object-fit: cover;
     }
-  }
-
-  &__logo {
-    position: absolute;
-    bottom: $spacing-xl;
-    left: $spacing-xl;
-  }
-
-  &__logo-text {
-    font-size: $font-size-3xl;
-    font-weight: $font-weight-bold;
-    letter-spacing: 0.1em;
-    color: $color-gold;
-    opacity: 0.8;
   }
 
   &__content {
