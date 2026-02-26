@@ -8,7 +8,7 @@
       <!-- Logo -->
       <NuxtLink to="/" class="header__logo">
         <div class="logo">
-          <img src="../assets/logo/LogoColore2.webp" alt="Logo di BL Service" />
+          <img src="../assets/logo/LogoColore2.svg" alt="Logo di BL Service" />
         </div>
       </NuxtLink>
 
