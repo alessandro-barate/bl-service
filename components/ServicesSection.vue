@@ -1,5 +1,9 @@
 <template>
-  <section class="services">
+  <section
+    ref="sectionRef"
+    class="services"
+    :class="{ 'is-visible': isVisible }"
+  >
     <div class="services__container">
       <!-- Left - Image -->
       <div class="services__image">
@@ -30,11 +34,69 @@
   </section>
 </template>
 
+<script setup>
+const sectionRef = ref(null);
+const isVisible = ref(false);
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const ratio = entry.intersectionRatio;
+
+        // Hysteresis: soglie diverse per entrata e uscita
+        // Entra quando >= 0.3, esce quando < 0.2
+        if (ratio >= 0.3 && !isVisible.value) {
+          // Entra: attiva animazione
+          isVisible.value = true;
+        } else if (ratio < 0.2 && isVisible.value) {
+          // Esce: disattiva animazione
+          isVisible.value = false;
+        }
+        // Zona cuscinetto: tra 0.2 e 0.3 mantiene lo stato corrente
+      });
+    },
+    {
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+    },
+  );
+
+  if (sectionRef.value) {
+    observer.observe(sectionRef.value);
+  }
+
+  onUnmounted(() => {
+    if (sectionRef.value) {
+      observer.unobserve(sectionRef.value);
+    }
+  });
+});
+</script>
+
 <style lang="scss" scoped>
 .services {
+  position: relative;
   padding-right: $sidebar-width;
-  background: $color-blue;
   color: $color-white;
+
+  // Stato iniziale - invisibile e spostato in basso
+  opacity: 0;
+  transform: translateY(80px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+
+  // Stato visibile
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  // Reset quando non è visibile
+  &:not(.is-visible) {
+    opacity: 0;
+    transform: translateY(80px);
+  }
 
   &__container {
     display: grid;
@@ -42,11 +104,12 @@
     min-height: 600px;
 
     @include responsive(lg) {
-      grid-template-columns: 1fr 1fr;
+      display: flex;
     }
   }
 
   &__image {
+    width: 55%;
     position: relative;
     min-height: 300px;
 
@@ -58,7 +121,12 @@
   }
 
   &__content {
-    padding: $spacing-4xl $spacing-3xl;
+    background: $color-blue;
+    position: absolute;
+    top: 4rem;
+    right: 0;
+    width: 50%;
+    padding: 8rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

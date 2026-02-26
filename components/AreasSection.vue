@@ -171,11 +171,22 @@ onMounted(() => {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        isVisible.value = entry.isIntersecting;
+        const ratio = entry.intersectionRatio;
+
+        // Hysteresis: soglie diverse per entrata e uscita
+        // Entra quando >= 0.3, esce quando < 0.2
+        if (ratio >= 0.3 && !isVisible.value) {
+          // Entra: attiva animazione
+          isVisible.value = true;
+        } else if (ratio < 0.2 && isVisible.value) {
+          // Esce: disattiva animazione
+          isVisible.value = false;
+        }
+        // Zona cuscinetto: tra 0.2 e 0.3 mantiene lo stato corrente
       });
     },
     {
-      threshold: 0.5, // Trigger quando il 50% del container è visibile
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
     },
   );
 
@@ -225,6 +236,20 @@ onMounted(() => {
     &.is-visible {
       opacity: 1;
       transform: translateY(0);
+
+      // Animazione della griglia
+      .areas__grid {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    // Stato quando non è visibile - reset della griglia
+    &:not(.is-visible) {
+      .areas__grid {
+        opacity: 0;
+        transform: translateY(80px);
+      }
     }
 
     hr {
@@ -238,6 +263,14 @@ onMounted(() => {
     grid-template-columns: 1fr;
     gap: $spacing-3xl;
     margin-bottom: $spacing-3xl;
+
+    // Stato iniziale - invisibile e spostato in basso
+    opacity: 0;
+    transform: translateY(80px);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease;
+    transition-delay: 0.2s; // Leggero ritardo rispetto al container
 
     @include responsive(md) {
       grid-template-columns: repeat(3, 1fr);
