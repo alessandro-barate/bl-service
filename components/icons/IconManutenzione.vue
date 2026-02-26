@@ -2,7 +2,7 @@
   <svg
     viewBox="0 0 100 100"
     stroke="currentColor"
-    stroke-width="2"
+    stroke-width="1"
     fill="none"
     stroke-linecap="round"
     stroke-linejoin="round"
@@ -10,7 +10,7 @@
     <!-- Chiave inglese grande e pulita -->
     <g>
       <!-- Manico -->
-      <path d="M 25 75 L 40 60" stroke-width="3" />
+      <path d="M 25 75 L 40 60" stroke-width="1" />
       <!-- Testa della chiave -->
       <rect
         x="37"
@@ -22,20 +22,20 @@
       />
       <!-- Apertura regolabile -->
       <line
-        x1="40"
+        x1="39"
         y1="50"
         x2="55"
         y2="50"
         transform="rotate(-45 48 53)"
-        stroke-width="2"
+        stroke-width="1"
       />
       <line
-        x1="40"
+        x1="39"
         y1="54"
         x2="55"
         y2="54"
         transform="rotate(-45 49 53)"
-        stroke-width="2"
+        stroke-width="1"
       />
     </g>
 
@@ -49,8 +49,8 @@
       />
       <path d="M 60 30 L 68 25 L 76 30 L 76 38 L 68 43 L 60 38 Z" />
       <!-- Intaglio a croce -->
-      <line x1="68" y1="30" x2="68" y2="38" stroke-width="1.5" />
-      <line x1="64" y1="34" x2="72" y2="34" stroke-width="1.5" />
+      <line x1="68" y1="30" x2="68" y2="38" stroke-width="1" />
+      <line x1="64" y1="34" x2="72" y2="34" stroke-width="1" />
     </g>
 
     <!-- Ingranaggio -->

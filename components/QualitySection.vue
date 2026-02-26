@@ -45,8 +45,9 @@ import BtnOutline from "@/components/BtnOutline.vue";
     width: 40%;
     flex-direction: column;
     justify-content: center;
-    position: relative;
-    top: -42rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 
   &__title {

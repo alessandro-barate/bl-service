@@ -2,7 +2,7 @@
   <svg
     viewBox="0 0 100 100"
     stroke="currentColor"
-    stroke-width="3"
+    stroke-width="1"
     fill="none"
     stroke-linecap="round"
     stroke-linejoin="round"
@@ -32,10 +32,10 @@
       <rect x="25" y="23" width="45" height="25" rx="3" />
 
       <!-- Display digitale interno -->
-      <rect x="30" y="28" width="30" height="15" rx="2" stroke-width="2.5" />
+      <rect x="30" y="28" width="30" height="15" rx="2" stroke-width="1" />
 
       <!-- Numeri "33" nel display -->
-      <g stroke-width="2">
+      <g stroke-width="1">
         <line x1="37" y1="33" x2="40" y2="33" />
         <line x1="37" y1="36" x2="40" y2="36" />
         <line x1="37" y1="39" x2="40" y2="39" />
@@ -89,8 +89,8 @@
       </g>
 
       <!-- Gamba/ganascia sinistra (fissa) -->
-      <path d="M 30 48 L 30 75 L 34 82 L 38 75" stroke-width="3" />
-      <path d="M 38 48 L 38 73" stroke-width="3" />
+      <path d="M 30 48 L 30 75 L 34 82 L 38 75" stroke-width="1" />
+      <path d="M 38 48 L 38 74" stroke-width="1" />
 
       <!-- Impugnatura/corpo inferiore -->
       <path
@@ -101,8 +101,8 @@
       <path d="M 46 50 L 54 75 L 60 75 L 60 75 L 69 75 L 60 48" />
 
       <!-- Cerchio/rotella regolazione -->
-      <circle cx="59" cy="67" r="4" stroke-width="2.5" />
-      <circle cx="59" cy="67" r="2" stroke-width="1.5" />
+      <circle cx="59" cy="67" r="4" stroke-width="1" />
+      <circle cx="59" cy="67" r="2" stroke-width="1" />
     </g>
   </svg>
 </template>

@@ -43,14 +43,14 @@
           </div>
         </div>
         <div class="btn-container">
-          <NuxtLink to="/qualita" class="btn btn--outline">
+          <NuxtLink to="/servizi" class="btn btn--outline uppercase">
             <div class="btn__borders">
               <div class="btn__border-top"></div>
               <div class="btn__border-right"></div>
               <div class="btn__border-bottom"></div>
               <div class="btn__border-left"></div>
             </div>
-            QUALITÀ
+            servizi
             <span class="btn__arrow">›</span>
           </NuxtLink>
         </div>
@@ -67,12 +67,22 @@ onMounted(() => {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        // Attiva/disattiva l'animazione ogni volta che entra/esce dal viewport
-        isVisible.value = entry.isIntersecting;
+        const ratio = entry.intersectionRatio;
+
+        // Hysteresis: soglie diverse per entrata e uscita
+        // Entra quando >= 0.3, esce quando < 0.2
+        if (ratio >= 0.3 && !isVisible.value) {
+          // Entra: attiva animazione
+          isVisible.value = true;
+        } else if (ratio < 0.2 && isVisible.value) {
+          // Esce: disattiva animazione
+          isVisible.value = false;
+        }
+        // Zona cuscinetto: tra 0.2 e 0.3 mantiene lo stato corrente
       });
     },
     {
-      threshold: 0.5, // Trigger quando il 50% della sezione è visibile
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
     },
   );
 
@@ -111,6 +121,13 @@ onMounted(() => {
         transform: translateX(0);
       }
     }
+
+    // Animazione border del label da destra a sinistra
+    .about__label {
+      &::after {
+        width: 100%;
+      }
+    }
   }
 
   // Stato quando non è visibile - reset dell'immagine
@@ -122,6 +139,13 @@ onMounted(() => {
 
       img {
         transform: translateX(-30px);
+      }
+    }
+
+    // Reset border del label
+    .about__label {
+      &::after {
+        width: 0;
       }
     }
   }
@@ -198,30 +222,49 @@ onMounted(() => {
 
   &__content {
     padding: $spacing-xl;
-    justify-content: center;
 
     @include responsive(lg) {
-      padding: 2rem 6rem;
+      padding: 6rem 3rem 0rem 0rem;
     }
   }
 
   &__upper-container {
+    width: 100%;
     display: flex;
   }
 
   &__header {
+    width: 35%;
     margin-bottom: $spacing-2xl;
+    padding-right: 1rem;
     padding-bottom: $spacing-md;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   &__label {
-    font-size: $font-size-sm;
+    width: 100%;
+    display: inline-block;
+    font-size: $font-size-base;
+    letter-spacing: 0.18rem;
     font-weight: $font-weight-medium;
     color: $color-copper;
+    border-bottom: 1px solid transparent;
+    position: relative;
+
+    // Border animato da destra a sinistra
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 1px;
+      background-color: $color-copper;
+      transition: width 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    }
   }
 
   &__text {
+    width: 65%;
     margin-bottom: $spacing-2xl;
 
     p {
