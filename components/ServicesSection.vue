@@ -126,7 +126,7 @@ onMounted(() => {
     top: 4rem;
     right: 0;
     width: 50%;
-    padding: 8rem;
+    padding: 8rem 8rem 14rem 8rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
