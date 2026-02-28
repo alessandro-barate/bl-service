@@ -19,11 +19,11 @@ interface _GlobalComponents {
   AppHeader: typeof import("../../components/AppHeader.vue")['default']
   AreasSection: typeof import("../../components/AreasSection.vue")['default']
   BtnOutline: typeof import("../../components/BtnOutline.vue")['default']
+  CarouselSection: typeof import("../../components/CarouselSection.vue")['default']
   ContactSidebar: typeof import("../../components/ContactSidebar.vue")['default']
   HeroSection: typeof import("../../components/HeroSection.vue")['default']
   MaterialsSection: typeof import("../../components/MaterialsSection.vue")['default']
   Preloader: typeof import("../../components/Preloader.vue")['default']
-  ProductsSection: typeof import("../../components/ProductsSection.vue")['default']
   QualitySection: typeof import("../../components/QualitySection.vue")['default']
   ServicesSection: typeof import("../../components/ServicesSection.vue")['default']
   IconsIconAlupower: typeof import("../../components/icons/IconAlupower.vue")['default']
@@ -60,11 +60,11 @@ interface _GlobalComponents {
   LazyAppHeader: LazyComponent<typeof import("../../components/AppHeader.vue")['default']>
   LazyAreasSection: LazyComponent<typeof import("../../components/AreasSection.vue")['default']>
   LazyBtnOutline: LazyComponent<typeof import("../../components/BtnOutline.vue")['default']>
+  LazyCarouselSection: LazyComponent<typeof import("../../components/CarouselSection.vue")['default']>
   LazyContactSidebar: LazyComponent<typeof import("../../components/ContactSidebar.vue")['default']>
   LazyHeroSection: LazyComponent<typeof import("../../components/HeroSection.vue")['default']>
   LazyMaterialsSection: LazyComponent<typeof import("../../components/MaterialsSection.vue")['default']>
   LazyPreloader: LazyComponent<typeof import("../../components/Preloader.vue")['default']>
-  LazyProductsSection: LazyComponent<typeof import("../../components/ProductsSection.vue")['default']>
   LazyQualitySection: LazyComponent<typeof import("../../components/QualitySection.vue")['default']>
   LazyServicesSection: LazyComponent<typeof import("../../components/ServicesSection.vue")['default']>
   LazyIconsIconAlupower: LazyComponent<typeof import("../../components/icons/IconAlupower.vue")['default']>

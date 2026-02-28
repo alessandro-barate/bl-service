@@ -25,10 +25,9 @@
           maggiori fornitori al fine di soddisfare particolari esigenze tecniche
           ove sono necessari elevati valori di Conducibilità Elettrica.
         </p>
-        <NuxtLink to="/services" class="btn btn--outline services__btn">
-          SCOPRI ALUPOWER
-          <span class="btn__arrow">›</span>
-        </NuxtLink>
+        <BtnOutline to="/services" :dark="true" class uppercase
+          >i nostri servizi</BtnOutline
+        >
       </div>
     </div>
   </section>

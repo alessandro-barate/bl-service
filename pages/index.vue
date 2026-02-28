@@ -2,7 +2,7 @@
   <div class="home">
     <HeroSection />
     <AboutSection />
-    <ProductsSection />
+    <CarouselSection />
     <MaterialsSection />
     <AreasSection />
     <ServicesSection />

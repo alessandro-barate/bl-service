@@ -17,7 +17,7 @@
 
       <!-- Contact -->
       <div class="footer__column">
-        <h4 class="footer__title">Contact</h4>
+        <h4 class="footer__title">Contatti</h4>
         <p><a href="tel:+393341823595">+39 3341823595</a></p>
         <p>
           <a href="mailto:commerciale@blservice.com"
@@ -32,7 +32,6 @@
         <nav class="footer__nav">
           <NuxtLink to="/">Home</NuxtLink>
           <NuxtLink to="/prodotti">Servizi</NuxtLink>
-          <NuxtLink to="/alupower">Alupower</NuxtLink>
           <NuxtLink to="/servizi">Prodotti</NuxtLink>
           <NuxtLink to="/aree">Aree</NuxtLink>
           <NuxtLink to="/contatti">Contatti</NuxtLink>

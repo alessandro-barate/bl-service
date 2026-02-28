@@ -16,7 +16,6 @@
           <h2 class="quality__title">
             Qualità,Velocità e Attenzione al CLIENTE
           </h2>
-          <BtnOutline to="/qualita" :dark="true">PUNTI DI FORZA</BtnOutline>
         </div>
       </div>
     </div>
@@ -106,7 +105,7 @@ onMounted(() => {
     flex-direction: column;
     justify-content: center;
     position: absolute;
-    bottom: 200px;
+    bottom: 290px;
     left: 0;
   }
 
@@ -114,7 +113,6 @@ onMounted(() => {
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: $font-weight-light;
     line-height: 1.2;
-    margin-bottom: $spacing-3xl;
     white-space: pre-line;
   }
 

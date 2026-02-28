@@ -19,11 +19,11 @@ export const AppFooter: typeof import("../components/AppFooter.vue")['default']
 export const AppHeader: typeof import("../components/AppHeader.vue")['default']
 export const AreasSection: typeof import("../components/AreasSection.vue")['default']
 export const BtnOutline: typeof import("../components/BtnOutline.vue")['default']
+export const CarouselSection: typeof import("../components/CarouselSection.vue")['default']
 export const ContactSidebar: typeof import("../components/ContactSidebar.vue")['default']
 export const HeroSection: typeof import("../components/HeroSection.vue")['default']
 export const MaterialsSection: typeof import("../components/MaterialsSection.vue")['default']
 export const Preloader: typeof import("../components/Preloader.vue")['default']
-export const ProductsSection: typeof import("../components/ProductsSection.vue")['default']
 export const QualitySection: typeof import("../components/QualitySection.vue")['default']
 export const ServicesSection: typeof import("../components/ServicesSection.vue")['default']
 export const IconsIconAlupower: typeof import("../components/icons/IconAlupower.vue")['default']
@@ -60,11 +60,11 @@ export const LazyAppFooter: LazyComponent<typeof import("../components/AppFooter
 export const LazyAppHeader: LazyComponent<typeof import("../components/AppHeader.vue")['default']>
 export const LazyAreasSection: LazyComponent<typeof import("../components/AreasSection.vue")['default']>
 export const LazyBtnOutline: LazyComponent<typeof import("../components/BtnOutline.vue")['default']>
+export const LazyCarouselSection: LazyComponent<typeof import("../components/CarouselSection.vue")['default']>
 export const LazyContactSidebar: LazyComponent<typeof import("../components/ContactSidebar.vue")['default']>
 export const LazyHeroSection: LazyComponent<typeof import("../components/HeroSection.vue")['default']>
 export const LazyMaterialsSection: LazyComponent<typeof import("../components/MaterialsSection.vue")['default']>
 export const LazyPreloader: LazyComponent<typeof import("../components/Preloader.vue")['default']>
-export const LazyProductsSection: LazyComponent<typeof import("../components/ProductsSection.vue")['default']>
 export const LazyQualitySection: LazyComponent<typeof import("../components/QualitySection.vue")['default']>
 export const LazyServicesSection: LazyComponent<typeof import("../components/ServicesSection.vue")['default']>
 export const LazyIconsIconAlupower: LazyComponent<typeof import("../components/icons/IconAlupower.vue")['default']>
