@@ -34,23 +34,27 @@
 <script setup>
 const carouselImgs = [
   {
-    image: "/images/hero-section/luca-above.webp",
+    image: "/images/carousel-section/knife-hand.webp",
     alt: "Luca fotografato al lavoro dall'alto",
   },
   {
-    image: "/images/hero-section/luca-foot.webp",
+    image: "/images/carousel-section/camshaft.webp",
     alt: "Luca fotografato in piedi",
   },
   {
-    image: "/images/about-section/main-image.webp",
+    image: "/images/carousel-section/camshaft-dismounted.webp",
     alt: "Immagine principale della sezione about",
   },
   {
-    image: "/images/quality-section/tornio-circolare.webp",
+    image: "/images/carousel-section/giant-camshaft.webp",
     alt: "Tornio circolare in funzione",
   },
   {
-    image: "/images/services-section/services-image.webp",
+    image: "/images/carousel-section/camshaft-mounted.webp",
+    alt: "Immagine della sezione servizi",
+  },
+  {
+    image: "/images/carousel-section/little-camshaft.webp",
     alt: "Immagine della sezione servizi",
   },
 ];
@@ -72,8 +76,8 @@ const carouselImgs = [
 
   &__carousel {
     display: flex;
-    gap: 1rem;
-    animation: scroll 80s linear infinite;
+    gap: 2rem;
+    animation: scroll 40s linear infinite;
 
     &:hover {
       animation-play-state: paused;
@@ -86,13 +90,13 @@ const carouselImgs = [
     }
     100% {
       /* Dopo 5 card si resetta: ogni card è 40% + 1rem di gap */
-      transform: translateX(calc((-40% - 1rem) * 5));
+      transform: translateX(calc((-35% - 2rem) * 6));
     }
   }
 
   &__carousel-card {
-    width: 40%;
-    height: 400px;
+    width: 35%;
+    height: 700px;
     flex-shrink: 0;
 
     & img {

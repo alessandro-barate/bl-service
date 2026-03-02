@@ -42,18 +42,6 @@
             </p>
           </div>
         </div>
-        <div class="btn-container">
-          <NuxtLink to="/servizi" class="btn btn--outline uppercase">
-            <div class="btn__borders">
-              <div class="btn__border-top"></div>
-              <div class="btn__border-right"></div>
-              <div class="btn__border-bottom"></div>
-              <div class="btn__border-left"></div>
-            </div>
-            servizi
-            <span class="btn__arrow">›</span>
-          </NuxtLink>
-        </div>
       </div>
     </div>
   </section>
