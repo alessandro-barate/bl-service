@@ -2114,16 +2114,16 @@ const plugins = [
 const assets = {
   "/index.mjs": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"19fc5-TDkYKTbMFZB0Fr1AcRxGnUmyMVQ\"",
-    "mtime": "2026-03-03T00:34:19.079Z",
-    "size": 106437,
+    "etag": "\"1a15d-yKm4ScGKosoWN/xsL9k3FNMlm1w\"",
+    "mtime": "2026-03-03T00:37:44.549Z",
+    "size": 106845,
     "path": "index.mjs"
   },
   "/index.mjs.map": {
     "type": "application/json",
-    "etag": "\"69562-do7d64AyBKgspKkbbUDtnn4p81U\"",
-    "mtime": "2026-03-03T00:34:19.079Z",
-    "size": 431458,
+    "etag": "\"69571-qxoU8gy/6d/ywBCQIt4WzYWj848\"",
+    "mtime": "2026-03-03T00:37:44.549Z",
+    "size": 431473,
     "path": "index.mjs.map"
   }
 };

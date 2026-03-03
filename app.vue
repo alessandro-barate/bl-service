@@ -25,7 +25,7 @@ const { isTransitioning, transitionText } = usePageTransition();
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #181818;
+  background-color: #000;
   z-index: 99999;
   display: flex;
   align-items: center;
@@ -34,7 +34,7 @@ const { isTransitioning, transitionText } = usePageTransition();
 
 /* Testo centrato bianco */
 .page-transition-text {
-  color: #e7e7e7da;
+  color: #fff;
   font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 300;
   letter-spacing: 0.1em;

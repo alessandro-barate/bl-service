@@ -6,11 +6,11 @@
   >
     <div class="header__container">
       <!-- Logo -->
-      <NuxtLink to="/" class="header__logo">
+      <a href="#" class="header__logo" @click.prevent="handleNavigate('/')">
         <div class="logo">
           <img src="../assets/logo/LogoColore2.svg" alt="Logo di BL Service" />
         </div>
-      </NuxtLink>
+      </a>
 
       <!-- Menu Toggle -->
       <button
@@ -67,14 +67,14 @@
                 : `${(menuItems.length - 1 - index) * 0.04}s`,
             }"
           >
-            <NuxtLink
-              :to="item.path"
+            <a
+              href="#"
               class="menu-overlay__link"
               :class="{ 'is-featured': item.featured }"
-              @click="closeMenu"
+              @click.prevent="handleNavigate(item.path)"
             >
               {{ item.label }}
-            </NuxtLink>
+            </a>
           </li>
         </ul>
       </nav>
@@ -82,12 +82,13 @@
   </Teleport>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import IconAlupower from "~/components/icons/IconAlupower.vue";
 
 const isVisible = ref(false);
 const isScrolled = ref(false);
 const isMenuOpen = ref(false);
+const { navigateWithTransition } = usePageTransition();
 
 const menuItems = [
   { label: "Prodotti", path: "/prodotti" },
@@ -107,6 +108,11 @@ const toggleMenu = () => {
 const closeMenu = () => {
   isMenuOpen.value = false;
   document.body.style.overflow = "";
+};
+
+const handleNavigate = (path: string) => {
+  closeMenu();
+  navigateWithTransition(path);
 };
 
 const showHeader = () => {
