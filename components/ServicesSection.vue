@@ -25,7 +25,11 @@
           maggiori fornitori al fine di soddisfare particolari esigenze tecniche
           ove sono necessari elevati valori di Conducibilità Elettrica.
         </p>
-        <BtnOutline to="/services" :dark="true" class uppercase
+        <!-- IMPORTANTE: rimosso to="/servizi" perché gestiamo noi la navigazione -->
+        <BtnOutline
+          :dark="true"
+          @click.prevent="handleNavigate"
+          class="uppercase"
           >i nostri servizi</BtnOutline
         >
       </div>
@@ -34,8 +38,21 @@
 </template>
 
 <script setup>
+import { usePageTransition } from "../composables/UsePageTransition";
+
 const sectionRef = ref(null);
 const isVisible = ref(false);
+const { navigateWithTransition } = usePageTransition();
+
+// Funzione che gestisce la navigazione con transizione
+const handleNavigate = (event) => {
+  // Previeni il comportamento predefinito se esiste
+  if (event) {
+    event.preventDefault();
+  }
+  // Naviga con la transizione
+  navigateWithTransition("/servizi", "I Nostri Servizi");
+};
 
 onMounted(() => {
   const observer = new IntersectionObserver(
@@ -150,6 +167,7 @@ onMounted(() => {
     color: $color-white;
     border-color: $color-gold;
     align-self: flex-start;
+    transition: all 0.3s ease;
 
     &::before {
       background: linear-gradient(90deg, $color-gold, $color-copper);

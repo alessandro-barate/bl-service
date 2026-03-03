@@ -1,12 +1,6 @@
 <!-- components/BtnOutline.vue -->
 <template>
   <div class="btn-container">
-    <!--
-      Il ref è sul wrapper div, non su NuxtLink (che è un componente Vue,
-      non un DOM element diretto — btnRef.value sarebbe l'istanza componente).
-      Il composable osserva il wrapper e ricava W/H da lì.
-      NuxtLink riceve :style con le CSS custom props.
-    -->
     <div ref="wrapperRef" class="btn-outline-wrapper">
       <NuxtLink :to="to" class="btn" :class="btnClasses" :style="style">
         <svg class="btn__svg-border" aria-hidden="true">
@@ -46,11 +40,6 @@
               </stop>
             </linearGradient>
           </defs>
-          <!--
-            x, y, width, height vengono iniettati come CSS vars dal composable
-            e letti via :attr binding — così calc() non serve più.
-            L'offset di 2.5px (metà stroke-width) evita che il bordo venga tagliato.
-          -->
           <rect :x="rectX" :y="rectY" :width="rectW" :height="rectH" />
         </svg>
 
@@ -97,7 +86,6 @@ const btnClasses = computed(() => ({
   text-decoration: none;
   overflow: hidden;
   transition: all 0.3s ease;
-  text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 0.875rem;
 
