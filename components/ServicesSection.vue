@@ -15,7 +15,7 @@
 
       <!-- Right - Content -->
       <div class="services__content">
-        <h2 class="services__title">
+        <h2 class="title">
           Scopri tutti<br />
           I nostri<br />
           Servizi
@@ -25,7 +25,6 @@
           maggiori fornitori al fine di soddisfare particolari esigenze tecniche
           ove sono necessari elevati valori di Conducibilità Elettrica.
         </p>
-        <!-- IMPORTANTE: rimosso to="/servizi" perché gestiamo noi la navigazione -->
         <BtnOutline
           :dark="true"
           @click.prevent="handleNavigate"
@@ -146,13 +145,6 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     justify-content: center;
-  }
-
-  &__title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: $font-weight-light;
-    line-height: 1.2;
-    margin-bottom: $spacing-2xl;
   }
 
   &__description {

@@ -83,21 +83,16 @@
 </template>
 
 <script setup lang="ts">
-import IconAlupower from "~/components/icons/IconAlupower.vue";
-
 const isVisible = ref(false);
 const isScrolled = ref(false);
 const isMenuOpen = ref(false);
 const { navigateWithTransition } = usePageTransition();
 
 const menuItems = [
-  { label: "Prodotti", path: "/prodotti" },
+  { label: "Lavorazioni", path: "/lavorazioni" },
   { label: "BL Service", path: "/bl-service", featured: true },
   { label: "Servizi", path: "/servizi" },
-  { label: "Aree", path: "/aree" },
-  { label: "Qualità", path: "/qualita" },
   { label: "Contatti", path: "/contatti" },
-  { label: "News", path: "/news" },
 ];
 
 const toggleMenu = () => {
@@ -190,11 +185,6 @@ onUnmounted(() => {
     }
   }
 
-  // ─────────────────────────────────────────────────────
-  // HAMBURGER MENU BUTTON
-  // APERTURA: le 3 linee convergono al centro (0.3s) → poi la linea si espande (0.5s con delay)
-  // CHIUSURA: la linea si restringe (0.5s) → poi le linee si separano (0.3s con delay 0.5s)
-  // ─────────────────────────────────────────────────────
   &__menu-btn {
     position: relative;
     display: flex;
@@ -204,7 +194,7 @@ onUnmounted(() => {
     border: none;
     cursor: pointer;
     padding: 0;
-    padding-right: 80px; // spazio per l'icon (absolute)
+    padding-right: 80px;
 
     // ── Stato attivo: le 3 linee convergono e si fondono, poi si espandono ──
     &.is-active {
@@ -351,11 +341,6 @@ onUnmounted(() => {
   }
 }
 
-// ─────────────────────────────────────────────────────
-// MENU OVERLAY
-// APERTURA: reveal sinistro scaleX(0→1) da sinistra + pannello destro scaleX(0→1) da destra → items stagger
-// CHIUSURA: items scompaiono → pannelli scaleX(1→0) → nascosto
-// ─────────────────────────────────────────────────────
 .menu-overlay {
   position: fixed;
   inset: 0;

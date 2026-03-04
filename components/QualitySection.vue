@@ -88,7 +88,7 @@ onMounted(() => {
 
   &__container {
     width: 100%;
-    margin-top: 15rem;
+    margin-top: 20rem;
     position: relative;
 
     @include responsive(lg) {

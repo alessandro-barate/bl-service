@@ -37,6 +37,13 @@ h6 {
   line-height: 1.2;
 }
 
+.title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: $font-weight-light;
+  line-height: 1.2;
+  margin-bottom: $spacing-2xl;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -59,10 +66,6 @@ ol {
   list-style: none;
 }
 
-.uppercase {
-  text-transform: uppercase;
-}
-
 // Utility classes
 .container {
   width: 100%;
@@ -71,7 +74,15 @@ ol {
   padding: 0 $spacing-xl;
 }
 
-// ─── Button base ────────────────────────────────────────────────────────────
+.uppercase {
+  text-transform: uppercase;
+}
+
+.d-flex {
+  display: flex;
+}
+
+// Buttons
 
 .btn-container {
   width: 100%;
@@ -92,8 +103,6 @@ ol {
   position: relative;
 }
 
-// ─── btn--primary ────────────────────────────────────────────────────────────
-
 .btn--primary {
   background: $color-blue;
   color: $color-white;
@@ -104,7 +113,7 @@ ol {
   }
 }
 
-// ─── Arrow ───────────────────────────────────────────────────────────────────
+// Arrow
 
 .btn__arrow {
   transition: transform $transition-base;
@@ -114,7 +123,7 @@ ol {
   transform: translateX(4px);
 }
 
-// ─── Section styles ──────────────────────────────────────────────────────────
+// Section styles
 
 .section {
   padding: $spacing-4xl 0;
@@ -134,7 +143,7 @@ ol {
   }
 }
 
-// ─── Scrollbar ───────────────────────────────────────────────────────────────
+// Scrollbar
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -149,7 +158,7 @@ ol {
   border-radius: 4px;
 }
 
-// ─── Selection ───────────────────────────────────────────────────────────────
+// Selection
 
 ::selection {
   background: $color-blue;

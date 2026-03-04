@@ -1,34 +1,56 @@
 <template>
-  <section class="products">
-    <div class="products__carousel-wrapper">
-      <div class="products__carousel">
-        <!-- Primo set -->
-        <div
-          v-for="(carouselImg, index) in carouselImgs"
-          :key="'first-' + index"
-          class="products__carousel-card"
-        >
-          <img :src="carouselImg.image" :alt="carouselImg.alt" />
-        </div>
-        <!-- Secondo set -->
-        <div
-          v-for="(carouselImg, index) in carouselImgs"
-          :key="'second-' + index"
-          class="products__carousel-card"
-        >
-          <img :src="carouselImg.image" :alt="carouselImg.alt" />
-        </div>
-        <!-- Terzo set -->
-        <div
-          v-for="(carouselImg, index) in carouselImgs"
-          :key="'third-' + index"
-          class="products__carousel-card"
-        >
-          <img :src="carouselImg.image" :alt="carouselImg.alt" />
+  <div class="main-container d-flex">
+    <section class="products">
+      <div class="products__carousel-wrapper">
+        <div class="products__carousel">
+          <!-- Primo set -->
+          <div
+            v-for="(carouselImg, index) in carouselImgs"
+            :key="'first-' + index"
+            class="products__carousel-card"
+          >
+            <img :src="carouselImg.image" :alt="carouselImg.alt" />
+          </div>
+          <!-- Secondo set -->
+          <div
+            v-for="(carouselImg, index) in carouselImgs"
+            :key="'second-' + index"
+            class="products__carousel-card"
+          >
+            <img :src="carouselImg.image" :alt="carouselImg.alt" />
+          </div>
+          <!-- Terzo set -->
+          <div
+            v-for="(carouselImg, index) in carouselImgs"
+            :key="'third-' + index"
+            class="products__carousel-card"
+          >
+            <img :src="carouselImg.image" :alt="carouselImg.alt" />
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+    <section class="manufactorings">
+      <div class="manufactorings__text-container">
+        <h2 class="title">
+          Una Grande<br />
+          varietà di<br />
+          Lavorazioni
+        </h2>
+        <p class="manufactorings__description">
+          La nostra esperienza nelle lavorazioni meccaniche ci permette di
+          operare su una vasta gamma di macchinari con una grande varietà di
+          lavorazioni.
+        </p>
+        <BtnOutline
+          :dark="true"
+          @click.prevent="handleNavigate"
+          class="uppercase"
+          >le nostre lavorazioni</BtnOutline
+        >
+      </div>
+    </section>
+  </div>
 </template>
 
 <script setup>
@@ -36,10 +58,6 @@ const carouselImgs = [
   {
     image: "/images/carousel-section/knife-hand.webp",
     alt: "Luca fotografato al lavoro dall'alto",
-  },
-  {
-    image: "/images/carousel-section/camshaft.webp",
-    alt: "Luca fotografato in piedi",
   },
   {
     image: "/images/carousel-section/camshaft-dismounted.webp",
@@ -50,10 +68,6 @@ const carouselImgs = [
     alt: "Tornio circolare in funzione",
   },
   {
-    image: "/images/carousel-section/camshaft-mounted.webp",
-    alt: "Immagine della sezione servizi",
-  },
-  {
     image: "/images/carousel-section/little-camshaft.webp",
     alt: "Immagine della sezione servizi",
   },
@@ -61,114 +75,74 @@ const carouselImgs = [
 </script>
 
 <style lang="scss" scoped>
-.products {
-  padding: $spacing-3xl 0;
-  padding-right: $sidebar-width;
-  background: $color-white;
-  margin-bottom: 10rem;
+.main-container {
+  width: 100%;
+  margin-top: 10rem;
+  position: relative;
 
-  &__carousel-wrapper {
-    width: 100%;
-    overflow: hidden;
-    margin: 0 auto;
-    padding: 0 $spacing-xl;
-  }
+  .products {
+    width: 60%;
+    padding: $spacing-4xl 0;
+    padding-right: $sidebar-width;
+    background-color: black;
+    margin-bottom: 10rem;
 
-  &__carousel {
-    display: flex;
-    gap: 2rem;
-    animation: scroll 40s linear infinite;
-
-    &:hover {
-      animation-play-state: paused;
-    }
-  }
-
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      /* Dopo 5 card si resetta: ogni card è 40% + 1rem di gap */
-      transform: translateX(calc((-35% - 2rem) * 6));
-    }
-  }
-
-  &__carousel-card {
-    width: 35%;
-    height: 700px;
-    flex-shrink: 0;
-
-    & img {
+    &__carousel-wrapper {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 10px;
+      overflow: hidden;
+      margin: 0 auto;
+      padding: 0 $spacing-xl;
     }
-  }
 
-  &__item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    &__carousel {
+      display: flex;
+      gap: 2rem;
+      animation: scroll 40s linear infinite;
 
-    @include responsive(md) {
-      flex-direction: row;
-      text-align: left;
-      align-items: flex-start;
-      gap: $spacing-2xl;
+      &:hover {
+        animation-play-state: paused;
+      }
     }
-  }
 
-  &__icon {
-    width: 150px;
-    height: 150px;
-    margin-bottom: $spacing-xl;
-    color: $color-dark;
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        /* Dopo 5 card si resetta: ogni card è 40% + 1rem di gap */
+        transform: translateX(calc((-35% - 2rem) * 4));
+      }
+    }
 
-    @include responsive(md) {
-      margin-bottom: 0;
+    &__carousel-card {
+      width: 35%;
       flex-shrink: 0;
-    }
 
-    svg {
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-  &__content {
-    flex: 1;
-  }
-
-  &__header {
-    display: flex;
-    align-items: center;
-    gap: $spacing-md;
-    margin-bottom: $spacing-md;
-
-    @include responsive(md) {
-      justify-content: flex-start;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
     }
   }
 
-  &__line {
-    width: 40px;
-    height: 2px;
-    background: $color-copper;
-  }
+  .manufactorings {
+    right: 2rem;
+    width: 40%;
+    height: 70vh;
+    background-color: $color-blue;
+    bottom: 3rem;
+    position: relative;
 
-  &__title {
-    font-size: $font-size-lg;
-    font-weight: $font-weight-medium;
-    color: $color-copper;
-  }
+    &__text-container {
+      color: white;
+      padding: 3rem;
+    }
 
-  &__description {
-    font-size: $font-size-sm;
-    line-height: 1.8;
-    color: $color-text-light;
+    &__description {
+      padding: 0rem 2rem 2rem 2rem;
+    }
   }
 }
 </style>
