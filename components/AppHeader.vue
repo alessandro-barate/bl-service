@@ -174,9 +174,9 @@ onUnmounted(() => {
   }
 
   &.is-scrolled {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgb(255, 255, 255);
     backdrop-filter: blur(10px);
-    padding: $spacing-md $spacing-xl;
+    padding: 1.5rem $spacing-xl;
   }
 
   &__container {
@@ -493,7 +493,7 @@ onUnmounted(() => {
     position: fixed;
     top: 0;
     right: 0;
-    width: 60%;
+    width: 61%;
     height: 100vh;
     background: $color-white;
     transform: scaleX(0);
