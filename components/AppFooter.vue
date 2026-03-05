@@ -33,7 +33,7 @@
           <NuxtLink to="/">Home</NuxtLink>
           <NuxtLink to="/lavorazioni">Lavorazioni</NuxtLink>
           <NuxtLink to="/servizi">Servizi</NuxtLink>
-          <NuxtLink to="/contatti">Contatti</NuxtLink>
+          <button>Contatti</button>
         </nav>
       </div>
 
@@ -41,8 +41,8 @@
       <div class="footer__column">
         <h4 class="footer__title">Legal</h4>
         <nav class="footer__nav">
-          <NuxtLink to="/privacy">Privacy</NuxtLink>
-          <NuxtLink to="/cookies">Cookies</NuxtLink>
+          <button>Privacy</button>
+          <button>Cookies</button>
           <button @click="openCookieSettings">Gestisci cookie</button>
         </nav>
       </div>

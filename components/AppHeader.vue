@@ -96,7 +96,7 @@ const menuItems = [
   { label: "Lavorazioni", path: "/lavorazioni" },
   { label: "BL Service", path: "/bl-service", featured: true },
   { label: "Servizi", path: "/servizi" },
-  { label: "Contatti", path: "/contatti" },
+  { label: "Contatti" },
 ];
 
 const toggleMenu = () => {
