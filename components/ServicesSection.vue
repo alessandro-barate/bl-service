@@ -94,23 +94,29 @@ onMounted(() => {
   padding-right: $sidebar-width;
   color: $color-white;
 
-  // Stato iniziale - invisibile e spostato in basso
-  opacity: 0;
-  transform: translateY(80px);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
+  // Animazioni separate per immagine e content
+  &:not(.is-visible) {
+    .services__image {
+      opacity: 0;
+      transform: translateX(-80px);
+    }
 
-  // Stato visibile
-  &.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+    .services__content {
+      opacity: 0;
+      transform: translateX(80px);
+    }
   }
 
-  // Reset quando non è visibile
-  &:not(.is-visible) {
-    opacity: 0;
-    transform: translateY(80px);
+  &.is-visible {
+    .services__image {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .services__content {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
   &__container {
@@ -127,6 +133,11 @@ onMounted(() => {
     width: 55%;
     position: relative;
     min-height: 300px;
+    opacity: 0;
+    transform: translateX(-80px);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease;
 
     img {
       width: 100%;
@@ -145,6 +156,11 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    opacity: 0;
+    transform: translateX(80px);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease;
   }
 
   &__description {

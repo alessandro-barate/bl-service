@@ -5,13 +5,10 @@ export const usePageTransition = () => {
   // Mappa dei percorsi e i loro titoli
   const pageTitles: Record<string, string> = {
     "/": "Home",
+    "/lavorazioni": "Le Nostre Lavorazioni",
     "/servizi": "I Nostri Servizi",
-    "/prodotti": "Prodotti",
     "/bl-service": "BL Service",
-    "/aree": "Aree",
-    "/qualita": "Qualità",
     "/contatti": "Contatti",
-    "/news": "News",
   };
 
   // Funzione per ottenere il titolo da un path

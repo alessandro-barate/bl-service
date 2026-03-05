@@ -31,9 +31,8 @@
         <h4 class="footer__title">Website</h4>
         <nav class="footer__nav">
           <NuxtLink to="/">Home</NuxtLink>
-          <NuxtLink to="/prodotti">Servizi</NuxtLink>
-          <NuxtLink to="/servizi">Prodotti</NuxtLink>
-          <NuxtLink to="/aree">Aree</NuxtLink>
+          <NuxtLink to="/lavorazioni">Lavorazioni</NuxtLink>
+          <NuxtLink to="/servizi">Servizi</NuxtLink>
           <NuxtLink to="/contatti">Contatti</NuxtLink>
         </nav>
       </div>

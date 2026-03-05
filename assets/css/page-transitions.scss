@@ -21,7 +21,7 @@
   transform: translateX(100%);
   transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
 
-  // Colori diversi per ogni pannello (come Framor Power)
+  // Colori diversi per ogni pannello
   &--1 {
     background-color: #1a1a1a; // Grigio scuro
     transition-delay: 0s;

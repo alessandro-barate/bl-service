@@ -1,5 +1,9 @@
 <template>
-  <div class="main-container d-flex">
+  <div
+    ref="sectionRef"
+    class="main-container d-flex"
+    :class="{ 'is-visible': isVisible }"
+  >
     <section class="products">
       <div class="products__carousel-wrapper">
         <div class="products__carousel">
@@ -54,6 +58,9 @@
 </template>
 
 <script setup>
+const sectionRef = ref(null);
+const isVisible = ref(false);
+
 const carouselImgs = [
   {
     image: "/images/carousel-section/knife-hand.webp",
@@ -72,6 +79,40 @@ const carouselImgs = [
     alt: "Immagine della sezione servizi",
   },
 ];
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const ratio = entry.intersectionRatio;
+
+        // Hysteresis: soglie diverse per entrata e uscita
+        // Entra quando >= 0.3, esce quando < 0.2
+        if (ratio >= 0.3 && !isVisible.value) {
+          // Entra: attiva animazione
+          isVisible.value = true;
+        } else if (ratio < 0.2 && isVisible.value) {
+          // Esce: disattiva animazione
+          isVisible.value = false;
+        }
+        // Zona cuscinetto: tra 0.2 e 0.3 mantiene lo stato corrente
+      });
+    },
+    {
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+    },
+  );
+
+  if (sectionRef.value) {
+    observer.observe(sectionRef.value);
+  }
+
+  onUnmounted(() => {
+    if (sectionRef.value) {
+      observer.unobserve(sectionRef.value);
+    }
+  });
+});
 </script>
 
 <style lang="scss" scoped>
@@ -80,12 +121,42 @@ const carouselImgs = [
   margin-top: 10rem;
   position: relative;
 
+  // Animazione container
+  &:not(.is-visible) {
+    .products {
+      opacity: 0;
+      transform: translateX(-80px);
+    }
+
+    .manufactorings {
+      opacity: 0;
+      transform: translateX(80px);
+    }
+  }
+
+  &.is-visible {
+    .products {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .manufactorings {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
   .products {
     width: 60%;
     padding: $spacing-4xl 0;
     padding-right: $sidebar-width;
-    background-color: black;
+    background-color: #1a1a1a;
     margin-bottom: 10rem;
+    opacity: 0;
+    transform: translateX(-80px);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease;
 
     &__carousel-wrapper {
       width: 100%;
@@ -134,6 +205,11 @@ const carouselImgs = [
     background-color: $color-blue;
     bottom: 3rem;
     position: relative;
+    opacity: 0;
+    transform: translateX(80px);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease;
 
     &__text-container {
       color: white;

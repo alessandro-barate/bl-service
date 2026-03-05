@@ -38,7 +38,10 @@
 
   <!-- Menu Overlay (class-based, sempre nel DOM per animazioni scaleX) -->
   <Teleport to="body">
-    <div class="menu-overlay" :class="{ 'is-active': isMenuOpen }">
+    <div
+      class="menu-overlay"
+      :class="{ 'is-active': isMenuOpen, 'is-closing': isClosing }"
+    >
       <!-- Reveal panel sinistro (grigio, scaleX da sinistra) -->
       <div class="menu-overlay__reveal" @click="closeMenu"></div>
 
@@ -86,6 +89,7 @@
 const isVisible = ref(false);
 const isScrolled = ref(false);
 const isMenuOpen = ref(false);
+const isClosing = ref(false);
 const { navigateWithTransition } = usePageTransition();
 
 const menuItems = [
@@ -96,13 +100,37 @@ const menuItems = [
 ];
 
 const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value;
-  document.body.style.overflow = isMenuOpen.value ? "hidden" : "";
+  if (isMenuOpen.value) {
+    // Chiusura: attiva is-closing
+    isClosing.value = true;
+    // Rimuovi is-active dopo un frame per far partire la transition
+    requestAnimationFrame(() => {
+      isMenuOpen.value = false;
+    });
+    // Rimuovi is-closing dopo l'animazione completa (blur delay 1.1s + duration 0.6s = 1.7s)
+    setTimeout(() => {
+      isClosing.value = false;
+      document.body.style.overflow = "";
+    }, 1800);
+  } else {
+    // Apertura normale
+    isMenuOpen.value = true;
+    isClosing.value = false;
+    document.body.style.overflow = "hidden";
+  }
 };
 
 const closeMenu = () => {
-  isMenuOpen.value = false;
-  document.body.style.overflow = "";
+  if (isMenuOpen.value) {
+    isClosing.value = true;
+    requestAnimationFrame(() => {
+      isMenuOpen.value = false;
+    });
+    setTimeout(() => {
+      isClosing.value = false;
+      document.body.style.overflow = "";
+    }, 1800);
+  }
 };
 
 const handleNavigate = (path: string) => {
@@ -274,22 +302,22 @@ onUnmounted(() => {
       opacity: 1;
       visibility: visible;
       transform: rotate(180deg) translateX(0);
-      // Chiusura: MENU ritorna con ritardo
+      // Chiusura: MENU ritorna con ritardo (speculare: 0.15s)
       transition:
-        opacity 0.3s ease 0s,
-        visibility 0s linear 0.3s,
-        transform 0.3s ease 0s;
+        opacity 0.3s ease 0.15s,
+        visibility 0s linear 0s,
+        transform 0.3s ease 0.15s;
     }
 
     &--close {
       opacity: 0;
       visibility: hidden;
       transform: rotate(180deg) translateX(20px);
-      // Chiusura: CHIUDI esce subito
+      // Chiusura: CHIUDI esce subito (speculare: 0s)
       transition:
-        opacity 0.3s ease 0.15s,
-        visibility 0s linear 0.15s,
-        transform 0.3s ease 0.15s;
+        opacity 0.3s ease 0s,
+        visibility 0s linear 0.3s,
+        transform 0.3s ease 0s;
     }
   }
 
@@ -362,7 +390,6 @@ onUnmounted(() => {
     // Reveal sinistro: perde i pointer-events
     .menu-overlay__reveal {
       transform: scaleX(1);
-      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
       pointer-events: none;
       background: transparent;
     }
@@ -370,23 +397,18 @@ onUnmounted(() => {
     // Pannello destro: scaleX da 0 a 1 (da destra)
     .menu-overlay__panel {
       transform: scaleX(1);
-      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
       pointer-events: auto;
     }
 
     // Linea header
     .menu-overlay__line {
       transform: scaleX(1);
-      transition: transform 0.5s ease 0.6s;
     }
 
     // Sottotitolo
     .menu-overlay__subtitle {
       opacity: 1;
       transform: translateY(0);
-      transition:
-        opacity 0.4s ease 0.65s,
-        transform 0.4s ease 0.65s;
       position: relative;
       top: -0.5rem;
     }
@@ -398,6 +420,34 @@ onUnmounted(() => {
     }
   }
 
+  // ── Stato chiusura (delay invertiti) ──
+  &.is-closing {
+    visibility: visible;
+
+    .menu-overlay__blur-backdrop {
+      transition-delay: 1.1s; // Scompare quando il pannello ha finito di chiudersi (0.3s + 0.8s)
+    }
+
+    .menu-overlay__reveal {
+      transition-delay: 0.4s;
+    }
+
+    .menu-overlay__panel {
+      transition-delay: 0.3s;
+      transform-origin: left center; // Si chiude verso sinistra
+      transition-duration: 0.8s; // Più tempo per contrarsi completamente
+      transition-timing-function: ease-in-out; // Lento-accelera-lento per smooth ending
+    }
+
+    .menu-overlay__line {
+      transition-delay: 0s;
+    }
+
+    .menu-overlay__subtitle {
+      transition-delay: 0s;
+    }
+  }
+
   // ── Reveal sinistro (sfondo grigio) ──
   &__reveal {
     position: fixed;
@@ -405,10 +455,11 @@ onUnmounted(() => {
     left: 0;
     width: 40%;
     height: 100vh;
-    background: #f2f2f2;
+    background: transparent;
     transform: scaleX(0);
     transform-origin: left center;
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+    // APERTURA: si espande con delay 0.1s | CHIUSURA: si chiude con delay 0.4s
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
     z-index: 1;
     cursor: pointer;
     pointer-events: auto;
@@ -423,10 +474,11 @@ onUnmounted(() => {
     position: fixed;
     top: 0;
     left: 0;
-    width: 40%;
+    width: 100%; // Blur su tutta la pagina
     height: 100vh;
     backdrop-filter: blur(8px);
     opacity: 0;
+    // APERTURA: appare con delay 0.1s | CHIUSURA: scompare con delay 0.5s
     transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s;
     pointer-events: none;
     cursor: pointer;
@@ -446,8 +498,8 @@ onUnmounted(() => {
     background: $color-white;
     transform: scaleX(0);
     transform-origin: right center;
-    // CHIUSURA: si chiude subito
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s;
+    // APERTURA: lento-accelera-lento per movimento smooth
+    transition: transform 0.6s ease-in-out 0.2s;
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -476,7 +528,8 @@ onUnmounted(() => {
     background: $color-dark;
     transform: scaleX(0);
     transform-origin: left center;
-    transition: transform 0.3s ease 0s;
+    // APERTURA: appare con delay 0.6s | CHIUSURA: scompare con delay 0s
+    transition: transform 0.5s ease 0.6s;
   }
 
   &__subtitle {
@@ -485,9 +538,10 @@ onUnmounted(() => {
     color: $color-text-light;
     opacity: 0;
     transform: translateY(-5px);
+    // APERTURA: appare con delay 0.65s | CHIUSURA: scompare con delay 0s
     transition:
-      opacity 0.3s ease 0s,
-      transform 0.3s ease 0s;
+      opacity 0.4s ease 0.65s,
+      transform 0.4s ease 0.65s;
   }
 
   // ── Lista menu ──

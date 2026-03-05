@@ -113,7 +113,7 @@ const btnClasses = computed(() => ({
   }
 
   &--dark {
-    background-color: rgb(0, 0, 0);
+    background-color: #1a1a1a;
     color: rgb(255, 255, 255);
 
     .btn__arrow {
