@@ -57,7 +57,8 @@ import { useBtnBorder } from "@/composables/useBtnBorder";
 const props = defineProps({
   to: {
     type: String,
-    required: true,
+    required: false,
+    to: "#",
   },
   dark: {
     type: Boolean,
