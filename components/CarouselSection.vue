@@ -58,8 +58,21 @@
 </template>
 
 <script setup>
+import { usePageTransition } from "../composables/UsePageTransition";
+
 const sectionRef = ref(null);
 const isVisible = ref(false);
+const { navigateWithTransition } = usePageTransition();
+
+// Funzione che gestisce la navigazione con transizione
+const handleNavigate = (event) => {
+  // Previeni il comportamento predefinito se esiste
+  if (event) {
+    event.preventDefault();
+  }
+  // Naviga con la transizione
+  navigateWithTransition("/lavorazioni", "Le Nostre Lavorazioni");
+};
 
 const carouselImgs = [
   {
