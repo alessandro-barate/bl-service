@@ -76,64 +76,115 @@
             migliore esperienza d'uso.
           </p>
           <h3 class="uppercase">tipologie di cookie</h3>
-          <p>I cookies si dividono per durata in:
-            <ul>
-              <li>
-                Cookies di sessione: vengono automaticamente cancellati quando
-                chiudi il browser
-              </li>
-              <li>
-                Cookies persistenti: rimangono memorizzati nel tuo dispositivo per
-                un periodo di tempo determinato
-              </li>
-            </ul>
-          </p>
-          <p>E per realizzazione in:
-            <ul>
+          <p>I cookies si dividono per durata in:</p>
+          <ul>
+            <li>
+              Cookies di sessione: vengono automaticamente cancellati quando
+              chiudi il browser
+            </li>
+            <li>
+              Cookies persistenti: rimangono memorizzati nel tuo dispositivo per
+              un periodo di tempo determinato
+            </li>
+          </ul>
+          <p>E per realizzazione in:</p>
+          <ul>
             <li>Cookies propri: creati e gestiti direttamente dal sito</li>
             <li>
               Cookies di terze parti: creati e gestiti da soggetti esterni
             </li>
           </ul>
-          </p>
           <h3 class="uppercase">come gestire i cookie</h3>
           <p>
             Puoi impedire l'installazione dei cookies disattivando l'apposita
             funzione nelle impostazioni del tuo browser:
-            <ul>
-              <li><a href="https://support.mozilla.org/it/kb/Gestione%20dei%20cookie" target="_blank">Firefox</a></li>
-              <li><a href="https://support.microsoft.com/it-it/windows" target="_blank">Internet Explorer</a></li>
-              <li><a href="https://support.google.com/chrome/answer/95647?hl=it" target="_blank">Google Chrome</a></li>
-              <li><a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank">Safari</a></li>
-            </ul>
           </p>
+          <ul>
+            <li>
+              <a
+                href="https://support.mozilla.org/it/kb/Gestione%20dei%20cookie"
+                target="_blank"
+                >Firefox</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://support.microsoft.com/it-it/windows"
+                target="_blank"
+                >Internet Explorer</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://support.google.com/chrome/answer/95647?hl=it"
+                target="_blank"
+                >Google Chrome</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://support.apple.com/it-it/guide/safari/sfri11471/mac"
+                target="_blank"
+                >Safari</a
+              >
+            </li>
+          </ul>
           <h3 class="uppercase">cookies utilizzati da questo sito</h3>
-          <p>BL Service utilizza esclusivamente cookies tecnici necessari al corretto funzionamento del sito.</p>
+          <p>
+            BL Service utilizza esclusivamente cookies tecnici necessari al
+            corretto funzionamento del sito.
+          </p>
           <h3 class="uppercase">cookies tecnici essenziali</h3>
-          <p>Il sito installa automaticamente cookies tecnici di tipo proprio, necessari per permettere la navigazione e il corretto utilizzo delle funzionalità del sito. Senza questi cookies il sito potrebbe non funzionare correttamente. <br>Questi cookies:
-            <ul>
-              <li>Gestiscono la sessione di navigazione</li>
-              <li>Permettono il corretto caricamento delle pagine</li>
-              <li>Garantiscono la sicurezza durante la navigazione</li>
-              <li>Memorizzano le preferenze essenziali dell'utente</li>
-            </ul>
-            Per l'utilizzo di questi cookies tecnici essenziali non è richiesto il preventivo consenso dell'utente, come previsto dalla normativa vigente.
+          <p>
+            Il sito installa automaticamente cookies tecnici di tipo proprio,
+            necessari per permettere la navigazione e il corretto utilizzo delle
+            funzionalità del sito. Senza questi cookies il sito potrebbe non
+            funzionare correttamente. <br />Questi cookies:
+          </p>
+          <ul>
+            <li>Gestiscono la sessione di navigazione</li>
+            <li>Permettono il corretto caricamento delle pagine</li>
+            <li>Garantiscono la sicurezza durante la navigazione</li>
+            <li>Memorizzano le preferenze essenziali dell'utente</li>
+          </ul>
+          <p>
+            Per l'utilizzo di questi cookies tecnici essenziali non è richiesto
+            il preventivo consenso dell'utente, come previsto dalla normativa
+            vigente.
           </p>
           <h3 class="uppercase">cookies non utilizzati</h3>
-          <p>Il sito BL Service <span class="uppercase"><strong>non</strong></span> utilizza:
-            <ul>
-              <li>Cookies di profilazione</li>
-              <li>Cookies pubblicitari</li>
-              <li>Cookies di tracciamento per scopi di marketing</li>
-              <li>Cookies di terze parti per analisi statistiche (es. Google Analytics)</li>
-              <li>Cookies per pubblicità comportamentale</li>
-            </ul>
+          <p>
+            Il sito BL Service
+            <span class="uppercase"><strong>non</strong></span> utilizza:
           </p>
+          <ul>
+            <li>Cookies di profilazione</li>
+            <li>Cookies pubblicitari</li>
+            <li>Cookies di tracciamento per scopi di marketing</li>
+            <li>
+              Cookies di terze parti per analisi statistiche (es. Google
+              Analytics)
+            </li>
+            <li>Cookies per pubblicità comportamentale</li>
+          </ul>
           <h3 class="uppercase">durata dei cookies</h3>
-          <p>I cookies tecnici installati da questo sito sono principalmente cookies di sessione, che vengono cancellati automaticamente alla chiusura del browser.</p>
+          <p>
+            I cookies tecnici installati da questo sito sono principalmente
+            cookies di sessione, che vengono cancellati automaticamente alla
+            chiusura del browser.
+          </p>
           <h3 class="uppercase">aggiornamenti</h3>
-          <p>Questa Cookie Policy è aggiornata alla data odierna. BL Service si riserva il diritto di modificare o aggiornare questa policy in qualsiasi momento. In caso di introduzione di nuovi cookies (ad esempio analytics o di terze parti), verrà richiesto il consenso esplicito dell'utente tramite banner dedicato. <br>Per ulteriori informazioni puoi utilizzare il <NuxtLink to="/contatti">modulo di contatto</NuxtLink> disponibile nella sezione Contatti del sito</p>
-          <hr>
+          <p>
+            Questa Cookie Policy è aggiornata alla data odierna. BL Service si
+            riserva il diritto di modificare o aggiornare questa policy in
+            qualsiasi momento. In caso di introduzione di nuovi cookies (ad
+            esempio analytics o di terze parti), verrà richiesto il consenso
+            esplicito dell'utente tramite banner dedicato. <br />Per ulteriori
+            informazioni puoi utilizzare il
+            <NuxtLink to="/contatti">modulo di contatto</NuxtLink> disponibile
+            nella sezione Contatti del sito
+          </p>
+          <hr />
           <p>Ultimo aggiornamento 06/03/2026</p>
         </div>
       </div>
