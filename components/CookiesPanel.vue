@@ -51,7 +51,7 @@
                 ><img
                   src="../assets/logo/browsers-list/firefox-logo.png"
                   alt="Logo di Mozilla Firefox"
-                />Firefox</a
+                /><span>Firefox</span></a
               >
             </li>
             <li>
@@ -61,7 +61,7 @@
                 ><img
                   src="../assets/logo/browsers-list/explorer-logo.png"
                   alt="Logo di Internet Explorer"
-                />Internet Explorer</a
+                /><span>Internet Explorer</span></a
               >
             </li>
             <li>
@@ -71,7 +71,7 @@
                 ><img
                   src="../assets/logo/browsers-list/chrome-logo.png"
                   alt="Logo di Google Chrome"
-                />Google Chrome</a
+                /><span>Google Chrome</span></a
               >
             </li>
             <li>
@@ -81,7 +81,7 @@
                 ><img
                   src="../assets/logo/browsers-list/safari-logo.png"
                   alt="Logo di Safari"
-                />Safari</a
+                /><span>Safari</span></a
               >
             </li>
           </ul>
@@ -228,15 +228,34 @@ const { showCookiesPanel, closeCookiesPanel } = useCookiesPanel();
         display: flex;
         color: #666666;
         text-decoration: none;
-        transition: all 0.5s;
+        transition: transform 0.5s ease;
 
         img {
           margin-right: 0.5rem;
         }
 
+        span {
+          position: relative;
+
+          // Pseudo-elemento per l'underline animato
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: #666666;
+            transition: width 0.5s ease;
+          }
+        }
+
         &:hover {
-          text-decoration: underline;
           transform: translateX(-5px);
+
+          span::after {
+            width: 100%;
+          }
         }
       }
     }
@@ -266,12 +285,12 @@ const { showCookiesPanel, closeCookiesPanel } = useCookiesPanel();
     }
 
     a {
-      color: $color-blue;
+      color: #666666;
       text-decoration: underline;
       transition: color $transition-base;
 
       &:hover {
-        color: darken($color-blue, 10%);
+        color: #666666;
       }
     }
 
