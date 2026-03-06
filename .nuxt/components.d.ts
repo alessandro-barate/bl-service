@@ -21,6 +21,7 @@ export const AreasSection: typeof import("../components/AreasSection.vue")['defa
 export const BtnOutline: typeof import("../components/BtnOutline.vue")['default']
 export const CarouselSection: typeof import("../components/CarouselSection.vue")['default']
 export const ContactSidebar: typeof import("../components/ContactSidebar.vue")['default']
+export const CookiesPanel: typeof import("../components/CookiesPanel.vue")['default']
 export const HeroSection: typeof import("../components/HeroSection.vue")['default']
 export const MaterialsSection: typeof import("../components/MaterialsSection.vue")['default']
 export const Preloader: typeof import("../components/Preloader.vue")['default']
@@ -62,6 +63,7 @@ export const LazyAreasSection: LazyComponent<typeof import("../components/AreasS
 export const LazyBtnOutline: LazyComponent<typeof import("../components/BtnOutline.vue")['default']>
 export const LazyCarouselSection: LazyComponent<typeof import("../components/CarouselSection.vue")['default']>
 export const LazyContactSidebar: LazyComponent<typeof import("../components/ContactSidebar.vue")['default']>
+export const LazyCookiesPanel: LazyComponent<typeof import("../components/CookiesPanel.vue")['default']>
 export const LazyHeroSection: LazyComponent<typeof import("../components/HeroSection.vue")['default']>
 export const LazyMaterialsSection: LazyComponent<typeof import("../components/MaterialsSection.vue")['default']>
 export const LazyPreloader: LazyComponent<typeof import("../components/Preloader.vue")['default']>

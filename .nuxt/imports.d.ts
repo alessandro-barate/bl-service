@@ -32,3 +32,4 @@ export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composab
 export { defineLazyHydrationComponent } from '#app/composables/lazy-hydration';
 export { useBtnBorder } from '../composables/UseBtnBorder';
 export { usePageTransition } from '../composables/UsePageTransition';
+export { useCookiesPanel } from '../composables/useCookiesPanel';

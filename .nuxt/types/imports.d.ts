@@ -99,6 +99,7 @@ declare global {
   const useAttrs: typeof import('vue').useAttrs
   const useBtnBorder: typeof import('../../composables/UseBtnBorder').useBtnBorder
   const useCookie: typeof import('../../node_modules/nuxt/dist/app/composables/cookie').useCookie
+  const useCookiesPanel: typeof import('../../composables/useCookiesPanel').useCookiesPanel
   const useCssModule: typeof import('vue').useCssModule
   const useCssVars: typeof import('vue').useCssVars
   const useError: typeof import('../../node_modules/nuxt/dist/app/composables/error').useError
@@ -285,6 +286,7 @@ declare module 'vue' {
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useBtnBorder: UnwrapRef<typeof import('../../composables/UseBtnBorder')['useBtnBorder']>
     readonly useCookie: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/cookie')['useCookie']>
+    readonly useCookiesPanel: UnwrapRef<typeof import('../../composables/useCookiesPanel')['useCookiesPanel']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
     readonly useError: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/error')['useError']>
