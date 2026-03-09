@@ -222,13 +222,14 @@ const { showCookiesPanel, closeCookiesPanel } = useCookiesPanel();
     line-height: 1.7;
 
     .browsers-list {
+      width: 100%;
       list-style: none;
 
       a {
+        width: 28%;
         display: flex;
         color: #666666;
         text-decoration: none;
-        transition: transform 0.5s ease;
 
         img {
           margin-right: 0.5rem;
@@ -236,6 +237,8 @@ const { showCookiesPanel, closeCookiesPanel } = useCookiesPanel();
 
         span {
           position: relative;
+          cursor: pointer;
+          transition: transform 0.5s ease;
 
           // Pseudo-elemento per l'underline animato
           &::after {
@@ -248,12 +251,8 @@ const { showCookiesPanel, closeCookiesPanel } = useCookiesPanel();
             background-color: #666666;
             transition: width 0.5s ease;
           }
-        }
 
-        &:hover {
-          transform: translateX(-5px);
-
-          span::after {
+          &:hover::after {
             width: 100%;
           }
         }
