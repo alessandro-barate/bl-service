@@ -153,8 +153,8 @@ const submitForm = () => {
 
         &__label {
           display: block;
-          font-size: $font-size-xs;
-          font-weight: $font-weight-semibold;
+          font-size: $font-size-xl;
+          font-weight: $font-weight-normal;
           letter-spacing: 0.15em;
           margin-bottom: $spacing-md;
         }
@@ -217,8 +217,8 @@ const submitForm = () => {
         &__submit {
           background: none;
           border: none;
-          font-size: $font-size-sm;
-          font-weight: $font-weight-semibold;
+          font-size: $font-size-base;
+          font-weight: $font-weight-normal;
           letter-spacing: 0.1em;
           text-decoration: underline;
           cursor: pointer;
