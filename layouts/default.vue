@@ -12,10 +12,13 @@
     </main>
 
     <!-- Footer -->
-    <AppFooter />
+    <AppFooter v-if="!isContactsPage" />
 
     <!-- Contact Sidebar -->
-    <ContactSidebar />
+    <ContactSidebar v-if="!isContactsPage" />
+
+    <!-- Privacy panel -->
+    <PrivacyPanel />
 
     <!-- Cookies panel -->
     <CookiesPanel />
@@ -23,7 +26,12 @@
 </template>
 
 <script setup>
+import { useRoute } from "nuxt/app";
 import CookiesPanel from "../components/CookiesPanel.vue";
+import PrivacyPanel from "../components/PrivacyPanel.vue";
+
+const route = useRoute();
+const isContactsPage = computed(() => route.path === "/contatti");
 
 const isReady = ref(false);
 const headerRef = ref(null);

@@ -573,7 +573,7 @@ onUnmounted(() => {
     pointer-events: auto;
 
     &:hover {
-      color: rgba(255, 196, 0, 0.7);
+      color: rgba(255, 196, 0, 0.8);
     }
 
     &.is-featured {

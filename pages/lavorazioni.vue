@@ -9,6 +9,10 @@
 <script setup></script>
 <style lang="scss" scoped>
 .manufactorings-content {
-  margin-top: 15rem;
+  width: 100%;
+
+  .manufactorings {
+    padding-top: 12rem;
+  }
 }
 </style>

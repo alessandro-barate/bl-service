@@ -13,6 +13,7 @@
           <h3>Sede</h3>
           <p>Via Elvezia, 24</p>
           <p>20015 Parabiago (MI), Italia</p>
+          <p>P.IVA 14468320966</p>
         </div>
         <div class="contacts-content-left__map">
           <h3>Dove siamo</h3>
@@ -62,7 +63,7 @@
               <p class="contact-panel__privacy">
                 Inviando dichiaro di aver letto e compreso le finalità e le
                 modalità del
-                <a href="/privacy"
+                <a href="#" @click.prevent="openPrivacyPanel"
                   >trattamento dei dati personali ivi descritte</a
                 >
               </p>
@@ -88,12 +89,14 @@ const submitForm = () => {
   // Reset form
   Object.keys(form).forEach((key) => (form[key] = ""));
 };
+
+// Composable condiviso per il privacy panel
+const { openPrivacyPanel } = usePrivacyPanel();
 </script>
 
 <style lang="scss" scoped>
 .contacts-content {
   width: 100%;
-  min-height: 100vh;
 
   .contacts-content-left {
     width: 39%;
@@ -137,7 +140,7 @@ const submitForm = () => {
         transition: all 0.5s;
 
         &:hover {
-          color: rgba(255, 196, 0, 0.7);
+          color: rgba(255, 196, 0, 0.8);
           transform: color;
         }
       }
@@ -206,10 +209,12 @@ const submitForm = () => {
 
           a {
             text-decoration: underline;
+            text-underline-offset: 5px;
             color: white;
 
             &:hover {
               opacity: 0.7;
+              color: rgba(255, 196, 0, 0.8);
             }
           }
         }
@@ -224,10 +229,10 @@ const submitForm = () => {
           cursor: pointer;
           color: white;
           transition: all 0.3s;
+          text-underline-offset: 5px;
 
           &:hover {
-            color: rgba(255, 196, 0, 0.7);
-            transform: color;
+            color: rgba(255, 196, 0, 0.8);
           }
         }
       }

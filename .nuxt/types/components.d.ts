@@ -25,6 +25,7 @@ interface _GlobalComponents {
   HeroSection: typeof import("../../components/HeroSection.vue")['default']
   MaterialsSection: typeof import("../../components/MaterialsSection.vue")['default']
   Preloader: typeof import("../../components/Preloader.vue")['default']
+  PrivacyPanel: typeof import("../../components/PrivacyPanel.vue")['default']
   QualitySection: typeof import("../../components/QualitySection.vue")['default']
   ServicesSection: typeof import("../../components/ServicesSection.vue")['default']
   IconsIconAlupower: typeof import("../../components/icons/IconAlupower.vue")['default']
@@ -67,6 +68,7 @@ interface _GlobalComponents {
   LazyHeroSection: LazyComponent<typeof import("../../components/HeroSection.vue")['default']>
   LazyMaterialsSection: LazyComponent<typeof import("../../components/MaterialsSection.vue")['default']>
   LazyPreloader: LazyComponent<typeof import("../../components/Preloader.vue")['default']>
+  LazyPrivacyPanel: LazyComponent<typeof import("../../components/PrivacyPanel.vue")['default']>
   LazyQualitySection: LazyComponent<typeof import("../../components/QualitySection.vue")['default']>
   LazyServicesSection: LazyComponent<typeof import("../../components/ServicesSection.vue")['default']>
   LazyIconsIconAlupower: LazyComponent<typeof import("../../components/icons/IconAlupower.vue")['default']>

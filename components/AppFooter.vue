@@ -39,11 +39,11 @@
 
       <!-- Legal -->
       <div class="footer__column">
-        <h4 class="footer__title">Legal</h4>
+        <h4 class="footer__title">Privacy & Cookies</h4>
         <nav class="footer__nav">
-          <button>Privacy</button>
+          <button @click="openPrivacyPanel">Privacy</button>
           <button @click="openCookiesPanel">Cookies</button>
-          <button @click="openCookieSettings">Gestisci cookie</button>
+          <!-- <button @click="openCookieSettings">Gestisci cookie</button> -->
         </nav>
       </div>
     </div>
@@ -58,13 +58,16 @@
 <script setup>
 const currentYear = new Date().getFullYear();
 
-// Usa il composable condiviso per aprire il cookies panel
+// Composable condiviso per aprire il cookies panel
 const { openCookiesPanel } = useCookiesPanel();
 
-const openCookieSettings = () => {
-  // Cookie settings logic
-  console.log("Open cookie settings");
-};
+// Composable condiviso per il privacy panel
+const { openPrivacyPanel } = usePrivacyPanel();
+
+// const openCookieSettings = () => {
+//   // Cookie settings logic
+//   console.log("Open cookie settings");
+// };
 </script>
 
 <style lang="scss" scoped>

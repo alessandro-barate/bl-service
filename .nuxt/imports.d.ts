@@ -33,3 +33,4 @@ export { defineLazyHydrationComponent } from '#app/composables/lazy-hydration';
 export { useBtnBorder } from '../composables/UseBtnBorder';
 export { usePageTransition } from '../composables/UsePageTransition';
 export { useCookiesPanel } from '../composables/useCookiesPanel';
+export { usePrivacyPanel } from '../composables/usePrivacyPanel';
