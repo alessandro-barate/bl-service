@@ -96,7 +96,7 @@ const menuItems = [
   { label: "Lavorazioni", path: "/lavorazioni" },
   { label: "BL Service", path: "/bl-service", featured: true },
   { label: "Servizi", path: "/servizi" },
-  { label: "Contatti" },
+  { label: "Contatti", path: "/contatti" },
 ];
 
 const toggleMenu = () => {
@@ -573,7 +573,7 @@ onUnmounted(() => {
     pointer-events: auto;
 
     &:hover {
-      color: $color-blue;
+      color: rgba(255, 196, 0, 0.7);
     }
 
     &.is-featured {

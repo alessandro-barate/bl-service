@@ -33,7 +33,7 @@
           <NuxtLink to="/">Home</NuxtLink>
           <NuxtLink to="/lavorazioni">Lavorazioni</NuxtLink>
           <NuxtLink to="/servizi">Servizi</NuxtLink>
-          <button>Contatti</button>
+          <NuxtLink to="/contatti">Contatti</NuxtLink>
         </nav>
       </div>
 
