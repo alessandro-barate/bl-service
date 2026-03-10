@@ -43,8 +43,8 @@
         </h2>
         <p class="manufactorings__description">
           La nostra esperienza nelle lavorazioni meccaniche ci permette di
-          operare su una vasta gamma di macchinari con una grande varietà di
-          lavorazioni.
+          operare su una vasta gamma di macchinari e componenti effettuando una
+          grande varietà di lavorazioni.
         </p>
         <BtnOutline
           :dark="true"
