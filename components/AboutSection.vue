@@ -6,7 +6,7 @@
         <div class="about__image">
           <img :src="image" :alt="imageAlt" />
         </div>
-        <div class="about__overlay">
+        <div class="about__overlay" :class="props.class">
           <h2 class="about__title" v-html="overlayTitle"></h2>
         </div>
       </div>
@@ -44,6 +44,11 @@ const props = defineProps({
   image: {
     type: String,
     required: true,
+  },
+  //Classe per styling
+  class: {
+    type: String,
+    default: "",
   },
   // Alt text dell'immagine
   imageAlt: {

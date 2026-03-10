@@ -28,9 +28,15 @@
         <h1>Chiamaci</h1>
         <a href="tel:+393341823595">+39 3341823595</a>
       </div>
-      <div class="contacts-content-right__contact-form">
-        <!-- Form section -->
-        <div class="contact-panel__section">
+      <div class="contacts-content-right__email-us">
+        <h2>Scrivici</h2>
+        <a href="mailto:blservice.bianchi@gmail.com"
+          >blservice.bianchi@gmail.com</a
+        >
+      </div>
+      <!-- <div class="contacts-content-right__contact-form"> -->
+      <!-- Form section -->
+      <!-- <div class="contact-panel__section">
           <span class="contact-panel__label">SCRIVICI</span>
           <form class="contact-panel__form" @submit.prevent="submitForm">
             <div class="contact-panel__field">
@@ -70,31 +76,45 @@
               <button type="submit" class="contact-panel__submit">INVIA</button>
             </div>
           </form>
-        </div>
-      </div>
+        </div> -->
+      <!-- </div> -->
     </section>
   </main>
 </template>
 
 <script setup>
-const form = reactive({
-  name: "",
-  email: "",
-  phone: "",
-  message: "",
-});
+// const form = reactive({
+//   name: "",
+//   email: "",
+//   phone: "",
+//   message: "",
+// });
 
-const submitForm = () => {
-  console.log("Form submitted:", form);
-  // Reset form
-  Object.keys(form).forEach((key) => (form[key] = ""));
-};
+// const submitForm = () => {
+//   console.log("Form submitted:", form);
+//   // Reset form
+//   Object.keys(form).forEach((key) => (form[key] = ""));
+// };
 
 // Composable condiviso per il privacy panel
-const { openPrivacyPanel } = usePrivacyPanel();
+// const { openPrivacyPanel } = usePrivacyPanel();
 </script>
 
 <style lang="scss" scoped>
+a {
+  transition: all 0.5s;
+
+  &:hover {
+    color: rgba(255, 196, 0, 0.8);
+    transform: color;
+  }
+}
+
+h1,
+h2 {
+  margin-bottom: 1rem;
+}
+
 .contacts-content {
   width: 100%;
 
@@ -130,113 +150,118 @@ const { openPrivacyPanel } = usePrivacyPanel();
     background-color: rgb(45, 45, 45);
 
     &__call-us {
+      margin-bottom: 5rem;
+
       h1 {
         font-size: 4rem;
-        margin-bottom: 1.5rem;
       }
 
       a {
         font-size: 1.9rem;
-        transition: all 0.5s;
-
-        &:hover {
-          color: rgba(255, 196, 0, 0.8);
-          transform: color;
-        }
       }
     }
 
-    &__contact-form {
-      margin-top: $spacing-3xl;
+    &__email-us {
+      h2 {
+        font-size: 3rem;
+      }
 
-      .contact-panel {
-        &__section {
-          margin-bottom: $spacing-3xl;
-        }
-
-        &__label {
-          display: block;
-          font-size: $font-size-xl;
-          font-weight: $font-weight-normal;
-          letter-spacing: 0.15em;
-          margin-bottom: $spacing-md;
-        }
-
-        &__form {
-          display: flex;
-          flex-direction: column;
-          gap: $spacing-lg;
-        }
-
-        &__field {
-          input,
-          textarea {
-            width: 100%;
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            padding: $spacing-sm 0;
-            font-family: inherit;
-            font-size: $font-size-base;
-            color: white;
-            transition: border-color $transition-base;
-
-            &::placeholder {
-              color: rgba(255, 255, 255, 0.5);
-            }
-
-            &:focus {
-              outline: none;
-              border-bottom-color: rgba(255, 255, 255, 0.8);
-            }
-          }
-
-          textarea {
-            resize: vertical;
-            min-height: 80px;
-          }
-        }
-
-        &__footer {
-          margin-top: auto;
-          padding-top: $spacing-xl;
-        }
-
-        &__privacy {
-          font-size: $font-size-xs;
-          line-height: 1.5;
-          margin-bottom: $spacing-lg;
-
-          a {
-            text-decoration: underline;
-            text-underline-offset: 5px;
-            color: white;
-
-            &:hover {
-              opacity: 0.7;
-              color: rgba(255, 196, 0, 0.8);
-            }
-          }
-        }
-
-        &__submit {
-          background: none;
-          border: none;
-          font-size: $font-size-base;
-          font-weight: $font-weight-normal;
-          letter-spacing: 0.1em;
-          text-decoration: underline;
-          cursor: pointer;
-          color: white;
-          transition: all 0.3s;
-          text-underline-offset: 5px;
-
-          &:hover {
-            color: rgba(255, 196, 0, 0.8);
-          }
-        }
+      a {
+        font-size: 1.7rem;
       }
     }
+
+    // &__contact-form {
+    //   margin-top: $spacing-3xl;
+
+    //   .contact-panel {
+    //     &__section {
+    //       margin-bottom: $spacing-3xl;
+    //     }
+
+    //     &__label {
+    //       display: block;
+    //       font-size: $font-size-xl;
+    //       font-weight: $font-weight-normal;
+    //       letter-spacing: 0.15em;
+    //       margin-bottom: $spacing-md;
+    //     }
+
+    //     &__form {
+    //       display: flex;
+    //       flex-direction: column;
+    //       gap: $spacing-lg;
+    //     }
+
+    //     &__field {
+    //       input,
+    //       textarea {
+    //         width: 100%;
+    //         background: transparent;
+    //         border: none;
+    //         border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    //         padding: $spacing-sm 0;
+    //         font-family: inherit;
+    //         font-size: $font-size-base;
+    //         color: white;
+    //         transition: border-color $transition-base;
+
+    //         &::placeholder {
+    //           color: rgba(255, 255, 255, 0.5);
+    //         }
+
+    //         &:focus {
+    //           outline: none;
+    //           border-bottom-color: rgba(255, 255, 255, 0.8);
+    //         }
+    //       }
+
+    //       textarea {
+    //         resize: vertical;
+    //         min-height: 80px;
+    //       }
+    //     }
+
+    //     &__footer {
+    //       margin-top: auto;
+    //       padding-top: $spacing-xl;
+    //     }
+
+    //     &__privacy {
+    //       font-size: $font-size-xs;
+    //       line-height: 1.5;
+    //       margin-bottom: $spacing-lg;
+
+    //       a {
+    //         text-decoration: underline;
+    //         text-underline-offset: 5px;
+    //         color: white;
+
+    //         &:hover {
+    //           opacity: 0.7;
+    //           color: rgba(255, 196, 0, 0.8);
+    //         }
+    //       }
+    //     }
+
+    //     &__submit {
+    //       background: none;
+    //       border: none;
+    //       font-size: $font-size-base;
+    //       font-weight: $font-weight-normal;
+    //       letter-spacing: 0.1em;
+    //       text-decoration: underline;
+    //       cursor: pointer;
+    //       color: white;
+    //       transition: all 0.3s;
+    //       text-underline-offset: 5px;
+
+    //       &:hover {
+    //         color: rgba(255, 196, 0, 0.8);
+    //       }
+    //     }
+    //   }
+    // }
   }
 }
 </style>

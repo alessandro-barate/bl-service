@@ -17,6 +17,7 @@
       :label="service.label"
       :overlayTitle="service.overlayTitle"
       :image="service.image"
+      :class="service.class"
       :imageAlt="service.imageAlt"
       :paragraphs="service.paragraphs"
     />
@@ -28,8 +29,9 @@ const services = [
   {
     id: 1,
     label: "Riparazione",
-    overlayTitle: "Riparazione<br />Rapida ed<br />Efficace",
+    overlayTitle: "Riparazione Rapida <br />ed Efficace",
     image: "/images/hero-section/luca-foot.webp",
+    class: "services-width",
     imageAlt: "Servizio riparazione",
     paragraphs: [
       "BL Service offre un servizio di riparazione completo per macchinari di lavorazione meccanica. I nostri tecnici specializzati intervengono con rapidità e precisione per garantire la continuità operativa della vostra produzione.",
@@ -39,8 +41,9 @@ const services = [
   {
     id: 2,
     label: "Revisione",
-    overlayTitle: "Revisione<br />Completa dei<br />Macchinari",
+    overlayTitle: "Revisione Completa <br />dei Macchinari",
     image: "/images/hero-section/luca-foot.webp",
+    class: "services-width",
     imageAlt: "Servizio revisione",
     paragraphs: [
       "L'organizzazione BL Service si prende cura dei propri clienti garantendo standard qualitativi elevati. Le nostre revisioni complete assicurano il perfetto funzionamento dei vostri macchinari e ne prolungano la vita operativa.",
@@ -50,8 +53,9 @@ const services = [
   {
     id: 3,
     label: "Manutenzione",
-    overlayTitle: "Manutenzione<br />Programmata e<br />Preventiva",
+    overlayTitle: "Manutenzione Programmata <br />e Preventiva",
     image: "/images/hero-section/luca-foot.webp",
+    class: "services-width",
     imageAlt: "Servizio manutenzione",
     paragraphs: [
       "BL Service pone particolare attenzione alla manutenzione preventiva e programmata dei vostri impianti. Un piano di manutenzione regolare garantisce efficienza, sicurezza e riduzione dei tempi di fermo macchina.",
@@ -61,8 +65,9 @@ const services = [
   {
     id: 4,
     label: "Vendita Ricambi",
-    overlayTitle: "Vendita<br />Ricambi<br />Originali",
+    overlayTitle: "Vendita Ricambi Originali",
     image: "/images/hero-section/luca-foot.webp",
+    class: "services-width",
     imageAlt: "Vendita ricambi",
     paragraphs: [
       "BL Service dispone di un ampio magazzino ricambi originali per garantire interventi rapidi ed efficaci. Forniamo componenti di qualità certificata per assicurare le massime prestazioni dei vostri macchinari.",
@@ -78,6 +83,13 @@ const services = [
 
   .about {
     margin-bottom: 5rem;
+  }
+
+  // Applica la classe solo agli overlay con classe services-width
+  :deep(.about__overlay.services-width) {
+    @include responsive(lg) {
+      width: 90% !important;
+    }
   }
 }
 </style>
