@@ -3,61 +3,110 @@
     <div class="hero__content">
       <!-- Left side - Text -->
       <div class="hero__text">
-        <p class="hero__intro">BL Service gli Esperti del Taglio.</p>
-        <p class="hero__description">
-          La competenza Tecnica specifica nel Taglio dei Metalli dei nostri
-          Tecnici e gli impianti altamente tecnologici ci consentono di fornire
-          materiali di "Qualità".
-        </p>
+        <p v-if="intro" class="hero__intro">{{ intro }}</p>
+        <p v-if="description" class="hero__description">{{ description }}</p>
         <h1 class="hero__title">
-          <span class="hero__title-line">Partner</span>
-          <span class="hero__title-line">per i Vostri</span>
-          <span class="hero__title-line">Affari</span>
+          <span
+            v-for="(line, index) in titleLines"
+            :key="index"
+            class="hero__title-line"
+          >
+            {{ line }}
+          </span>
         </h1>
       </div>
 
-      <!-- Right side - Image slider -->
+      <!-- Right side - Image or Slider -->
       <div class="hero__image">
-        <div
-          v-for="(slide, index) in slides"
-          :key="index"
-          class="hero__slide"
-          :class="{ 'is-active': currentIndex === index }"
-        >
-          <img :src="slide.image" :alt="slide.alt" />
-        </div>
+        <!-- Slider mode -->
+        <template v-if="hasSlider && slides && slides.length > 0">
+          <div
+            v-for="(slide, index) in slides"
+            :key="index"
+            class="hero__slide"
+            :class="{ 'is-active': currentIndex === index }"
+          >
+            <img :src="slide.image" :alt="slide.alt" />
+          </div>
+        </template>
+
+        <!-- Single image mode -->
+        <template v-else>
+          <img :src="image" :alt="imageAlt" />
+        </template>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-const currentIndex = ref(0);
+const props = defineProps({
+  // Testo introduttivo
+  intro: {
+    type: String,
+    default: "",
+  },
+  // Descrizione
+  description: {
+    type: String,
+    default: "",
+  },
+  // Linee del titolo (array di stringhe)
+  titleLines: {
+    type: Array,
+    required: true,
+    validator: (value) => value.length > 0,
+  },
+  // Modalità slider (true) o immagine singola (false)
+  hasSlider: {
+    type: Boolean,
+    default: false,
+  },
+  // Array di slide per lo slider (se hasSlider = true)
+  slides: {
+    type: Array,
+    default: () => [],
+    validator: (value) => {
+      return value.every((slide) => slide.image && slide.alt);
+    },
+  },
+  // Immagine singola (se hasSlider = false)
+  image: {
+    type: String,
+    default: "",
+  },
+  // Alt dell'immagine singola
+  imageAlt: {
+    type: String,
+    default: "Hero image",
+  },
+  // Intervallo auto-play slider in ms
+  sliderInterval: {
+    type: Number,
+    default: 6000,
+  },
+});
 
-const slides = [
-  {
-    image: "/images/hero-section/luca-above.webp",
-    alt: "Luca fotografato al lavoro dall'alto",
-  },
-  {
-    image: "/images/hero-section/luca-foot.webp",
-    alt: "Luca mentre lavora su un macchinario a binari",
-  },
-];
+// Slider logic (solo se hasSlider = true)
+const currentIndex = ref(0);
+let slideInterval = null;
 
 const nextSlide = () => {
-  currentIndex.value = (currentIndex.value + 1) % slides.length;
+  if (props.slides && props.slides.length > 0) {
+    currentIndex.value = (currentIndex.value + 1) % props.slides.length;
+  }
 };
 
-// Auto-advance slides every 6 seconds
-let slideInterval;
-
 onMounted(() => {
-  slideInterval = setInterval(nextSlide, 6000);
+  if (props.hasSlider && props.slides && props.slides.length > 1) {
+    slideInterval = setInterval(nextSlide, props.sliderInterval);
+  }
 });
 
 onUnmounted(() => {
-  clearInterval(slideInterval);
+  if (slideInterval) {
+    clearInterval(slideInterval);
+  }
 });
 </script>
 
@@ -137,8 +186,16 @@ onUnmounted(() => {
     @include responsive(lg) {
       min-height: auto;
     }
+
+    // Immagine singola
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
+  // Slider
   &__slide {
     @include absolute-fill;
     opacity: 0;

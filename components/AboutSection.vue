@@ -4,15 +4,10 @@
       <!-- Left side - Image with overlay text -->
       <div class="about__visual">
         <div class="about__image">
-          <img src="/images/about-section/main-image.webp" alt="Metal coils" />
+          <img :src="image" :alt="imageAlt" />
         </div>
         <div class="about__overlay">
-          <h2 class="about__title">
-            BL Service<br />
-            Partner<br />
-            per i Vostri<br />
-            Affari
-          </h2>
+          <h2 class="about__title" v-html="overlayTitle"></h2>
         </div>
       </div>
 
@@ -20,25 +15,11 @@
       <div class="about__content">
         <div class="about__upper-container">
           <div class="about__header">
-            <span class="about__label">L' Azienda</span>
+            <span class="about__label">{{ label }}</span>
           </div>
           <div class="about__text">
-            <p>
-              BL Service è una giovane e dinamica Azienda specializzata nella
-              lavorazione e fornitura di Nastri, Bandelle, Lastre in Alluminio &
-              sue Leghe, Rame, Ottone, Lamierino Magnetico in differenti formati
-              e per svariati campi di applicazioni tra cui: Elettriche ed
-              Elettroniche, Automotive, Stampaggio, Tranciatura Minuterie
-              Metalliche.
-            </p>
-            <p>
-              I materiali forniti da BL Service sono lavorati con Impianti
-              muniti di speciali accorgimenti tecnici, l'elevata preparazione ed
-              esperienza dei nostri tecnici consentono alla BL Service di
-              soddisfare le più svariate richieste tecniche di mercato
-              producendo materiale esente Bava e con Bordi Arrotondati
-              particolarmente apprezzati nel settore della produzione di
-              Trasformatori di corrente.
+            <p v-for="(paragraph, index) in paragraphs" :key="index">
+              {{ paragraph }}
             </p>
           </div>
         </div>
@@ -48,6 +29,35 @@
 </template>
 
 <script setup>
+const props = defineProps({
+  // Etichetta nella sezione header (es. "L'Azienda", "Riparazione")
+  label: {
+    type: String,
+    required: true,
+  },
+  // Titolo nell'overlay sopra l'immagine (supporta HTML per <br>)
+  overlayTitle: {
+    type: String,
+    required: true,
+  },
+  // Path dell'immagine
+  image: {
+    type: String,
+    required: true,
+  },
+  // Alt text dell'immagine
+  imageAlt: {
+    type: String,
+    default: "",
+  },
+  // Array di paragrafi di testo
+  paragraphs: {
+    type: Array,
+    required: true,
+    validator: (value) => value.length > 0,
+  },
+});
+
 const sectionRef = ref(null);
 const isVisible = ref(false);
 
@@ -160,7 +170,7 @@ onMounted(() => {
     z-index: 2;
     position: relative;
 
-    // Overlay bianco che copre l'immagine inizialmente
+    // Overlay scuro che copre l'immagine inizialmente
     &::before {
       content: "";
       position: absolute;
