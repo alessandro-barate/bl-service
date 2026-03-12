@@ -2,8 +2,8 @@
   <section class="hero">
     <div class="hero__content">
       <!-- Left side - Text -->
-      <div class="hero__text">
-        <p v-if="intro" class="hero__intro">{{ intro }}</p>
+      <div class="hero__text" :class="{ 'hero__text--no-intro': !hasIntro }">
+        <p v-if="hasIntro && intro" class="hero__intro">{{ intro }}</p>
         <p v-if="description" class="hero__description">{{ description }}</p>
         <h1 class="hero__title">
           <span
@@ -41,6 +41,11 @@
 
 <script setup>
 const props = defineProps({
+  // Variabile per mostrare l'intro
+  hasIntro: {
+    type: Boolean,
+    default: true,
+  },
   // Testo introduttivo
   intro: {
     type: String,
@@ -135,6 +140,19 @@ onUnmounted(() => {
 
     @include responsive(lg) {
       padding: calc($header-height + $spacing-7xl) $spacing-3xl $spacing-4xl;
+    }
+
+    // Quando non c'è l'intro, riduci il padding superiore
+    &--no-intro {
+      padding-top: 0;
+
+      @include responsive(lg) {
+        padding-top: 0;
+      }
+
+      .hero__description {
+        margin-bottom: $spacing-lg;
+      }
     }
   }
 

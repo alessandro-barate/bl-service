@@ -21,9 +21,8 @@
           Servizi
         </h2>
         <p class="services__description">
-          ALUPOWER, la nostra linea progettata in collaborazione con i nostri
-          maggiori fornitori al fine di soddisfare particolari esigenze tecniche
-          ove sono necessari elevati valori di Conducibilità Elettrica.
+          La professionalità di Bl Service permette di fornire una vasta gamma
+          di servizi per la Vostra Azienda.
         </p>
         <BtnOutline
           :dark="true"

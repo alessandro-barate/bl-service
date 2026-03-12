@@ -18,15 +18,22 @@
           <div class="contact-panel__scroll">
             <!-- Call section -->
             <div class="contact-panel__section">
-              <span class="contact-panel__label">CHIAMACI</span>
+              <p class="contact-panel__label uppercase">chiamaci</p>
               <a href="tel:+393341823595" class="contact-panel__phone">
                 +39 3341823595
               </a>
-              <span class="contact-panel__sublabel">Centralino</span>
+              <p class="contact-panel__sublabel">Centralino</p>
+              <p class="contact-panel__label uppercase">scrivici</p>
+              <a
+                href="mailto:blservice.bianchi@gmail.com"
+                class="contact-panel__mail"
+                >blservice.bianchi@gmail.com</a
+              >
+              <p class="contact-panel__sublabel">Casella mail</p>
             </div>
 
             <!-- Form section -->
-            <div class="contact-panel__section">
+            <!-- <div class="contact-panel__section">
               <span class="contact-panel__label">SCRIVICI</span>
               <form class="contact-panel__form" @submit.prevent="submitForm">
                 <div class="contact-panel__field">
@@ -72,7 +79,7 @@
                   </button>
                 </div>
               </form>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -83,12 +90,12 @@
 <script setup>
 const isOpen = ref(false);
 
-const form = reactive({
-  name: "",
-  email: "",
-  phone: "",
-  message: "",
-});
+// const form = reactive({
+//   name: "",
+//   email: "",
+//   phone: "",
+//   message: "",
+// });
 
 const openPanel = () => {
   isOpen.value = true;
@@ -100,12 +107,12 @@ const closePanel = () => {
   document.body.style.overflow = "";
 };
 
-const submitForm = () => {
-  console.log("Form submitted:", form);
-  // Reset form
-  Object.keys(form).forEach((key) => (form[key] = ""));
-  closePanel();
-};
+// const submitForm = () => {
+//   console.log("Form submitted:", form);
+//   // Reset form
+//   Object.keys(form).forEach((key) => (form[key] = ""));
+//   closePanel();
+// };
 
 // Expose methods
 defineExpose({ openPanel, closePanel });
@@ -192,10 +199,11 @@ defineExpose({ openPanel, closePanel });
   // Wrapper scrollabile interno
   &__scroll {
     height: 100%;
-    padding: $spacing-3xl;
+    padding: 10rem 6rem 10rem 6rem;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     overflow-y: auto;
+    justify-content: center;
   }
 
   &__close {
@@ -230,92 +238,117 @@ defineExpose({ openPanel, closePanel });
 
   &__label {
     display: block;
-    font-size: $font-size-xs;
-    font-weight: $font-weight-semibold;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-medium;
     letter-spacing: 0.15em;
     margin-bottom: $spacing-md;
   }
 
-  &__phone {
+  &__phone,
+  &__mail {
+    color: rgba(43, 43, 43, 0.808);
     display: block;
     font-size: clamp(1.5rem, 4vw, 2.5rem);
     font-weight: $font-weight-light;
-    margin-bottom: $spacing-xs;
-    transition: opacity $transition-base;
+    position: relative;
+
+    // Underline animato
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 8px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: currentColor;
+      transition: width 0.5s ease-out;
+    }
 
     &:hover {
-      opacity: 0.7;
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &__mail {
+    margin-bottom: 0.6rem;
+    font-size: $font-size-2xl;
+
+    &::after {
+      bottom: 0px;
     }
   }
 
   &__sublabel {
     font-size: $font-size-sm;
     color: $color-text-light;
+    margin-bottom: 5rem;
   }
 
-  &__form {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-lg;
-  }
+  // &__form {
+  //   display: flex;
+  //   flex-direction: column;
+  //   gap: $spacing-lg;
+  // }
 
-  &__field {
-    input,
-    textarea {
-      width: 100%;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-      padding: $spacing-sm 0;
-      font-family: inherit;
-      font-size: $font-size-base;
-      transition: border-color $transition-base;
+  // &__field {
+  //   input,
+  //   textarea {
+  //     width: 100%;
+  //     background: transparent;
+  //     border: none;
+  //     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  //     padding: $spacing-sm 0;
+  //     font-family: inherit;
+  //     font-size: $font-size-base;
+  //     transition: border-color $transition-base;
 
-      &::placeholder {
-        color: $color-text-light;
-      }
+  //     &::placeholder {
+  //       color: $color-text-light;
+  //     }
 
-      &:focus {
-        outline: none;
-        border-bottom-color: $color-dark;
-      }
-    }
+  //     &:focus {
+  //       outline: none;
+  //       border-bottom-color: $color-dark;
+  //     }
+  //   }
 
-    textarea {
-      resize: vertical;
-      min-height: 80px;
-    }
-  }
+  //   textarea {
+  //     resize: vertical;
+  //     min-height: 80px;
+  //   }
+  // }
 
-  &__footer {
-    margin-top: auto;
-    padding-top: $spacing-xl;
-  }
+  // &__footer {
+  //   margin-top: auto;
+  //   padding-top: $spacing-xl;
+  // }
 
-  &__privacy {
-    font-size: $font-size-xs;
-    line-height: 1.5;
-    margin-bottom: $spacing-lg;
+  // &__privacy {
+  //   font-size: $font-size-xs;
+  //   line-height: 1.5;
+  //   margin-bottom: $spacing-lg;
 
-    a {
-      text-decoration: underline;
-    }
-  }
+  //   a {
+  //     text-decoration: underline;
+  //   }
+  // }
 
-  &__submit {
-    background: none;
-    border: none;
-    font-size: $font-size-sm;
-    font-weight: $font-weight-semibold;
-    letter-spacing: 0.1em;
-    text-decoration: underline;
-    cursor: pointer;
-    transition: opacity $transition-base;
+  // &__submit {
+  //   background: none;
+  //   border: none;
+  //   font-size: $font-size-sm;
+  //   font-weight: $font-weight-semibold;
+  //   letter-spacing: 0.1em;
+  //   text-decoration: underline;
+  //   cursor: pointer;
+  //   transition: opacity $transition-base;
 
-    &:hover {
-      opacity: 0.7;
-    }
-  }
+  //   &:hover {
+  //     opacity: 0.7;
+  //   }
+  // }
 }
 
 // Panel transitions

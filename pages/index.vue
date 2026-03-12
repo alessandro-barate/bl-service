@@ -5,7 +5,7 @@
       description="La competenza Tecnica specifica nel Taglio dei Metalli dei nostri
           Tecnici e gli impianti altamente tecnologici ci consentono di fornire
           materiali di Qualità."
-      :titleLines="['Partner', 'per i Vostri', 'Affari']"
+      :titleLines="['Partner', 'per i Tuoi', 'Affari']"
       :hasSlider="true"
       :slides="[
         {

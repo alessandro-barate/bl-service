@@ -2,9 +2,9 @@
   <main class="services-page">
     <!-- Hero Section -->
     <HeroSection
-      intro="BL Service i Professionisti della Meccanica."
+      :hasIntro="false"
       description="La competenza tecnica specifica dei nostri tecnici e gli impianti altamente tecnologici ci consentono di fornire servizi di qualità per tutti i vostri macchinari di lavorazione meccanica."
-      :titleLines="['Servizi', 'Completi per', 'la Vostra Produzione']"
+      :titleLines="['Servizi', 'Completi per la Tua', 'Azienda']"
       :hasSlider="false"
       image="/images/hero-section/luca-foot.webp"
       imageAlt="Servizi BL Service"
