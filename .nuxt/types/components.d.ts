@@ -23,6 +23,7 @@ interface _GlobalComponents {
   ContactSidebar: typeof import("../../components/ContactSidebar.vue")['default']
   CookiesPanel: typeof import("../../components/CookiesPanel.vue")['default']
   HeroSection: typeof import("../../components/HeroSection.vue")['default']
+  ManufactoringSection: typeof import("../../components/ManufactoringSection.vue")['default']
   MaterialsSection: typeof import("../../components/MaterialsSection.vue")['default']
   Preloader: typeof import("../../components/Preloader.vue")['default']
   PrivacyPanel: typeof import("../../components/PrivacyPanel.vue")['default']
@@ -66,6 +67,7 @@ interface _GlobalComponents {
   LazyContactSidebar: LazyComponent<typeof import("../../components/ContactSidebar.vue")['default']>
   LazyCookiesPanel: LazyComponent<typeof import("../../components/CookiesPanel.vue")['default']>
   LazyHeroSection: LazyComponent<typeof import("../../components/HeroSection.vue")['default']>
+  LazyManufactoringSection: LazyComponent<typeof import("../../components/ManufactoringSection.vue")['default']>
   LazyMaterialsSection: LazyComponent<typeof import("../../components/MaterialsSection.vue")['default']>
   LazyPreloader: LazyComponent<typeof import("../../components/Preloader.vue")['default']>
   LazyPrivacyPanel: LazyComponent<typeof import("../../components/PrivacyPanel.vue")['default']>

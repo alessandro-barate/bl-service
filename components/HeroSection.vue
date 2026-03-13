@@ -151,7 +151,7 @@ onUnmounted(() => {
       }
 
       .hero__description {
-        margin-bottom: $spacing-lg;
+        margin-bottom: $spacing-3xl;
       }
     }
   }
