@@ -32,7 +32,7 @@ const areas = [
     id: 1,
     image: "/images/quality-section/tornio-circolare.webp",
     imageAlt: "Automotive - Cerchione AMG",
-    title: "Automotive",
+    title: "Riparazione",
     subtitle: "Il Materiale idoneo per lavorazioni Complesse",
     paragraphs: [
       "BL Service è in grado di fornire materiali specificatamente progettati per lavorazioni ove sono necessari elevati indici di imbutitura.",
@@ -45,7 +45,7 @@ const areas = [
     id: 2,
     image: "/images/quality-section/tornio-circolare.webp",
     imageAlt: "Trasformatori Elettrici",
-    title: "Trasformatori Elettrici",
+    title: "Revisione",
     subtitle: "BL Service il Fornitore che cercavi",
     paragraphs: [
       "BL Service specializzata nel taglio e fornitura di materiale Garantito Esente 'Bava' e con 'Bordi Arrotondati' particolarmente apprezzati dai produttori di Trasformatori di Corrente.",
@@ -57,7 +57,19 @@ const areas = [
     id: 3,
     image: "/images/quality-section/tornio-circolare.webp",
     imageAlt: "Stampaggio e Tranceria",
-    title: "Stampaggio, Tranceria, Minuterie Metalliche",
+    title: "Manutenzione",
+    subtitle: "BL Service quando necessiti di precisione",
+    paragraphs: [
+      "BL Service grazie all'esperienza dei propri Tecnici e l'ampia gamma di attrezzature disponibili è in grado di Garantire ai propri Clienti Precisione ed Accuratezza del taglio.",
+    ],
+    icon: "/images/icons/stamping-icon.svg",
+    iconAlt: "Icona Stampaggio",
+  },
+  {
+    id: 4,
+    image: "/images/quality-section/tornio-circolare.webp",
+    imageAlt: "Stampaggio e Tranceria",
+    title: "Vendita Ricambi",
     subtitle: "BL Service quando necessiti di precisione",
     paragraphs: [
       "BL Service grazie all'esperienza dei propri Tecnici e l'ampia gamma di attrezzature disponibili è in grado di Garantire ai propri Clienti Precisione ed Accuratezza del taglio.",

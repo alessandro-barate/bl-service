@@ -1,56 +1,72 @@
 <template>
   <section
     ref="sectionRef"
-    class="manufactorings-section"
+    class="manufactorings"
     :class="{ 'is-visible': isVisible }"
   >
-    <div class="manufactorings-section__container">
-      <!-- Immagine di sfondo -->
-      <div class="manufactorings-section__image">
-        <img :src="image" :alt="imageAlt" />
+    <div class="manufactorings__container">
+      <!-- Left side - Image with overlay text -->
+      <div class="manufactorings__visual">
+        <div class="manufactorings__image">
+          <img :src="image" :alt="imageAlt" />
+        </div>
+        <div class="manufactorings__overlay" :class="props.class">
+          <img class="manufactorings__icon" v-html="overlayTitle">{{icon}}</img>
+        </div>
       </div>
 
-      <!-- Contenuto testuale -->
-      <div class="manufactorings-section__content">
-        <h2 class="manufactorings-section__title">{{ title }}</h2>
-        <h3 class="manufactorings-section__subtitle">{{ subtitle }}</h3>
-        <p
-          v-for="(paragraph, index) in paragraphs"
-          :key="index"
-          class="manufactorings-section__paragraph"
-        >
-          {{ paragraph }}
-        </p>
-      </div>
-
-      <!-- Box con icona -->
-      <div class="manufactorings-section__icon-box">
-        <img :src="icon" :alt="iconAlt" class="manufactorings-section__icon" />
+      <!-- Right side - Text content -->
+      <div class="manufactorings__content">
+        <div class="manufactorings__upper-container">
+          <div class="manufactorings__header">
+            <h2 class="manufactorings__title">{{ title }}</h2>
+            <p class="manufactorings__subtitle">{{ subtitle }}</p>
+          </div>
+          <div class="manufactorings__text">
+            <p v-for="(paragraph, index) in paragraphs" :key="index">
+              {{ paragraph }}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
+import IconManutenzione from "~/components/icons/IconManutenzione.vue";
+
+const icons = [
+  {
+    icon: IconManutenzione,
+  },
+];
+
 const props = defineProps({
-  // Immagine principale (es. cerchione AMG)
-  image: {
-    type: String,
-    required: true,
-  },
-  imageAlt: {
-    type: String,
-    default: "Area image",
-  },
-  // Titolo principale (es. "Automotive")
+  // Etichetta nella sezione header (es. "L'Azienda", "Riparazione")
   title: {
     type: String,
     required: true,
   },
-  // Sottotitolo (es. "Il Materiale idoneo per lavorazioni Complesse")
+  // Titolo nell'overlay sopra l'immagine (supporta HTML per <br>)
   subtitle: {
     type: String,
     required: true,
+  },
+  // Path dell'immagine
+  image: {
+    type: String,
+    required: true,
+  },
+  //Classe per styling
+  class: {
+    type: String,
+    default: "",
+  },
+  // Alt text dell'immagine
+  imageAlt: {
+    type: String,
+    default: "",
   },
   // Array di paragrafi di testo
   paragraphs: {
@@ -58,14 +74,14 @@ const props = defineProps({
     required: true,
     validator: (value) => value.length > 0,
   },
-  // Icona/simbolo nel box nero
+  // Icona della sezione
   icon: {
     type: String,
-    required: true,
+    required: false, // Cambiare poi in true
   },
+  // Alt dell'icona
   iconAlt: {
     type: String,
-    default: "Area icon",
   },
 });
 
@@ -108,28 +124,21 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.manufactorings-section {
-  width: 100%;
-  position: relative;
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
+.manufactorings {
+  margin-bottom: 7rem;
+  padding-right: $sidebar-width;
   opacity: 0;
   transform: translateY(80px);
   transition:
     opacity 0.8s ease,
     transform 0.8s ease;
 
-  @include responsive(lg) {
-    min-height: 78vh;
-  }
-
   &.is-visible {
     opacity: 1;
     transform: translateY(0);
 
     // Animazione immagine da sinistra
-    .manufactorings-section__image {
+    .manufactorings__image {
       &::before {
         transform: translateX(100%);
       }
@@ -142,7 +151,7 @@ onMounted(() => {
 
   // Stato quando non è visibile - reset dell'immagine
   &:not(.is-visible) {
-    .manufactorings-section__image {
+    .manufactorings__image {
       &::before {
         transform: translateX(0);
       }
@@ -154,33 +163,26 @@ onMounted(() => {
   }
 
   &__container {
-    width: 100%;
-    position: relative;
     display: grid;
     grid-template-columns: 1fr;
-    align-items: center;
-    gap: $spacing-2xl;
+    gap: $spacing-3xl;
 
     @include responsive(lg) {
-      grid-template-columns: 40% 60%;
-      gap: 0;
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-4xl;
     }
   }
 
-  &__image {
+  &__visual {
+    width: 86%;
     position: relative;
-    width: 100%;
-    height: 60vh;
+  }
+
+  &__image {
+    aspect-ratio: 4/3;
     overflow: hidden;
     z-index: 2;
-
-    @include responsive(lg) {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 50%;
-      height: 75%;
-    }
+    position: relative;
 
     // Overlay scuro che copre l'immagine inizialmente
     &::before {
@@ -188,7 +190,7 @@ onMounted(() => {
       position: absolute;
       top: 0;
       left: 0;
-      width: 78%;
+      width: 100%;
       height: 100%;
       background: $color-dark;
       z-index: 3;
@@ -198,7 +200,7 @@ onMounted(() => {
     }
 
     img {
-      width: 82%;
+      width: 100%;
       height: 100%;
       object-fit: cover;
       transform: translateX(-30px);
@@ -207,73 +209,90 @@ onMounted(() => {
     }
   }
 
-  &__content {
-    padding: $spacing-2xl $spacing-xl;
+  &__overlay {
     position: relative;
-    z-index: 2;
+    top: -115px;
+    left: $spacing-xl;
+    right: $spacing-xl;
+    background: $color-dark;
+    color: $color-white;
+    padding: 7rem 3rem 3rem 3rem;
+    transform: translateY(30%);
 
     @include responsive(lg) {
-      grid-column: 2;
-      padding: $spacing-xl $spacing-3xl;
-      max-width: 600px;
-      margin-left: 25%;
-      bottom: 5rem;
+      left: auto;
+      left: 240px;
+      width: 80%;
     }
   }
 
   &__title {
-    font-size: clamp(2rem, 5vw, 4rem);
+    font-size: clamp(4.5rem, 4vw, 4.5rem);
     font-weight: $font-weight-light;
-    margin-bottom: $spacing-lg;
-    line-height: 1.2;
+    line-height: 1.3;
+    margin-bottom: 1rem;
   }
 
   &__subtitle {
-    font-size: $font-size-lg;
-    font-weight: $font-weight-normal;
-    color: $color-text-light;
-    margin-bottom: $spacing-2xl;
-    line-height: 1.4;
+    font-size: 1.15rem;
+    font-weight: $font-weight-medium;
   }
 
-  &__paragraph {
-    font-size: $font-size-base;
-    line-height: 1.8;
-    color: $color-text-light;
-    margin-bottom: $spacing-lg;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  &__icon-box {
-    position: absolute;
-    bottom: $spacing-3xl;
-    left: $spacing-xl;
-    width: 120px;
-    height: 120px;
-    background-color: #1a1a1a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3;
+  &__content {
+    padding: $spacing-xl;
 
     @include responsive(lg) {
-      bottom: 16rem;
-      left: 33%;
-      transform: translateX(-50%);
-      width: 430px;
-      height: 300px;
-      z-index: -1;
+      padding: 6rem 0rem 0rem 7rem;
     }
   }
 
-  &__icon {
-    width: 60%;
-    height: 60%;
-    object-fit: contain;
-    filter: invert(1); // Rende l'icona bianca se è nera
+  &__upper-container {
+    width: 100%;
+  }
+
+  &__header {
+    width: 100%;
+    margin-bottom: $spacing-2xl;
+    padding-right: 1rem;
+    padding-bottom: $spacing-md;
+  }
+
+  &__label {
+    width: 100%;
+    display: inline-block;
+    font-size: $font-size-base;
+    letter-spacing: 0.18rem;
+    font-weight: $font-weight-medium;
+    color: $color-copper;
+    border-bottom: 1px solid transparent;
+    position: relative;
+
+    // Border animato da destra a sinistra
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 1px;
+      background-color: $color-copper;
+      transition: width 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+  }
+
+  &__text {
+    width: 80%;
+    margin-bottom: $spacing-2xl;
+
+    p {
+      margin-bottom: $spacing-lg;
+      line-height: 1.8;
+      color: $color-text-light;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 }
 </style>
