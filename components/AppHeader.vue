@@ -392,6 +392,7 @@ onUnmounted(() => {
     .menu-overlay__blur-backdrop {
       opacity: 1;
       pointer-events: auto;
+      z-index: 1;
     }
 
     // Reveal sinistro: perde i pointer-events
@@ -405,6 +406,7 @@ onUnmounted(() => {
     .menu-overlay__panel {
       transform: scaleX(1);
       pointer-events: auto;
+      z-index: 3;
     }
 
     // Linea header

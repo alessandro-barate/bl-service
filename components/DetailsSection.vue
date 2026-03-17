@@ -216,16 +216,15 @@ onMounted(() => {
 
   &__overlay {
     position: relative;
-    bottom: 10rem;
+    bottom: 3rem;
     background: $color-dark;
     color: $color-white;
     padding: 0;
-    transform: translateY(30%);
     z-index: 2;
 
     @include responsive(lg) {
-      left: 500px;
-      width: 26%;
+      left: 90%;
+      width: 35%;
     }
   }
 
