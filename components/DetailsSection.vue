@@ -1,28 +1,35 @@
 <template>
   <section
     ref="sectionRef"
-    class="manufactorings"
+    class="details"
     :class="{ 'is-visible': isVisible }"
   >
-    <div class="manufactorings__container">
+    <div class="details__container">
       <!-- Left side - Image with overlay text -->
-      <div class="manufactorings__visual">
-        <div class="manufactorings__image">
+      <div class="details__visual">
+        <div class="details__image">
           <img :src="image" :alt="imageAlt" />
         </div>
-        <div class="manufactorings__overlay" :class="props.class">
-          <img class="manufactorings__icon" v-html="overlayTitle">{{icon}}</img>
+        <div class="details__overlay" :class="props.class">
+          <!-- Se icon è un componente Vue, usa component, altrimenti usa img -->
+          <component
+            v-if="typeof icon !== 'string'"
+            class="details__icon"
+            :is="icon"
+            v-bind="iconProps"
+          />
+          <img v-else class="details__icon" :src="icon" :alt="iconAlt" />
         </div>
       </div>
 
       <!-- Right side - Text content -->
-      <div class="manufactorings__content">
-        <div class="manufactorings__upper-container">
-          <div class="manufactorings__header">
-            <h2 class="manufactorings__title">{{ title }}</h2>
-            <p class="manufactorings__subtitle">{{ subtitle }}</p>
+      <div class="details__content">
+        <div class="details__upper-container">
+          <div class="details__header">
+            <h2 class="details__title">{{ title }}</h2>
+            <p class="details__subtitle">{{ subtitle }}</p>
           </div>
-          <div class="manufactorings__text">
+          <div class="details__text">
             <p v-for="(paragraph, index) in paragraphs" :key="index">
               {{ paragraph }}
             </p>
@@ -34,14 +41,6 @@
 </template>
 
 <script setup>
-import IconManutenzione from "~/components/icons/IconManutenzione.vue";
-
-const icons = [
-  {
-    icon: IconManutenzione,
-  },
-];
-
 const props = defineProps({
   // Etichetta nella sezione header (es. "L'Azienda", "Riparazione")
   title: {
@@ -74,14 +73,20 @@ const props = defineProps({
     required: true,
     validator: (value) => value.length > 0,
   },
-  // Icona della sezione
+  // Icona della sezione (può essere un componente Vue o un path stringa)
   icon: {
-    type: String,
-    required: false, // Cambiare poi in true
+    type: [String, Object],
+    required: true,
   },
-  // Alt dell'icona
+  // Alt dell'icona (usato solo se icon è una stringa/path)
   iconAlt: {
     type: String,
+    default: "",
+  },
+  // Props da passare al componente icona (opzionale)
+  iconProps: {
+    type: Object,
+    default: () => ({}),
   },
 });
 
@@ -124,7 +129,7 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.manufactorings {
+.details {
   margin-bottom: 7rem;
   padding-right: $sidebar-width;
   opacity: 0;
@@ -138,7 +143,7 @@ onMounted(() => {
     transform: translateY(0);
 
     // Animazione immagine da sinistra
-    .manufactorings__image {
+    .details__image {
       &::before {
         transform: translateX(100%);
       }
@@ -151,7 +156,7 @@ onMounted(() => {
 
   // Stato quando non è visibile - reset dell'immagine
   &:not(.is-visible) {
-    .manufactorings__image {
+    .details__image {
       &::before {
         transform: translateX(0);
       }
@@ -174,7 +179,7 @@ onMounted(() => {
   }
 
   &__visual {
-    width: 86%;
+    width: 83%;
     position: relative;
   }
 
@@ -211,19 +216,22 @@ onMounted(() => {
 
   &__overlay {
     position: relative;
-    top: -115px;
-    left: $spacing-xl;
-    right: $spacing-xl;
+    bottom: 10rem;
     background: $color-dark;
     color: $color-white;
-    padding: 7rem 3rem 3rem 3rem;
+    padding: 0;
     transform: translateY(30%);
+    z-index: 2;
 
     @include responsive(lg) {
-      left: auto;
-      left: 240px;
-      width: 80%;
+      left: 500px;
+      width: 26%;
     }
+  }
+
+  &__icon {
+    width: 100%;
+    aspect-ratio: 1 / 1;
   }
 
   &__title {

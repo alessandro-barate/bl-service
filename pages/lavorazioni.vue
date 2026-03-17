@@ -7,80 +7,100 @@
       :titleLines="['Tutte le', 'Nostre Lavorazioni']"
       :hasSlider="false"
       image="/images/hero-section/luca-foot.webp"
-      imageAlt="Le lavorazioni che esegue BL Service"
+      imageAlt="Servizi BL Service"
     />
 
-    <!-- Sezione delle lavorazioni -->
-    <ManufactoringSection
-      v-for="area in areas"
-      :key="area.id"
-      :image="area.image"
-      :imageAlt="area.imageAlt"
-      :title="area.title"
-      :subtitle="area.subtitle"
-      :paragraphs="area.paragraphs"
-      :icon="area.icon"
-      :iconAlt="area.iconAlt"
+    <!-- Service Sections -->
+    <DetailsSection
+      v-for="detail in details"
+      :key="detail.id"
+      :image="detail.image"
+      :imageAlt="detail.imageAlt"
+      :title="detail.title"
+      :subtitle="detail.subtitle"
+      :class="detail.class"
+      :icon="detail.icon"
+      :paragraphs="detail.paragraphs"
     />
   </main>
 </template>
-<script setup>
-import ManufactoringSection from "../components/ManufactoringSection.vue";
 
-const areas = [
+<script setup>
+import IconNumber1 from "~/components/icons/numbers/IconNumber1.vue";
+import IconNumber2 from "~/components/icons/numbers/IconNumber2.vue";
+import IconNumber3 from "~/components/icons/numbers/IconNumber3.vue";
+import IconNumber4 from "~/components/icons/numbers/IconNumber4.vue";
+
+const details = [
   {
     id: 1,
-    image: "/images/quality-section/tornio-circolare.webp",
-    imageAlt: "Automotive - Cerchione AMG",
-    title: "Riparazione",
-    subtitle: "Il Materiale idoneo per lavorazioni Complesse",
+    overlayTitle: "Lavorazione 1",
+    title: "Ripristino geometrie",
+    subtitle: "Il ripristino geometrie di BL Service",
+    image: "/images/hero-section/luca-foot.webp",
+    class: "manufactorings-width",
+    imageAlt: "Servizio riparazione",
     paragraphs: [
-      "BL Service è in grado di fornire materiali specificatamente progettati per lavorazioni ove sono necessari elevati indici di imbutitura.",
-      "Primari produttori di materia prima sono stati selezionati dall'ufficio Tecnico BL Service al fine di garantire materiali ad elevato indice di lavorabilità destinati a lavorazioni di deformazioni particolarmente complesse.",
+      "BL Service offre un servizio di riparazione completo per macchinari di lavorazione meccanica. I nostri tecnici specializzati intervengono con rapidità e precisione per garantire la continuità operativa della vostra produzione.",
+      "Disponiamo di attrezzature all'avanguardia e di un team esperto in grado di diagnosticare e risolvere qualsiasi problema tecnico, riducendo al minimo i tempi di fermo macchina.",
     ],
-    icon: "/images/icons/automotive-icon.svg",
-    iconAlt: "Icona Automotive",
+    icon: IconNumber1,
   },
   {
     id: 2,
-    image: "/images/quality-section/tornio-circolare.webp",
-    imageAlt: "Trasformatori Elettrici",
-    title: "Revisione",
-    subtitle: "BL Service il Fornitore che cercavi",
+    label: "Revisione",
+    overlayTitle: "Lavorazione 2",
+    image: "/images/hero-section/luca-foot.webp",
+    class: "manufactorings-width",
+    imageAlt: "Servizio revisione",
     paragraphs: [
-      "BL Service specializzata nel taglio e fornitura di materiale Garantito Esente 'Bava' e con 'Bordi Arrotondati' particolarmente apprezzati dai produttori di Trasformatori di Corrente.",
+      "L'organizzazione BL Service si prende cura dei propri clienti garantendo standard qualitativi elevati. Le nostre revisioni complete assicurano il perfetto funzionamento dei vostri macchinari e ne prolungano la vita operativa.",
+      "Ogni revisione include controlli approfonditi, sostituzione delle parti usurate e ottimizzazione delle prestazioni secondo gli standard del costruttore.",
     ],
-    icon: "/images/icons/transformer-icon.svg",
-    iconAlt: "Icona Trasformatori",
+    icon: IconNumber2,
   },
   {
     id: 3,
-    image: "/images/quality-section/tornio-circolare.webp",
-    imageAlt: "Stampaggio e Tranceria",
-    title: "Manutenzione",
-    subtitle: "BL Service quando necessiti di precisione",
+    label: "Manutenzione",
+    overlayTitle: "Lavorazione 3",
+    image: "/images/hero-section/luca-foot.webp",
+    class: "manufactorings-width",
+    imageAlt: "Servizio manutenzione",
     paragraphs: [
-      "BL Service grazie all'esperienza dei propri Tecnici e l'ampia gamma di attrezzature disponibili è in grado di Garantire ai propri Clienti Precisione ed Accuratezza del taglio.",
+      "BL Service pone particolare attenzione alla manutenzione preventiva e programmata dei vostri impianti. Un piano di manutenzione regolare garantisce efficienza, sicurezza e riduzione dei tempi di fermo macchina.",
+      "I nostri programmi di manutenzione personalizzati permettono di pianificare gli interventi in modo da minimizzare l'impatto sulla produzione e massimizzare la durata dei macchinari.",
     ],
-    icon: "/images/icons/stamping-icon.svg",
-    iconAlt: "Icona Stampaggio",
+    icon: IconNumber3,
   },
   {
     id: 4,
-    image: "/images/quality-section/tornio-circolare.webp",
-    imageAlt: "Stampaggio e Tranceria",
-    title: "Vendita Ricambi",
-    subtitle: "BL Service quando necessiti di precisione",
+    label: "Lavorazione 4",
+    overlayTitle: "Vendita Ricambi Originali",
+    image: "/images/hero-section/luca-foot.webp",
+    class: "manufactorings-width",
+    imageAlt: "Vendita ricambi",
     paragraphs: [
-      "BL Service grazie all'esperienza dei propri Tecnici e l'ampia gamma di attrezzature disponibili è in grado di Garantire ai propri Clienti Precisione ed Accuratezza del taglio.",
+      "BL Service dispone di un ampio magazzino ricambi originali per garantire interventi rapidi ed efficaci. Forniamo componenti di qualità certificata per assicurare le massime prestazioni dei vostri macchinari.",
+      "Il nostro stock include ricambi per tutte le principali marche di macchinari di lavorazione meccanica, con consegne rapide per ridurre al minimo i tempi di attesa.",
     ],
-    icon: "/images/icons/stamping-icon.svg",
-    iconAlt: "Icona Stampaggio",
+    icon: IconNumber4,
   },
 ];
 </script>
+
 <style lang="scss" scoped>
-.manufactorings-content {
+.details-page {
   width: 100%;
+
+  .about {
+    margin-bottom: 5rem;
+  }
+
+  // Applica la classe solo agli overlay con classe manufactorings-width
+  :deep(.about__overlay.manufactorings-width) {
+    @include responsive(lg) {
+      width: 90% !important;
+    }
+  }
 }
 </style>

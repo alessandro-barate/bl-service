@@ -128,7 +128,7 @@ onUnmounted(() => {
     grid-template-columns: 1fr;
 
     @include responsive(lg) {
-      grid-template-columns: 40% 60%;
+      grid-template-columns: 39% 61%;
     }
   }
 

@@ -32,7 +32,7 @@
     <CarouselSection />
     <MaterialsSection />
     <AreasSection />
-    <ServicesSection />
+    <ManufactoringsSection />
     <QualitySection />
   </div>
 </template>

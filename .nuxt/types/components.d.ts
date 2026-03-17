@@ -22,19 +22,21 @@ interface _GlobalComponents {
   CarouselSection: typeof import("../../components/CarouselSection.vue")['default']
   ContactSidebar: typeof import("../../components/ContactSidebar.vue")['default']
   CookiesPanel: typeof import("../../components/CookiesPanel.vue")['default']
+  DetailsSection: typeof import("../../components/DetailsSection.vue")['default']
   HeroSection: typeof import("../../components/HeroSection.vue")['default']
-  ManufactoringSection: typeof import("../../components/ManufactoringSection.vue")['default']
+  ManufactoringsSection: typeof import("../../components/ManufactoringsSection.vue")['default']
   MaterialsSection: typeof import("../../components/MaterialsSection.vue")['default']
   Preloader: typeof import("../../components/Preloader.vue")['default']
   PrivacyPanel: typeof import("../../components/PrivacyPanel.vue")['default']
   QualitySection: typeof import("../../components/QualitySection.vue")['default']
   ServicesSection: typeof import("../../components/ServicesSection.vue")['default']
-  IconsIconAlupower: typeof import("../../components/icons/IconAlupower.vue")['default']
-  IconsIconLastra: typeof import("../../components/icons/IconLastra.vue")['default']
   IconsIconManutenzione: typeof import("../../components/icons/IconManutenzione.vue")['default']
   IconsIconMontaggi: typeof import("../../components/icons/IconMontaggi.vue")['default']
-  IconsIconNastro: typeof import("../../components/icons/IconNastro.vue")['default']
   IconsIconPrecisione: typeof import("../../components/icons/IconPrecisione.vue")['default']
+  IconsNumbersIconNumber1: typeof import("../../components/icons/numbers/IconNumber1.vue")['default']
+  IconsNumbersIconNumber2: typeof import("../../components/icons/numbers/IconNumber2.vue")['default']
+  IconsNumbersIconNumber3: typeof import("../../components/icons/numbers/IconNumber3.vue")['default']
+  IconsNumbersIconNumber4: typeof import("../../components/icons/numbers/IconNumber4.vue")['default']
   NuxtWelcome: typeof import("../../node_modules/nuxt/dist/app/components/welcome.vue")['default']
   NuxtLayout: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
   NuxtErrorBoundary: typeof import("../../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
@@ -66,19 +68,21 @@ interface _GlobalComponents {
   LazyCarouselSection: LazyComponent<typeof import("../../components/CarouselSection.vue")['default']>
   LazyContactSidebar: LazyComponent<typeof import("../../components/ContactSidebar.vue")['default']>
   LazyCookiesPanel: LazyComponent<typeof import("../../components/CookiesPanel.vue")['default']>
+  LazyDetailsSection: LazyComponent<typeof import("../../components/DetailsSection.vue")['default']>
   LazyHeroSection: LazyComponent<typeof import("../../components/HeroSection.vue")['default']>
-  LazyManufactoringSection: LazyComponent<typeof import("../../components/ManufactoringSection.vue")['default']>
+  LazyManufactoringsSection: LazyComponent<typeof import("../../components/ManufactoringsSection.vue")['default']>
   LazyMaterialsSection: LazyComponent<typeof import("../../components/MaterialsSection.vue")['default']>
   LazyPreloader: LazyComponent<typeof import("../../components/Preloader.vue")['default']>
   LazyPrivacyPanel: LazyComponent<typeof import("../../components/PrivacyPanel.vue")['default']>
   LazyQualitySection: LazyComponent<typeof import("../../components/QualitySection.vue")['default']>
   LazyServicesSection: LazyComponent<typeof import("../../components/ServicesSection.vue")['default']>
-  LazyIconsIconAlupower: LazyComponent<typeof import("../../components/icons/IconAlupower.vue")['default']>
-  LazyIconsIconLastra: LazyComponent<typeof import("../../components/icons/IconLastra.vue")['default']>
   LazyIconsIconManutenzione: LazyComponent<typeof import("../../components/icons/IconManutenzione.vue")['default']>
   LazyIconsIconMontaggi: LazyComponent<typeof import("../../components/icons/IconMontaggi.vue")['default']>
-  LazyIconsIconNastro: LazyComponent<typeof import("../../components/icons/IconNastro.vue")['default']>
   LazyIconsIconPrecisione: LazyComponent<typeof import("../../components/icons/IconPrecisione.vue")['default']>
+  LazyIconsNumbersIconNumber1: LazyComponent<typeof import("../../components/icons/numbers/IconNumber1.vue")['default']>
+  LazyIconsNumbersIconNumber2: LazyComponent<typeof import("../../components/icons/numbers/IconNumber2.vue")['default']>
+  LazyIconsNumbersIconNumber3: LazyComponent<typeof import("../../components/icons/numbers/IconNumber3.vue")['default']>
+  LazyIconsNumbersIconNumber4: LazyComponent<typeof import("../../components/icons/numbers/IconNumber4.vue")['default']>
   LazyNuxtWelcome: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
   LazyNuxtLayout: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
   LazyNuxtErrorBoundary: LazyComponent<typeof import("../../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>

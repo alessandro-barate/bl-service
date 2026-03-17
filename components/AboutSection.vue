@@ -165,7 +165,7 @@ onMounted(() => {
   }
 
   &__visual {
-    width: 86%;
+    width: 83%;
     position: relative;
   }
 

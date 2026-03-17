@@ -162,7 +162,7 @@ onUnmounted(() => {
   position: fixed;
   top: 0;
   left: 0;
-  width: 39%;
+  width: 38%;
   z-index: $z-header;
   padding: $spacing-lg $spacing-xl;
   transition:
@@ -180,6 +180,7 @@ onUnmounted(() => {
   }
 
   &__container {
+    width: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -195,18 +196,24 @@ onUnmounted(() => {
       transform 0.6s ease;
   }
 
+  .header__logo .logo {
+    width: 80%;
+
+    img {
+      width: 100%;
+    }
+  }
+
   &.is-visible {
     .header__logo {
+      width: 85%;
       opacity: 1;
       transform: translateY(0);
       transition-delay: 0s;
-
-      img {
-        width: 100%;
-      }
     }
 
     .header__menu-btn {
+      width: 15%;
       opacity: 1;
       transform: translateY(0);
       transition-delay: 0.15s;

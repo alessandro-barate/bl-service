@@ -1,5 +1,5 @@
 <template>
-  <main class="services-page">
+  <main class="manufactorings-page">
     <!-- Hero Section -->
     <HeroSection
       :hasIntro="false"
@@ -7,89 +7,80 @@
       :titleLines="['Servizi', 'Completi per la Tua', 'Azienda']"
       :hasSlider="false"
       image="/images/hero-section/luca-foot.webp"
-      imageAlt="Servizi BL Service"
+      imageAlt="Le lavorazioni che esegue BL Service"
     />
 
-    <!-- Service Sections -->
-    <AboutSection
-      v-for="service in services"
-      :key="service.id"
-      :label="service.label"
-      :overlayTitle="service.overlayTitle"
-      :image="service.image"
-      :class="service.class"
-      :imageAlt="service.imageAlt"
-      :paragraphs="service.paragraphs"
+    <!-- Sezione delle lavorazioni -->
+    <ServicesSection
+      v-for="area in areas"
+      :key="area.id"
+      :image="area.image"
+      :imageAlt="area.imageAlt"
+      :title="area.title"
+      :subtitle="area.subtitle"
+      :paragraphs="area.paragraphs"
+      :icon="area.icon"
+      :iconAlt="area.iconAlt"
     />
   </main>
 </template>
-
 <script setup>
-const services = [
+import ServicesSection from "../components/ServicesSection.vue";
+
+const areas = [
   {
     id: 1,
-    label: "Riparazione",
-    overlayTitle: "Riparazione Rapida <br />ed Efficace",
-    image: "/images/hero-section/luca-foot.webp",
-    class: "services-width",
-    imageAlt: "Servizio riparazione",
+    image: "/images/quality-section/tornio-circolare.webp",
+    imageAlt: "Automotive - Cerchione AMG",
+    title: "Riparazione",
+    subtitle: "Il Materiale idoneo per lavorazioni Complesse",
     paragraphs: [
-      "BL Service offre un servizio di riparazione completo per macchinari di lavorazione meccanica. I nostri tecnici specializzati intervengono con rapidità e precisione per garantire la continuità operativa della vostra produzione.",
-      "Disponiamo di attrezzature all'avanguardia e di un team esperto in grado di diagnosticare e risolvere qualsiasi problema tecnico, riducendo al minimo i tempi di fermo macchina.",
+      "BL Service è in grado di fornire materiali specificatamente progettati per lavorazioni ove sono necessari elevati indici di imbutitura.",
+      "Primari produttori di materia prima sono stati selezionati dall'ufficio Tecnico BL Service al fine di garantire materiali ad elevato indice di lavorabilità destinati a lavorazioni di deformazioni particolarmente complesse.",
     ],
+    icon: "/images/icons/automotive-icon.svg",
+    iconAlt: "Icona Automotive",
   },
   {
     id: 2,
-    label: "Revisione",
-    overlayTitle: "Revisione Completa <br />dei Macchinari",
-    image: "/images/hero-section/luca-foot.webp",
-    class: "services-width",
-    imageAlt: "Servizio revisione",
+    image: "/images/quality-section/tornio-circolare.webp",
+    imageAlt: "Trasformatori Elettrici",
+    title: "Revisione",
+    subtitle: "BL Service il Fornitore che cercavi",
     paragraphs: [
-      "L'organizzazione BL Service si prende cura dei propri clienti garantendo standard qualitativi elevati. Le nostre revisioni complete assicurano il perfetto funzionamento dei vostri macchinari e ne prolungano la vita operativa.",
-      "Ogni revisione include controlli approfonditi, sostituzione delle parti usurate e ottimizzazione delle prestazioni secondo gli standard del costruttore.",
+      "BL Service specializzata nel taglio e fornitura di materiale Garantito Esente 'Bava' e con 'Bordi Arrotondati' particolarmente apprezzati dai produttori di Trasformatori di Corrente.",
     ],
+    icon: "/images/icons/transformer-icon.svg",
+    iconAlt: "Icona Trasformatori",
   },
   {
     id: 3,
-    label: "Manutenzione",
-    overlayTitle: "Manutenzione Programmata <br />e Preventiva",
-    image: "/images/hero-section/luca-foot.webp",
-    class: "services-width",
-    imageAlt: "Servizio manutenzione",
+    image: "/images/quality-section/tornio-circolare.webp",
+    imageAlt: "Stampaggio e Tranceria",
+    title: "Manutenzione",
+    subtitle: "BL Service quando necessiti di precisione",
     paragraphs: [
-      "BL Service pone particolare attenzione alla manutenzione preventiva e programmata dei vostri impianti. Un piano di manutenzione regolare garantisce efficienza, sicurezza e riduzione dei tempi di fermo macchina.",
-      "I nostri programmi di manutenzione personalizzati permettono di pianificare gli interventi in modo da minimizzare l'impatto sulla produzione e massimizzare la durata dei macchinari.",
+      "BL Service grazie all'esperienza dei propri Tecnici e l'ampia gamma di attrezzature disponibili è in grado di Garantire ai propri Clienti Precisione ed Accuratezza del taglio.",
     ],
+    icon: "/images/icons/stamping-icon.svg",
+    iconAlt: "Icona Stampaggio",
   },
   {
     id: 4,
-    label: "Vendita Ricambi",
-    overlayTitle: "Vendita Ricambi Originali",
-    image: "/images/hero-section/luca-foot.webp",
-    class: "services-width",
-    imageAlt: "Vendita ricambi",
+    image: "/images/quality-section/tornio-circolare.webp",
+    imageAlt: "Stampaggio e Tranceria",
+    title: "Vendita Ricambi",
+    subtitle: "BL Service quando necessiti di precisione",
     paragraphs: [
-      "BL Service dispone di un ampio magazzino ricambi originali per garantire interventi rapidi ed efficaci. Forniamo componenti di qualità certificata per assicurare le massime prestazioni dei vostri macchinari.",
-      "Il nostro stock include ricambi per tutte le principali marche di macchinari di lavorazione meccanica, con consegne rapide per ridurre al minimo i tempi di attesa.",
+      "BL Service grazie all'esperienza dei propri Tecnici e l'ampia gamma di attrezzature disponibili è in grado di Garantire ai propri Clienti Precisione ed Accuratezza del taglio.",
     ],
+    icon: "/images/icons/stamping-icon.svg",
+    iconAlt: "Icona Stampaggio",
   },
 ];
 </script>
-
 <style lang="scss" scoped>
-.services-page {
+.manufactorings-content {
   width: 100%;
-
-  .about {
-    margin-bottom: 5rem;
-  }
-
-  // Applica la classe solo agli overlay con classe services-width
-  :deep(.about__overlay.services-width) {
-    @include responsive(lg) {
-      width: 90% !important;
-    }
-  }
 }
 </style>
