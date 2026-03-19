@@ -221,6 +221,7 @@ onMounted(() => {
     color: $color-white;
     padding: 0;
     z-index: 2;
+    height: 25%;
 
     @include responsive(lg) {
       left: 90%;

@@ -502,7 +502,7 @@ onUnmounted(() => {
     position: fixed;
     top: 0;
     right: 0;
-    width: 61%;
+    width: 62%;
     height: 100vh;
     background: $color-white;
     transform: scaleX(0);
