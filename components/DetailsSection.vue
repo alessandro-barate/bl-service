@@ -130,7 +130,7 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .details {
-  margin-bottom: 7rem;
+  margin-bottom: 4rem;
   padding-right: $sidebar-width;
   opacity: 0;
   transform: translateY(80px);
@@ -216,12 +216,10 @@ onMounted(() => {
 
   &__overlay {
     position: relative;
-    bottom: 3rem;
-    background: $color-dark;
+    bottom: 5rem;
     color: $color-white;
     padding: 0;
     z-index: 2;
-    height: 25%;
 
     @include responsive(lg) {
       left: 90%;
@@ -232,6 +230,8 @@ onMounted(() => {
   &__icon {
     width: 100%;
     aspect-ratio: 1 / 1;
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+    transition-delay: 0.3s;
   }
 
   &__title {

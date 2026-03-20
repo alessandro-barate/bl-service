@@ -34,7 +34,6 @@ import IconNumber4 from "~/components/icons/numbers/IconNumber4.vue";
 const details = [
   {
     id: 1,
-    overlayTitle: "Lavorazione 1",
     title: "Ripristino geometrie",
     subtitle: "Il ripristino geometrie di BL Service",
     image: "/images/hero-section/luca-foot.webp",
@@ -48,8 +47,8 @@ const details = [
   },
   {
     id: 2,
-    label: "Revisione",
-    overlayTitle: "Lavorazione 2",
+    title: "Ripristino geometrie",
+    subtitle: "Il ripristino geometrie di BL Service",
     image: "/images/hero-section/luca-foot.webp",
     class: "manufactorings-width",
     imageAlt: "Servizio revisione",
@@ -61,8 +60,8 @@ const details = [
   },
   {
     id: 3,
-    label: "Manutenzione",
-    overlayTitle: "Lavorazione 3",
+    title: "Ripristino geometrie",
+    subtitle: "Il ripristino geometrie di BL Service",
     image: "/images/hero-section/luca-foot.webp",
     class: "manufactorings-width",
     imageAlt: "Servizio manutenzione",
@@ -74,8 +73,8 @@ const details = [
   },
   {
     id: 4,
-    label: "Lavorazione 4",
-    overlayTitle: "Vendita Ricambi Originali",
+    title: "Ripristino geometrie",
+    subtitle: "Il ripristino geometrie di BL Service",
     image: "/images/hero-section/luca-foot.webp",
     class: "manufactorings-width",
     imageAlt: "Vendita ricambi",

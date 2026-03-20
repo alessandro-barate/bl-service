@@ -216,21 +216,17 @@ onMounted(() => {
 
   &__overlay {
     position: relative;
-    bottom: 14rem;
+    bottom: 10rem;
     background: $color-dark;
     color: $color-white;
-    padding: 7rem 3rem 3rem 3rem;
+    padding-top: 2rem;
     transform: translateY(30%);
-
-    @include responsive(lg) {
-      left: auto;
-      left: 240px;
-      width: 80%;
-    }
+    left: 70%;
+    width: 60%;
   }
 
   &__icon {
-    width: 60%;
+    width: 90%;
   }
 
   &__title {

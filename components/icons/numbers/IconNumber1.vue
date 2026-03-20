@@ -1,5 +1,10 @@
 <template>
-  <svg viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    width="250"
+    height="250"
+    viewBox="0 0 150 150"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <!-- Sfondo -->
     <rect width="150" height="150" :fill="backgroundColor" />
 

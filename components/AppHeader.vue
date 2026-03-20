@@ -162,15 +162,15 @@ onUnmounted(() => {
   position: fixed;
   top: 0;
   left: 0;
-  width: 38%;
+  width: 75%;
   z-index: $z-header;
-  padding: $spacing-lg $spacing-xl;
+  padding: $spacing-md;
   transition:
     background $transition-base,
     padding $transition-base;
 
-  @media (max-width: $breakpoint-lg) {
-    width: calc(100% - $sidebar-width);
+  @media (min-width: $breakpoint-xl) {
+    width: calc(60% - $sidebar-width);
   }
 
   &.is-scrolled {
@@ -593,6 +593,14 @@ onUnmounted(() => {
   &__icon {
     width: 40px;
     height: 40px;
+  }
+}
+
+// MEDIA QUERIES
+// Tablet layou
+@media (min-width: $breakpoint-sm) {
+  .header {
+    width: calc(65% - 40px);
   }
 }
 </style>
