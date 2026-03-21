@@ -126,10 +126,6 @@ onUnmounted(() => {
     flex: 1;
     display: grid;
     grid-template-columns: 1fr;
-
-    @include responsive(lg) {
-      grid-template-columns: 39% 61%;
-    }
   }
 
   &__text {
@@ -239,6 +235,30 @@ onUnmounted(() => {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+// MEDIA QUERIES
+// Tablet layou
+@media (min-width: $breakpoint-sm) {
+}
+
+@media (min-width: $breakpoint-md) {
+}
+
+@media (min-width: $breakpoint-lg) {
+  .hero {
+    &__content {
+      grid-template-columns: 45% 55%;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-xl) {
+  .hero {
+    &__content {
+      grid-template-columns: 39% 61%;
+    }
   }
 }
 </style>

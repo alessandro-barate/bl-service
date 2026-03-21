@@ -169,10 +169,6 @@ onUnmounted(() => {
     background $transition-base,
     padding $transition-base;
 
-  @media (min-width: $breakpoint-xl) {
-    width: calc(60% - $sidebar-width);
-  }
-
   &.is-scrolled {
     background: rgb(255, 255, 255);
     backdrop-filter: blur(10px);
@@ -601,6 +597,61 @@ onUnmounted(() => {
 @media (min-width: $breakpoint-sm) {
   .header {
     width: calc(65% - 40px);
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .header {
+    width: calc(100% - 40px);
+
+    &.is-visible {
+      .header__logo {
+        width: 100%;
+
+        .logo {
+          width: 45%;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-lg) {
+  .header {
+    width: calc(47% - 40px);
+
+    &__container {
+      width: 100%;
+    }
+
+    &.is-visible {
+      .header__logo {
+        width: 100%;
+
+        .logo {
+          width: 80%;
+        }
+      }
+    }
+
+    &__menu-icon {
+      left: 1em;
+      width: 70px;
+    }
+  }
+
+  .menu-overlay__header {
+    top: -0.8rem;
+  }
+}
+
+@media (min-width: $breakpoint-xl) {
+  .header {
+    width: calc(40% - 40px);
+
+    &__menu-icon {
+      width: 80px;
+    }
   }
 }
 </style>
