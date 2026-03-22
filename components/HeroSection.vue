@@ -120,7 +120,7 @@ onUnmounted(() => {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-right: $sidebar-width;
+  padding-right: $sidebar-width-mobile;
 
   &__content {
     flex: 1;
@@ -239,10 +239,13 @@ onUnmounted(() => {
 }
 
 // MEDIA QUERIES
-// Tablet layou
 @media (min-width: $breakpoint-sm) {
-  .hero__text {
-    padding-top: $spacing-8xl;
+  .hero {
+    padding-right: $sidebar-width;
+
+    &__text {
+      padding-top: $spacing-8xl;
+    }
   }
 }
 

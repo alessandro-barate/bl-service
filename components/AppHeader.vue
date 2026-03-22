@@ -13,18 +13,45 @@
       </a>
 
       <!-- Menu Toggle -->
+      <!-- Mobile (Block style - solo ≤575px) -->
       <button
-        class="header__menu-btn"
+        class="header__menu-btn header__menu-btn--mobile"
         :class="{ 'is-active': isMenuOpen }"
         @click="toggleMenu"
         aria-label="Menu"
       >
         <span class="header__menu-label">
-          <span class="header__menu-label-text header__menu-label-text--menu"
-            >MENU</span
+          <span
+            class="header__menu-label-text header__menu-label-text--menu uppercase"
+            >menu</span
           >
-          <span class="header__menu-label-text header__menu-label-text--close"
-            >CHIUDI</span
+          <span
+            class="header__menu-label-text header__menu-label-text--close uppercase"
+            >chiudi</span
+          >
+        </span>
+        <span class="header__menu-icon">
+          <span class="header__menu-line"></span>
+          <span class="header__menu-line"></span>
+          <span class="header__menu-line"></span>
+        </span>
+      </button>
+
+      <!-- Desktop (Flex style - solo >575px) -->
+      <button
+        class="header__menu-btn header__menu-btn--desktop"
+        :class="{ 'is-active': isMenuOpen }"
+        @click="toggleMenu"
+        aria-label="Menu"
+      >
+        <span class="header__menu-label">
+          <span
+            class="header__menu-label-text header__menu-label-text--menu uppercase"
+            >menu</span
+          >
+          <span
+            class="header__menu-label-text header__menu-label-text--close uppercase"
+            >chiudi</span
           >
         </span>
         <span class="header__menu-icon">
@@ -209,7 +236,7 @@ onUnmounted(() => {
     }
 
     .header__menu-btn {
-      width: 15%;
+      width: 100%;
       opacity: 1;
       transform: translateY(0);
       transition-delay: 0.15s;
@@ -218,123 +245,234 @@ onUnmounted(() => {
 
   &__menu-btn {
     position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
-    padding-right: 80px;
 
-    // ── Stato attivo: le 3 linee convergono e si fondono, poi si espandono ──
-    &.is-active {
-      // Label crossfade: MENU esce, CHIUDI entra
-      .header__menu-label-text--menu {
-        opacity: 0;
-        visibility: hidden;
-        transform: rotate(180deg) translateX(20px);
-        transition:
-          opacity 0.3s ease 0s,
-          visibility 0s linear 0.3s,
-          transform 0.3s ease 0s;
-      }
-      .header__menu-label-text--close {
-        opacity: 1;
-        visibility: visible;
-        transform: rotate(180deg) translateX(0);
-        transition:
-          opacity 0.3s ease 0.15s,
-          visibility 0s linear 0.15s,
-          transform 0.3s ease 0.15s;
+    &--mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: $spacing-sm;
+      margin-top: 2rem;
+
+      @media (min-width: 769px) {
+        display: none;
       }
 
-      // Larghezza si espande DOPO che le linee si sono fuse (delay 0.5s)
+      // Label container
+      .header__menu-label {
+        position: relative;
+        width: auto;
+        height: auto;
+        flex-shrink: 0;
+      }
+
+      // Testo MENU / CHIUDI (orizzontale)
+      .header__menu-label-text {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: $font-size-xs;
+        font-weight: $font-weight-medium;
+        letter-spacing: 0.1em;
+        writing-mode: horizontal-tb;
+        white-space: nowrap;
+
+        &--menu {
+          opacity: 1;
+          visibility: visible;
+          transition:
+            opacity 0.3s ease 0.15s,
+            visibility 0s linear 0.15s,
+            transform 0.3s ease 0.15s;
+        }
+
+        &--close {
+          opacity: 0;
+          visibility: hidden;
+          transform: translateX(-50%) translateY(10px);
+          transition:
+            opacity 0.3s ease 0s,
+            visibility 0s linear 0.3s,
+            transform 0.3s ease 0s;
+        }
+      }
+
+      // Icona (container delle 3 linee)
       .header__menu-icon {
-        width: min(18.45vw, 280px);
-        transition: width 0.5s ease 0.5s;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 70px;
+        height: 52px;
+        transition: width 0.5s ease 0s;
       }
 
-      // Le linee convergono al centro SUBITO (no delay), poi 1 e 3 scompaiono
-      .header__menu-line {
-        &:nth-child(1) {
-          transform: translateY(17px);
+      // Stato attivo
+      &.is-active {
+        .header__menu-label-text--menu {
           opacity: 0;
-          // Converge in 0.3s, poi sfuma dopo 0.25s
+          visibility: hidden;
+          transform: translateX(-50%) translateY(-10px);
           transition:
-            transform 0.3s ease 0s,
-            opacity 0.2s ease 0.25s;
+            opacity 0.3s ease 0s,
+            visibility 0s linear 0.3s,
+            transform 0.3s ease 0s;
         }
-        &:nth-child(2) {
-          transform: none;
-          // Resta visibile, solo transform
-          transition: transform 0.3s ease 0s;
+        .header__menu-label-text--close {
+          opacity: 1;
+          visibility: visible;
+          transform: translateX(-50%) translateY(0);
+          transition:
+            opacity 0.3s ease 0.15s,
+            visibility 0s linear 0.15s,
+            transform 0.3s ease 0.15s;
         }
-        &:nth-child(3) {
-          transform: translateY(-17px);
+
+        .header__menu-icon {
+          width: min(18.45vw, 280px);
+          transition: width 0.5s ease 0.5s;
+        }
+
+        .header__menu-line {
+          &:nth-child(1) {
+            transform: translateY(17px);
+            opacity: 0;
+            transition:
+              transform 0.3s ease 0s,
+              opacity 0.2s ease 0.25s;
+          }
+          &:nth-child(2) {
+            transform: none;
+            transition: transform 0.3s ease 0s;
+          }
+          &:nth-child(3) {
+            transform: translateY(-17px);
+            opacity: 0;
+            transition:
+              transform 0.3s ease 0s,
+              opacity 0.2s ease 0.25s;
+          }
+        }
+      }
+    }
+
+    // ── VERSIONE DESKTOP (Flex style originale - solo da 769px in poi) ──
+    &--desktop {
+      display: none; // Nascosto di default
+
+      @media (min-width: 769px) {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding-right: 80px;
+      }
+
+      // Label container
+      .header__menu-label {
+        position: relative;
+        width: 1.2em;
+        height: 4em;
+        flex-shrink: 0;
+      }
+
+      // Testo MENU / CHIUDI (verticale)
+      .header__menu-label-text {
+        position: absolute;
+        top: 0.9rem;
+        left: -10px;
+        font-size: $font-size-xs;
+        font-weight: $font-weight-medium;
+        letter-spacing: 0.1em;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        white-space: nowrap;
+
+        &--menu {
+          opacity: 1;
+          visibility: visible;
+          transition:
+            opacity 0.3s ease 0.15s,
+            visibility 0s linear 0.15s,
+            transform 0.3s ease 0.15s;
+        }
+
+        &--close {
           opacity: 0;
+          visibility: hidden;
+          transform: rotate(180deg) translateX(20px);
           transition:
-            transform 0.3s ease 0s,
-            opacity 0.2s ease 0.25s;
+            opacity 0.3s ease 0s,
+            visibility 0s linear 0.3s,
+            transform 0.3s ease 0s;
+        }
+      }
+
+      // Icona (container delle 3 linee)
+      .header__menu-icon {
+        position: absolute;
+        left: 1.2em;
+        top: 0;
+        display: block;
+        width: 80px;
+        transition: width 0.5s ease 0s;
+      }
+
+      // Stato attivo
+      &.is-active {
+        .header__menu-label-text--menu {
+          opacity: 0;
+          visibility: hidden;
+          transform: rotate(180deg) translateX(20px);
+          transition:
+            opacity 0.3s ease 0s,
+            visibility 0s linear 0.3s,
+            transform 0.3s ease 0s;
+        }
+        .header__menu-label-text--close {
+          opacity: 1;
+          visibility: visible;
+          transform: rotate(180deg) translateX(0);
+          transition:
+            opacity 0.3s ease 0.15s,
+            visibility 0s linear 0.15s,
+            transform 0.3s ease 0.15s;
+        }
+
+        .header__menu-icon {
+          width: min(18.45vw, 280px);
+          transition: width 0.5s ease 0.5s;
+        }
+
+        .header__menu-line {
+          &:nth-child(1) {
+            transform: translateY(17px);
+            opacity: 0;
+            transition:
+              transform 0.3s ease 0s,
+              opacity 0.2s ease 0.25s;
+          }
+          &:nth-child(2) {
+            transform: none;
+            transition: transform 0.3s ease 0s;
+          }
+          &:nth-child(3) {
+            transform: translateY(-17px);
+            opacity: 0;
+            transition:
+              transform 0.3s ease 0s,
+              opacity 0.2s ease 0.25s;
+          }
         }
       }
     }
   }
 
-  // ── Label container (posizione relativa per il crossfade) ──
-  &__menu-label {
-    position: relative;
-    width: 1.2em;
-    height: 4em;
-    flex-shrink: 0;
-  }
-
-  // ── Testo MENU / CHIUDI (sovrapposti, crossfade con shift) ──
-  &__menu-label-text {
-    position: absolute;
-    top: 0.9rem;
-    left: -10px;
-    font-size: $font-size-xs;
-    font-weight: $font-weight-medium;
-    letter-spacing: 0.1em;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    white-space: nowrap;
-
-    &--menu {
-      opacity: 1;
-      visibility: visible;
-      transform: rotate(180deg) translateX(0);
-      // Chiusura: MENU ritorna con ritardo (speculare: 0.15s)
-      transition:
-        opacity 0.3s ease 0.15s,
-        visibility 0s linear 0s,
-        transform 0.3s ease 0.15s;
-    }
-
-    &--close {
-      opacity: 0;
-      visibility: hidden;
-      transform: rotate(180deg) translateX(20px);
-      // Chiusura: CHIUDI esce subito (speculare: 0s)
-      transition:
-        opacity 0.3s ease 0s,
-        visibility 0s linear 0.3s,
-        transform 0.3s ease 0s;
-    }
-  }
-
-  // ── Container delle 3 linee (absolute: non influenza il layout) ──
-  &__menu-icon {
-    position: absolute;
-    left: 1.2em;
-    top: 0;
-    display: block;
-    width: 80px;
-    transition: width 0.5s ease 0s;
-  }
-
-  // ── Singola linea ──
+  // ── Singola linea (comune a entrambe le versioni) ──
   &__menu-line {
     display: block;
     width: 100%;
@@ -525,6 +663,10 @@ onUnmounted(() => {
     position: relative;
     margin-left: 5rem;
     top: -0.3rem;
+
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
   }
 
   &__line {
@@ -593,14 +735,15 @@ onUnmounted(() => {
 }
 
 // MEDIA QUERIES
-// Tablet layou
 @media (min-width: $breakpoint-sm) {
   .header {
     width: calc(80% - 40px);
 
-    .header__logo .logo {
-      width: 100%;
-      padding-left: 8rem;
+    &.is-visible {
+      .header__logo .logo {
+        width: 100%;
+        padding-left: 8rem;
+      }
     }
   }
 }
@@ -621,6 +764,10 @@ onUnmounted(() => {
           width: 50%;
           padding-left: 0rem;
         }
+      }
+
+      .header__menu-btn {
+        width: 15%;
       }
     }
   }
@@ -644,9 +791,11 @@ onUnmounted(() => {
       }
     }
 
-    &__menu-icon {
-      left: 1em;
-      width: 70px;
+    // Solo per versione desktop
+    &__menu-btn--desktop {
+      .header__menu-icon {
+        width: 70px;
+      }
     }
   }
 
@@ -659,8 +808,11 @@ onUnmounted(() => {
   .header {
     width: calc(40% - 40px);
 
-    &__menu-icon {
-      width: 80px;
+    // Solo per versione desktop
+    &__menu-btn--desktop {
+      .header__menu-icon {
+        width: 80px;
+      }
     }
   }
 }

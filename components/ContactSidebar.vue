@@ -123,7 +123,7 @@ defineExpose({ openPanel, closePanel });
   position: fixed;
   top: 0;
   right: 0;
-  width: $sidebar-width;
+  width: $sidebar-width-mobile;
   height: 100vh;
   z-index: $z-sidebar;
   display: flex;
@@ -367,6 +367,13 @@ defineExpose({ openPanel, closePanel });
 
   .contact-panel__content {
     transform: translateX(100%);
+  }
+}
+
+// MEDIA QUERIES
+@media (min-width: $breakpoint-sm) {
+  .sidebar {
+    width: $sidebar-width;
   }
 }
 </style>
