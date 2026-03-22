@@ -129,7 +129,7 @@ onUnmounted(() => {
   }
 
   &__text {
-    padding: calc($header-height + $spacing-4xl) $spacing-xl $spacing-3xl;
+    padding: calc($header-height + $spacing-8xl) $spacing-xl $spacing-3xl;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -241,6 +241,9 @@ onUnmounted(() => {
 // MEDIA QUERIES
 // Tablet layou
 @media (min-width: $breakpoint-sm) {
+  .hero__text {
+    padding-top: $spacing-8xl;
+  }
 }
 
 @media (min-width: $breakpoint-md) {

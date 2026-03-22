@@ -162,7 +162,7 @@ onUnmounted(() => {
   position: fixed;
   top: 0;
   left: 0;
-  width: 75%;
+  width: 100%;
   z-index: $z-header;
   padding: $spacing-md;
   transition:
@@ -177,7 +177,6 @@ onUnmounted(() => {
 
   &__container {
     width: 100%;
-    display: flex;
     align-items: flex-start;
     justify-content: space-between;
   }
@@ -193,7 +192,8 @@ onUnmounted(() => {
   }
 
   .header__logo .logo {
-    width: 80%;
+    width: 85%;
+    padding-left: 2rem;
 
     img {
       width: 100%;
@@ -596,7 +596,12 @@ onUnmounted(() => {
 // Tablet layou
 @media (min-width: $breakpoint-sm) {
   .header {
-    width: calc(65% - 40px);
+    width: calc(80% - 40px);
+
+    .header__logo .logo {
+      width: 100%;
+      padding-left: 8rem;
+    }
   }
 }
 
@@ -604,12 +609,17 @@ onUnmounted(() => {
   .header {
     width: calc(100% - 40px);
 
+    &__container {
+      display: flex;
+    }
+
     &.is-visible {
       .header__logo {
         width: 100%;
 
         .logo {
-          width: 45%;
+          width: 50%;
+          padding-left: 0rem;
         }
       }
     }
