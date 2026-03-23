@@ -1,1 +1,1 @@
-export { default } from "file:///C:/Users/utente/Desktop/Miei%20Progetti/BL%20Service/bl-service/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs"
+export { default } from "file:///Users/alessandrobarate/Desktop/Miei%20Progetti/bl-service/bl-service/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs"
