@@ -130,12 +130,15 @@ defineExpose({ openPanel, closePanel });
   flex-direction: column;
   cursor: pointer;
   transition: transform $transition-base;
-  background: linear-gradient(
-    180deg,
-    rgba($color-copper, 1) 0%,
-    rgba($color-gold, 1) 50%,
-    rgba($color-gold, 1) 100%
-  );
+
+  @media (min-width: $breakpoint-md) {
+    background: linear-gradient(
+      180deg,
+      rgba($color-copper, 1) 0%,
+      rgba($color-gold, 1) 50%,
+      rgba($color-gold, 1) 100%
+    );
+  }
 
   &:hover {
     transform: translateX(-3px);

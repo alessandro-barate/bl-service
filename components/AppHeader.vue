@@ -199,11 +199,11 @@ onUnmounted(() => {
   &.is-scrolled {
     background: rgb(255, 255, 255);
     backdrop-filter: blur(10px);
-    padding: 1.5rem $spacing-xl;
 
     @media (max-width: 575px) {
       .header__container {
-        width: 60%;
+        width: 65%;
+        margin: 0 auto;
       }
     }
   }
@@ -225,8 +225,8 @@ onUnmounted(() => {
   }
 
   .header__logo .logo {
-    width: 85%;
-    padding-left: 2rem;
+    width: 65%;
+    margin: 0 auto;
 
     img {
       width: 100%;
@@ -235,7 +235,6 @@ onUnmounted(() => {
 
   &.is-visible {
     .header__logo {
-      width: 85%;
       opacity: 1;
       transform: translateY(0);
       transition-delay: 0s;
@@ -261,7 +260,7 @@ onUnmounted(() => {
       flex-direction: column;
       align-items: center;
       gap: $spacing-sm;
-      margin-top: 2rem;
+      margin-top: 1.5rem;
 
       @media (min-width: 769px) {
         display: none;
@@ -760,6 +759,10 @@ onUnmounted(() => {
 
     &__container {
       display: flex;
+    }
+
+    &.is-scrolled {
+      padding: 1.5rem $spacing-xl;
     }
 
     &.is-visible {
