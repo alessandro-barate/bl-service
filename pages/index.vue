@@ -1,11 +1,9 @@
 <template>
   <div class="home">
     <HeroSection
-      intro="BL Service - Lavorazioni meccaniche"
-      description="La competenza Tecnica specifica nel Taglio dei Metalli dei nostri
-          Tecnici e gli impianti altamente tecnologici ci consentono di fornire
-          materiali di Qualità."
-      :titleLines="['Partner', 'per i Tuoi', 'Affari']"
+      intro="Assistenza Tecnica per macchine utensili"
+      description="Specializzato in meccanica di precisione, mi occupo di riparazione, revisione ed installazione di macchine utensili a CNC e tradizionali: TORNI, CENTRI DI LAVORO, RETTIFICHE, ALESATRICI, FRESATRICI, FORATRICI E MACCHINE SPECIALI."
+      :titleLines="['Partner', 'per la Tua', 'Officina']"
       :hasSlider="true"
       :slides="[
         {

@@ -121,6 +121,7 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   padding-right: $sidebar-width-mobile;
+  margin-bottom: 5rem;
 
   &__content {
     flex: 1;
@@ -129,13 +130,16 @@ onUnmounted(() => {
   }
 
   &__text {
-    padding: calc($header-height + $spacing-8xl) $spacing-xl $spacing-3xl;
+    // Padding che scala fluidamente come una percentuale della viewport width
+    // Su mobile: più spazio, su desktop: meno spazio (perché la colonna è più stretta)
+    padding: calc($spacing-8xl + 12vw) $spacing-xl $spacing-3xl;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
     @include responsive(lg) {
-      padding: calc($header-height + $spacing-7xl) $spacing-3xl $spacing-4xl;
+      // Desktop: compenso per la colonna più stretta
+      padding: calc(5rem + 15vw) $spacing-3xl $spacing-4xl;
     }
 
     // Quando non c'è l'intro, riduci il padding superiore
@@ -167,7 +171,8 @@ onUnmounted(() => {
   }
 
   &__title {
-    margin-bottom: $spacing-3xl;
+    text-align: center;
+    margin-bottom: $spacing-md;
   }
 
   &__title-line {
@@ -243,13 +248,20 @@ onUnmounted(() => {
   .hero {
     padding-right: $sidebar-width;
 
-    &__text {
-      padding-top: $spacing-8xl;
+    &__title {
+      margin-bottom: $spacing-3xl;
     }
   }
 }
 
 @media (min-width: $breakpoint-md) {
+  .hero {
+    margin-bottom: 0;
+
+    &__title {
+      text-align: start;
+    }
+  }
 }
 
 @media (min-width: $breakpoint-lg) {

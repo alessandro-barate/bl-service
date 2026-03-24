@@ -200,6 +200,12 @@ onUnmounted(() => {
     background: rgb(255, 255, 255);
     backdrop-filter: blur(10px);
     padding: 1.5rem $spacing-xl;
+
+    @media (max-width: 575px) {
+      .header__container {
+        width: 60%;
+      }
+    }
   }
 
   &__container {

@@ -225,6 +225,7 @@ onMounted(() => {
 
   &__content {
     padding: $spacing-xl;
+    margin-top: -5rem;
 
     @include responsive(lg) {
       padding: 6rem 3rem 0rem 0rem;
@@ -233,18 +234,19 @@ onMounted(() => {
 
   &__upper-container {
     width: 100%;
-    display: flex;
+    text-align: center;
   }
 
   &__header {
-    width: 35%;
+    width: 100%;
     margin-bottom: $spacing-2xl;
     padding-right: 1rem;
     padding-bottom: $spacing-md;
   }
 
   &__label {
-    width: 100%;
+    width: 35%;
+    text-align: center;
     display: inline-block;
     font-size: $font-size-base;
     letter-spacing: 0.18rem;
@@ -267,7 +269,7 @@ onMounted(() => {
   }
 
   &__text {
-    width: 65%;
+    width: 100%;
     margin-bottom: $spacing-2xl;
 
     p {
@@ -278,6 +280,36 @@ onMounted(() => {
       &:last-child {
         margin-bottom: 0;
       }
+    }
+  }
+}
+
+// MEDIA QUERIES
+@media (min-width: $breakpoint-sm) {
+}
+
+@media (min-width: $breakpoint-md) {
+  .about {
+    &__content {
+      margin-top: 0;
+    }
+
+    &__upper-container {
+      display: flex;
+      text-align: start;
+    }
+
+    &__label {
+      width: 100%;
+      text-align: start;
+    }
+
+    &__header {
+      width: 35%;
+    }
+
+    &__text {
+      width: 65%;
     }
   }
 }
