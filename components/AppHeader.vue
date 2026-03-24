@@ -210,8 +210,6 @@ onUnmounted(() => {
 
   &__container {
     width: 100%;
-    align-items: flex-start;
-    justify-content: space-between;
   }
 
   // Staggered entrance
@@ -225,11 +223,15 @@ onUnmounted(() => {
   }
 
   .header__logo .logo {
-    width: 65%;
+    width: 55%;
     margin: 0 auto;
 
     img {
       width: 100%;
+
+      @media (min-width: $breakpoint-md) {
+        width: 85%;
+      }
     }
   }
 
@@ -742,12 +744,17 @@ onUnmounted(() => {
 // MEDIA QUERIES
 @media (min-width: $breakpoint-sm) {
   .header {
-    width: calc(80% - 40px);
+    width: 100%;
 
     &.is-visible {
       .header__logo .logo {
-        width: 100%;
-        padding-left: 8rem;
+        width: 45%;
+      }
+    }
+
+    &.is-scrolled {
+      .header__logo .logo {
+        width: 40%;
       }
     }
   }
