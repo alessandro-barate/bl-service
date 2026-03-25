@@ -1,7 +1,7 @@
 <template>
   <div
     ref="sectionRef"
-    class="main-container d-flex"
+    class="main-container"
     :class="{ 'is-visible': isVisible }"
   >
     <section class="products">
@@ -131,8 +131,13 @@ onMounted(() => {
 <style lang="scss" scoped>
 .main-container {
   width: 100%;
-  margin-top: 10rem;
+  margin-top: 6rem;
   position: relative;
+
+  @media (min-width: $breakpoint-md) {
+    display: flex;
+    margin-top: 10rem;
+  }
 
   // Animazione container
   &:not(.is-visible) {
@@ -160,7 +165,7 @@ onMounted(() => {
   }
 
   .products {
-    width: 60%;
+    width: 85%;
     padding: $spacing-4xl 0;
     padding-right: $sidebar-width;
     background-color: #1a1a1a;
@@ -170,6 +175,10 @@ onMounted(() => {
     transition:
       opacity 0.8s ease,
       transform 0.8s ease;
+
+    @media (min-width: $breakpoint-md) {
+      width: 60%;
+    }
 
     &__carousel-wrapper {
       width: 100%;
@@ -199,8 +208,12 @@ onMounted(() => {
     }
 
     &__carousel-card {
-      width: 35%;
+      width: 50%;
       flex-shrink: 0;
+
+      @media (min-width: $breakpoint-md) {
+        width: 35%;
+      }
 
       & img {
         width: 100%;
@@ -212,17 +225,23 @@ onMounted(() => {
   }
 
   .manufactorings {
-    right: 2rem;
-    width: 40%;
+    right: -5rem;
+    width: 75%;
     height: 70vh;
     background-color: $color-blue;
-    bottom: 3rem;
+    bottom: 12rem;
     position: relative;
     opacity: 0;
     transform: translateX(80px);
     transition:
       opacity 0.8s ease,
       transform 0.8s ease;
+
+    @media (min-width: $breakpoint-md) {
+      right: 2rem;
+      width: 40%;
+      bottom: 3rem;
+    }
 
     &__text-container {
       color: white;

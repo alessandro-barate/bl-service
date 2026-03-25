@@ -193,7 +193,8 @@ onUnmounted(() => {
   z-index: $z-header;
   padding: $spacing-md;
   transition:
-    background $transition-base,
+    // background $transition-base,
+    background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     padding $transition-base;
 
   &.is-scrolled {
@@ -210,6 +211,7 @@ onUnmounted(() => {
 
   &__container {
     width: 100%;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   // Staggered entrance
