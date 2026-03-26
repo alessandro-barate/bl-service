@@ -99,14 +99,20 @@ onMounted(() => {
   &__content {
     background: $color-dark;
     color: $color-white;
-    padding: $spacing-4xl $spacing-3xl;
+    padding: $spacing-3xl $spacing-3xl;
     display: flex;
-    width: 40%;
+    width: 80%;
     flex-direction: column;
     justify-content: center;
     position: absolute;
-    bottom: 290px;
+    bottom: 400px;
     left: 0;
+
+    @media (min-width: $breakpoint-lg) {
+      width: 40%;
+      bottom: 290px;
+      padding: $spacing-4xl $spacing-3xl;
+    }
   }
 
   &__title {

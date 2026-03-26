@@ -92,6 +92,11 @@ onMounted(() => {
   position: relative;
   padding-right: $sidebar-width;
   color: $color-white;
+  margin-bottom: -10rem;
+
+  @media (min-width: $breakpoint-lg) {
+    margin-bottom: -6rem;
+  }
 
   // Animazioni separate per immagine e content
   &:not(.is-visible) {
