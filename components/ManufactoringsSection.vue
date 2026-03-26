@@ -119,17 +119,16 @@ onMounted(() => {
   }
 
   &__container {
-    display: grid;
-    grid-template-columns: 1fr;
     min-height: 600px;
 
-    @include responsive(lg) {
-      display: flex;
+    @media (min-width: $breakpoint-lg) {
+      display: grid;
+      grid-template-columns: 1fr;
     }
   }
 
   &__image {
-    width: 55%;
+    width: 90%;
     position: relative;
     min-height: 300px;
     opacity: 0;
@@ -137,6 +136,10 @@ onMounted(() => {
     transition:
       opacity 0.8s ease,
       transform 0.8s ease;
+
+    @media (min-width: $breakpoint-lg) {
+      width: 55%;
+    }
 
     img {
       width: 100%;
@@ -147,11 +150,11 @@ onMounted(() => {
 
   &__content {
     background: $color-blue;
-    position: absolute;
-    top: 4rem;
-    right: 0;
-    width: 50%;
-    padding: 8rem 8rem 14rem 8rem;
+    position: relative;
+    top: -2rem;
+    right: -7rem;
+    width: 75%;
+    padding: 5rem 3rem 6rem 3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -160,6 +163,14 @@ onMounted(() => {
     transition:
       opacity 0.8s ease,
       transform 0.8s ease;
+
+    @media (min-width: $breakpoint-lg) {
+      position: absolute;
+      top: 4rem;
+      right: 2rem;
+      width: 50%;
+      padding: 8rem 8rem 14rem 8rem;
+    }
   }
 
   &__description {
