@@ -204,6 +204,8 @@ onUnmounted(() => {
 
     @include responsive(lg) {
       min-height: auto;
+      width: 99%;
+      left: 0.4rem;
     }
 
     // Immagine singola

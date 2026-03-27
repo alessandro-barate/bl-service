@@ -818,13 +818,13 @@ onUnmounted(() => {
   }
 
   .menu-overlay__header {
-    top: -0.8rem;
+    top: -0.3rem;
   }
 }
 
 @media (min-width: $breakpoint-xl) {
   .header {
-    width: calc(40% - 40px);
+    width: calc(41% - 40px);
 
     // Solo per versione desktop
     &__menu-btn--desktop {

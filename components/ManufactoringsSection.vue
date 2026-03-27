@@ -95,7 +95,7 @@ onMounted(() => {
   margin-bottom: -10rem;
 
   @media (min-width: $breakpoint-lg) {
-    margin-bottom: -6rem;
+    margin-bottom: 0;
   }
 
   // Animazioni separate per immagine e content
