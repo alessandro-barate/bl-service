@@ -121,7 +121,7 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   padding-right: $sidebar-width-mobile;
-  margin-bottom: 5rem;
+  margin-bottom: 8rem;
 
   &__content {
     flex: 1;
@@ -205,11 +205,11 @@ onUnmounted(() => {
     @include responsive(lg) {
       min-height: auto;
       width: 99%;
-      left: 0.4rem;
+      left: 0.6rem;
     }
 
     // Immagine singola
-    > img {
+    img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -258,8 +258,6 @@ onUnmounted(() => {
 
 @media (min-width: $breakpoint-md) {
   .hero {
-    margin-bottom: 0;
-
     &__title {
       text-align: start;
     }
@@ -268,6 +266,8 @@ onUnmounted(() => {
 
 @media (min-width: $breakpoint-lg) {
   .hero {
+    margin-bottom: 0;
+
     &__content {
       grid-template-columns: 45% 55%;
     }

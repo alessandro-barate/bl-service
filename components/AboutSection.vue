@@ -167,6 +167,10 @@ onMounted(() => {
   &__visual {
     width: 84%;
     position: relative;
+
+    @media only screen and (min-width: $breakpoint-lg) and (max-width: $breakpoint-xl) {
+      width: 100%;
+    }
   }
 
   &__image {

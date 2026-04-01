@@ -83,7 +83,7 @@ onMounted(() => {
     position: relative;
     grid-template-columns: 1fr;
 
-    @include responsive(md) {
+    @include responsive(lg) {
       grid-template-columns: repeat(3, 1fr);
     }
   }
