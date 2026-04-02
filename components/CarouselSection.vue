@@ -134,7 +134,7 @@ onMounted(() => {
   margin-top: 6rem;
   position: relative;
 
-  @media (min-width: $breakpoint-md) {
+  @media (min-width: $breakpoint-lg) {
     display: flex;
     margin-top: 10rem;
   }
@@ -176,7 +176,7 @@ onMounted(() => {
       opacity 0.8s ease,
       transform 0.8s ease;
 
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: $breakpoint-lg) {
       width: 60%;
     }
 
@@ -237,7 +237,7 @@ onMounted(() => {
       opacity 0.8s ease,
       transform 0.8s ease;
 
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: $breakpoint-lg) {
       right: 2rem;
       width: 40%;
       bottom: 3rem;
