@@ -80,6 +80,30 @@ const areas = [
 ];
 </script>
 <style lang="scss" scoped>
+:deep(.hero__text) {
+  padding: calc(15rem + 12vw) 2rem 4rem;
+
+  @media (min-width: $breakpoint-lg) {
+    padding: calc(5rem + 15vw) 4rem 6rem;
+  }
+}
+
+:deep(.services__visual) {
+  width: 75%;
+
+  @media (min-width: $breakpoint-lg) {
+    width: 85%;
+  }
+}
+
+:deep(.services__content) {
+  padding: 0rem 2rem 2rem 2rem;
+
+  @media (min-width: $breakpoint-lg) {
+    padding: 4rem 2rem 2rem 2rem;
+  }
+}
+
 .manufactorings-content {
   width: 100%;
 }

@@ -818,7 +818,7 @@ onUnmounted(() => {
   }
 
   .menu-overlay__header {
-    top: -0.3rem;
+    top: -0.8rem;
   }
 }
 

@@ -92,39 +92,76 @@ const props = defineProps({
 
 const sectionRef = ref(null);
 const isVisible = ref(false);
+let observer = null;
 
-onMounted(() => {
-  const observer = new IntersectionObserver(
+// Funzione per calcolare le soglie in base al viewport
+const getThresholds = () => {
+  const width = window.innerWidth;
+
+  if (width < 768) {
+    // Mobile: trigger prima (10% entry / 5% exit)
+    return { entry: 0.1, exit: 0.05 };
+  } else if (width < 1024) {
+    // Tablet: trigger intermedio (20% entry / 15% exit)
+    return { entry: 0.2, exit: 0.15 };
+  } else {
+    // Desktop: trigger standard (30% entry / 20% exit)
+    return { entry: 0.3, exit: 0.2 };
+  }
+};
+
+// Funzione per creare/ricreare l'observer con le soglie corrette
+const setupObserver = () => {
+  // Distruggi observer esistente se presente
+  if (observer) {
+    observer.disconnect();
+  }
+
+  const thresholds = getThresholds();
+
+  observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         const ratio = entry.intersectionRatio;
 
         // Hysteresis: soglie diverse per entrata e uscita
-        // Entra quando >= 0.3, esce quando < 0.2
-        if (ratio >= 0.3 && !isVisible.value) {
+        if (ratio >= thresholds.entry && !isVisible.value) {
           // Entra: attiva animazione
           isVisible.value = true;
-        } else if (ratio < 0.2 && isVisible.value) {
+        } else if (ratio < thresholds.exit && isVisible.value) {
           // Esce: disattiva animazione
           isVisible.value = false;
         }
-        // Zona cuscinetto: tra 0.2 e 0.3 mantiene lo stato corrente
+        // Zona cuscinetto: tra exit e entry mantiene lo stato corrente
       });
     },
     {
-      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+      threshold: [
+        0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0,
+      ],
     },
   );
 
   if (sectionRef.value) {
     observer.observe(sectionRef.value);
   }
+};
 
-  onUnmounted(() => {
-    if (sectionRef.value) {
-      observer.unobserve(sectionRef.value);
-    }
-  });
+// Handler per il resize della finestra
+const handleResize = () => {
+  setupObserver();
+};
+
+onMounted(() => {
+  setupObserver();
+  window.addEventListener("resize", handleResize);
+});
+
+onUnmounted(() => {
+  if (observer) {
+    observer.disconnect();
+  }
+  window.removeEventListener("resize", handleResize);
 });
 </script>
 
@@ -238,6 +275,7 @@ onMounted(() => {
 
   &__subtitle {
     font-size: 1.15rem;
+    padding-left: 0.4rem;
     font-weight: $font-weight-medium;
   }
 
@@ -285,6 +323,7 @@ onMounted(() => {
 
   &__text {
     width: 80%;
+    padding-left: 0.4rem;
     margin-bottom: $spacing-2xl;
 
     p {

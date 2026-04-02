@@ -1,5 +1,5 @@
 <template>
-  <main class="contacts-content d-flex">
+  <main class="contacts-content">
     <section class="contacts-content-left">
       <div class="contacts-content-left__image-container">
         <img
@@ -118,9 +118,17 @@ h2 {
 .contacts-content {
   width: 100%;
 
+  @media (min-width: $breakpoint-lg) {
+    display: flex;
+  }
+
   .contacts-content-left {
-    width: 39%;
-    padding-top: 12rem;
+    padding-top: 16rem;
+
+    @media (min-width: $breakpoint-lg) {
+      width: 39%;
+      padding-top: 12rem;
+    }
 
     &__title {
       font-size: 2.7rem;

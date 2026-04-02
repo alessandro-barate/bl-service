@@ -88,6 +88,10 @@ const details = [
 </script>
 
 <style lang="scss" scoped>
+:deep(.hero__content) {
+  padding: calc(15rem + 12vw) 2rem 4rem;
+}
+
 .details-page {
   width: 100%;
 
