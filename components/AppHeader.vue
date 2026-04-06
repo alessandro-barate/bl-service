@@ -1,6 +1,7 @@
 <template>
   <!-- Header contenuto nella metà sinistra -->
   <header
+    :id="headerId"
     class="header"
     :class="{ 'is-visible': isVisible, 'is-scrolled': isScrolled }"
   >
@@ -113,6 +114,9 @@
 </template>
 
 <script setup lang="ts">
+const route = useRoute();
+const headerId = computed(() => `header-${route.name || "default"}`);
+
 const isVisible = ref(false);
 const isScrolled = ref(false);
 const isMenuOpen = ref(false);

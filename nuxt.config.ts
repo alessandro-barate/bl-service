@@ -35,6 +35,11 @@ export default defineNuxtConfig({
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap",
         },
+        {
+          rel: "icon",
+          type: "image/svg+xml",
+          href: "/images/logo/bl-logo-bianco.svg",
+        },
       ],
     },
   },

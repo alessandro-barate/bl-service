@@ -115,9 +115,23 @@ h2 {
   margin-bottom: 1rem;
 }
 
-:deep(.header) {
+:deep(#header-contatti.header.is-visible) {
+  width: 100%;
+
+  @media (min-width: $breakpoint-sm) {
+    width: 100%;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    width: 100%;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    width: 47%;
+  }
+
   @media (min-width: $breakpoint-xl) {
-    width: 46%;
+    width: 45%;
   }
 }
 
@@ -141,13 +155,17 @@ h2 {
 
     &__title {
       font-size: 2.7rem;
-      margin-top: 2rem;
+      margin-top: 5rem;
       padding: 0rem 5rem 2rem 5rem;
+
+      @media (min-width: $breakpoint-lg) {
+        margin-top: 3rem;
+      }
     }
 
     &__details {
       font-size: 0.9rem;
-      padding: 0rem 5rem 2rem 5rem;
+      padding: 0rem 5rem 5rem 5rem;
 
       h3 {
         font-weight: 600;
