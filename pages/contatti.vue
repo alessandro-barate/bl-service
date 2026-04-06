@@ -115,19 +115,28 @@ h2 {
   margin-bottom: 1rem;
 }
 
+:deep(.header) {
+  @media (min-width: $breakpoint-xl) {
+    width: 46%;
+  }
+}
+
 .contacts-content {
   width: 100%;
+  height: 100%;
+  text-align: center;
 
   @media (min-width: $breakpoint-lg) {
     display: flex;
+    text-align: left;
   }
 
   .contacts-content-left {
     padding-top: 16rem;
 
     @media (min-width: $breakpoint-lg) {
-      width: 39%;
-      padding-top: 12rem;
+      width: 46%;
+      padding-top: 16rem;
     }
 
     &__title {
@@ -152,30 +161,55 @@ h2 {
   }
 
   .contacts-content-right {
-    width: 61%;
+    width: 100%;
     color: white;
-    padding: 12rem 8rem 0rem 8rem;
+    padding: 10rem 6rem 6rem 6rem;
     background-color: rgb(45, 45, 45);
+
+    @media (min-width: $breakpoint-sm) {
+      padding: 12rem 8rem 6rem 8rem;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      width: 54%;
+      padding: 12rem 8rem 0rem 8rem;
+    }
 
     &__call-us {
       margin-bottom: 5rem;
 
       h1 {
-        font-size: 4rem;
+        font-size: 3rem;
+
+        @media (min-width: $breakpoint-sm) {
+          font-size: 4rem;
+        }
       }
 
       a {
-        font-size: 1.9rem;
+        font-size: 1.5rem;
+
+        @media (min-width: $breakpoint-sm) {
+          font-size: 1.9rem;
+        }
       }
     }
 
     &__email-us {
       h2 {
-        font-size: 3rem;
+        font-size: 2.5rem;
+
+        @media (min-width: $breakpoint-sm) {
+          font-size: 3rem;
+        }
       }
 
       a {
-        font-size: 1.7rem;
+        font-size: 1.2rem;
+
+        @media (min-width: $breakpoint-sm) {
+          font-size: 1.7rem;
+        }
       }
     }
 
