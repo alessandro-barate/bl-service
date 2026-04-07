@@ -37,6 +37,6 @@
 
 <script setup>
 useHead({
-  title: "BL Service - Lavorazioni meccaniche",
+  title: "BL Service - Assistenza meccanica",
 });
 </script>

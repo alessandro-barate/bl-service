@@ -3,7 +3,7 @@
     <section class="contacts-content-left">
       <div class="contacts-content-left__image-container">
         <img
-          src="/images/quality-section/tornio-circolare.webp"
+          src="/images/contacts-page/contacts-image.webp"
           alt="Immagine di un tornio circolare"
         />
       </div>
@@ -139,17 +139,22 @@ h2 {
   width: 100%;
   height: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 
   @media (min-width: $breakpoint-lg) {
     display: flex;
     text-align: left;
+    flex-direction: row;
   }
 
   .contacts-content-left {
-    padding-top: 16rem;
+    padding-top: 0;
+    order: 2;
 
     @media (min-width: $breakpoint-lg) {
       width: 46%;
+      order: 1;
       padding-top: 16rem;
     }
 
@@ -180,7 +185,9 @@ h2 {
 
   .contacts-content-right {
     width: 100%;
+    order: 1;
     color: white;
+    margin-top: 15rem;
     padding: 10rem 6rem 6rem 6rem;
     background-color: rgb(45, 45, 45);
 
@@ -189,7 +196,9 @@ h2 {
     }
 
     @media (min-width: $breakpoint-lg) {
+      order: 2;
       width: 54%;
+      margin-top: 0;
       padding: 12rem 8rem 0rem 8rem;
     }
 

@@ -1,0 +1,11 @@
+import { a as app_vue_vue_type_style_index_0_lang } from './entry-styles-2.mjs-B-ZgLclK.mjs';
+
+const main = "*,:after,:before{box-sizing:border-box;margin:0;padding:0}html{font-size:16px;scroll-behavior:smooth}body{background:#fff;color:#333;font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;font-size:1rem;font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}.title,h1,h2,h3,h4,h5,h6{font-weight:300;line-height:1.2}.title{font-size:clamp(2rem,5vw,3.5rem);margin-bottom:3rem}a{color:inherit;text-decoration:none;transition:color .3s ease}img{display:block;height:auto;max-width:100%}button{cursor:pointer;font-family:inherit}ol,ul{list-style:none}.container{margin:0 auto;max-width:1400px;padding:0 2rem;width:100%}.uppercase{text-transform:uppercase}.d-flex{display:flex}.d-block{display:block}.btn-container{text-align:center;width:100%}.btn{align-items:center;border:none;cursor:pointer;display:inline-flex;font-size:.875rem;font-weight:500;gap:.5rem;letter-spacing:.1em;padding:1rem 2rem;position:relative;transition:all .3s ease}.btn--primary{background:#06c;border:1px solid #06c;color:#fff}.btn--primary:hover{background:#004d99}.btn__arrow{transition:transform .3s ease}.btn:hover .btn__arrow{transform:translate(4px)}.section{padding:6rem 0}.section--dark{background:#1a1a1a;color:#fff}.section--light{background:#f5f5f5}.section--blue{background:#06c;color:#fff}::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#f5f5f5}::-webkit-scrollbar-thumb{background:#8a9bae;border-radius:4px}::-moz-selection{background:#06c;color:#fff}::selection{background:#06c;color:#fff}";
+
+const entryStyles_VslFjjpR = [
+  main,
+  app_vue_vue_type_style_index_0_lang
+];
+
+export { entryStyles_VslFjjpR as default };
+//# sourceMappingURL=entry-styles.VslFjjpR.mjs.map

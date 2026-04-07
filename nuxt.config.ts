@@ -6,6 +6,10 @@ export default defineNuxtConfig({
     port: 3000,
     host: "0.0.0.0",
   },
+
+  // Per generare sito statico
+  ssr: true, // Mantieni SSR per pre-rendering
+
   css: ["~/assets/css/main.scss"],
   vite: {
     css: {
