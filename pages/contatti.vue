@@ -127,7 +127,7 @@ h2 {
   }
 
   @media (min-width: $breakpoint-lg) {
-    width: 47%;
+    width: 46%;
   }
 
   @media (min-width: $breakpoint-xl) {
