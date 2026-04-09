@@ -677,7 +677,7 @@ onUnmounted(() => {
     margin-left: 5rem;
     top: -0.3rem;
 
-    @media (max-width: $breakpoint-md) {
+    @media (max-width: 1024px) {
       display: none;
     }
   }
