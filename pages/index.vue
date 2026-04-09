@@ -35,8 +35,4 @@
   </div>
 </template>
 
-<script setup>
-useHead({
-  title: "BL Service - Assistenza meccanica",
-});
-</script>
+<script setup></script>

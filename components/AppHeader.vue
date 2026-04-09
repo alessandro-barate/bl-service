@@ -82,7 +82,7 @@
         <div class="menu-overlay__header">
           <span class="menu-overlay__line"></span>
           <span class="menu-overlay__subtitle"
-            >BL SERVICE - Lavorazioni meccaniche</span
+            >BL SERVICE - Assistenza meccanica</span
           >
         </div>
 

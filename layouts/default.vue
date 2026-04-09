@@ -47,6 +47,10 @@ const onPreloaderComplete = () => {
     isReady.value = true;
   }, 400);
 };
+
+useHead({
+  title: "BL Service - Assistenza meccanica",
+});
 </script>
 
 <style lang="scss">
