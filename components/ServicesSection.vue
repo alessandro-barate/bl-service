@@ -10,13 +10,8 @@
         <div class="services__image">
           <img :src="image" :alt="imageAlt" />
         </div>
-        <div
-          class="services__overlay"
-          :class="props.class"
-          v-for="(icon, index) in icons"
-          :key="index"
-        >
-          <component class="services__icon" :is="icon.icon" />
+        <div class="services__overlay" :key="index">
+          <img v-if="icon" class="services__icon" :src="icon" :alt="iconAlt" />
         </div>
       </div>
 
@@ -39,14 +34,6 @@
 </template>
 
 <script setup>
-import IconManutenzione from "~/components/icons/IconManutenzione.vue";
-
-const icons = [
-  {
-    icon: IconManutenzione,
-  },
-];
-
 const props = defineProps({
   // Etichetta nella sezione header (es. "L'Azienda", "Riparazione")
   title: {
@@ -87,6 +74,7 @@ const props = defineProps({
   // Alt dell'icona
   iconAlt: {
     type: String,
+    default: "",
   },
 });
 

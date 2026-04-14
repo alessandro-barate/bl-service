@@ -30,7 +30,7 @@ import ServicesSection from "../components/ServicesSection.vue";
 const areas = [
   {
     id: 1,
-    image: "/images/quality-section/tornio-circolare.webp",
+    image: "/images/services/riparazione.webp",
     imageAlt: "Automotive - Cerchione AMG",
     title: "Riparazione",
     subtitle: "Il Materiale idoneo per lavorazioni Complesse",
@@ -38,31 +38,31 @@ const areas = [
       "BL Service è in grado di fornire materiali specificatamente progettati per lavorazioni ove sono necessari elevati indici di imbutitura.",
       "Primari produttori di materia prima sono stati selezionati dall'ufficio Tecnico BL Service al fine di garantire materiali ad elevato indice di lavorabilità destinati a lavorazioni di deformazioni particolarmente complesse.",
     ],
-    icon: "/images/icons/automotive-icon.svg",
+    icon: "/images/icons/riparazione.webp",
     iconAlt: "Icona Automotive",
   },
   {
     id: 2,
-    image: "/images/quality-section/tornio-circolare.webp",
+    image: "/images/services/revisione-cambi-gamma.webp",
     imageAlt: "Trasformatori Elettrici",
     title: "Revisione",
     subtitle: "BL Service il Fornitore che cercavi",
     paragraphs: [
       "BL Service specializzata nel taglio e fornitura di materiale Garantito Esente 'Bava' e con 'Bordi Arrotondati' particolarmente apprezzati dai produttori di Trasformatori di Corrente.",
     ],
-    icon: "/images/icons/transformer-icon.svg",
+    icon: "/images/icons/revisione.webp",
     iconAlt: "Icona Trasformatori",
   },
   {
     id: 3,
-    image: "/images/quality-section/tornio-circolare.webp",
+    image: "/images/services/manutenzione.webp",
     imageAlt: "Stampaggio e Tranceria",
     title: "Manutenzione",
     subtitle: "BL Service quando necessiti di precisione",
     paragraphs: [
       "BL Service grazie all'esperienza dei propri Tecnici e l'ampia gamma di attrezzature disponibili è in grado di Garantire ai propri Clienti Precisione ed Accuratezza del taglio.",
     ],
-    icon: "/images/icons/stamping-icon.svg",
+    icon: "/images/icons/manutenzione.webp",
     iconAlt: "Icona Stampaggio",
   },
   {
@@ -88,8 +88,19 @@ const areas = [
   }
 }
 
+:deep(.services__container) {
+  @media (max-width: $breakpoint-lg) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 :deep(.services__visual) {
   width: 75%;
+
+  @media (max-width: $breakpoint-lg) {
+    order: 2;
+  }
 
   @media (min-width: $breakpoint-lg) {
     width: 85%;
@@ -102,6 +113,16 @@ const areas = [
   @media (min-width: $breakpoint-lg) {
     padding: 4rem 2rem 2rem 2rem;
   }
+}
+
+:deep(.services__overlay) {
+  width: 55%;
+}
+
+:deep(.services__icon) {
+  width: 86%;
+  padding: 3rem 2rem 2rem 2rem;
+  margin: 0 auto;
 }
 
 .manufactorings-content {
