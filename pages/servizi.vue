@@ -6,7 +6,7 @@
       description="La competenza tecnica specifica dei nostri tecnici e gli impianti altamente tecnologici ci consentono di fornire servizi di qualità per tutti i vostri macchinari di lavorazione meccanica."
       :titleLines="['Servizi', 'Completi per la Tua', 'Azienda']"
       :hasSlider="false"
-      image="/images/hero-section/luca-foot.webp"
+      image="/images/services-page/revisione-teste-cambi-gamma.webp"
       imageAlt="Le lavorazioni che esegue BL Service"
     />
 
@@ -30,7 +30,7 @@ import ServicesSection from "../components/ServicesSection.vue";
 const areas = [
   {
     id: 1,
-    image: "/images/services/riparazione.webp",
+    image: "/images/services-page/riparazione.webp",
     imageAlt: "Automotive - Cerchione AMG",
     title: "Riparazione",
     subtitle: "Il Materiale idoneo per lavorazioni Complesse",
@@ -43,7 +43,7 @@ const areas = [
   },
   {
     id: 2,
-    image: "/images/services/revisione-cambi-gamma.webp",
+    image: "/images/services-page/revisione-cambi-gamma.webp",
     imageAlt: "Trasformatori Elettrici",
     title: "Revisione",
     subtitle: "BL Service il Fornitore che cercavi",
@@ -55,7 +55,7 @@ const areas = [
   },
   {
     id: 3,
-    image: "/images/services/manutenzione.webp",
+    image: "/images/services-page/manutenzione.webp",
     imageAlt: "Stampaggio e Tranceria",
     title: "Manutenzione",
     subtitle: "BL Service quando necessiti di precisione",
@@ -74,7 +74,7 @@ const areas = [
     paragraphs: [
       "BL Service grazie all'esperienza dei propri Tecnici e l'ampia gamma di attrezzature disponibili è in grado di Garantire ai propri Clienti Precisione ed Accuratezza del taglio.",
     ],
-    icon: "/images/icons/stamping-icon.svg",
+    icon: "/images/icons/vendita-ricambi.webp",
     iconAlt: "Icona Stampaggio",
   },
 ];

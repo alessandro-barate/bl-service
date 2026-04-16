@@ -6,7 +6,7 @@
       description="La competenza tecnica specifica dei nostri tecnici e gli impianti altamente tecnologici ci consentono di fornire servizi di qualità per tutti i vostri macchinari di lavorazione meccanica."
       :titleLines="['Tutte le', 'Nostre Lavorazioni']"
       :hasSlider="false"
-      image="/images/hero-section/luca-foot.webp"
+      image="/images/manufactorings-page/revisione-frizioni.webp"
       imageAlt="Servizi BL Service"
     />
 

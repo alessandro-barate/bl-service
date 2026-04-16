@@ -204,7 +204,8 @@ onUnmounted(() => {
 
     @include responsive(lg) {
       min-height: auto;
-      width: 99%;
+      width: 100%;
+      height: 100%;
       left: 0.6rem;
     }
 
@@ -212,7 +213,7 @@ onUnmounted(() => {
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
 
