@@ -31,7 +31,7 @@
         <h4 class="footer__title">Website</h4>
         <nav class="footer__nav">
           <NuxtLink to="/">Home</NuxtLink>
-          <NuxtLink to="/lavorazioni">Lavorazioni</NuxtLink>
+          <NuxtLink to="/lavorazioni">Revisioni</NuxtLink>
           <NuxtLink to="/servizi">Servizi</NuxtLink>
           <NuxtLink to="/contatti">Contatti</NuxtLink>
         </nav>

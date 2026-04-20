@@ -13,9 +13,9 @@
         />
         <!-- Left - Dark content -->
         <div class="quality__content">
-          <h2 class="quality__title">
-            Qualità,Velocità e Attenzione al CLIENTE
-          </h2>
+          <h2 class="quality__title">Qualità</h2>
+          <h2 class="quality__title">Precisione</h2>
+          <h2 class="quality__title">Professionalità</h2>
         </div>
       </div>
     </div>
@@ -108,10 +108,22 @@ onMounted(() => {
     bottom: 400px;
     left: 0;
 
+    @media (min-width: 600px) {
+      width: 60%;
+    }
+
     @media (min-width: $breakpoint-lg) {
-      width: 40%;
+      width: 45%;
       bottom: 290px;
       padding: $spacing-4xl $spacing-3xl;
+    }
+
+    @media (min-width: $breakpoint-xl) {
+      width: 40%;
+    }
+
+    @media (min-width: 1621px) {
+      bottom: 360px;
     }
   }
 
