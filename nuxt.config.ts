@@ -22,11 +22,11 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: "BL Service - Lavorazioni meccaniche",
+      title: "BL Service - Assistenza Meccanica",
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
-        { name: "description", content: "BL Service - Lavorazioni meccaniche" },
+        { name: "description", content: "BL Service - Assistenza Meccanica" },
       ],
       link: [
         { rel: "preconnect", href: "https://fonts.googleapis.com" },

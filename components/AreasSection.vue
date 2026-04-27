@@ -36,7 +36,7 @@
               <rect x="20" y="52" width="50" height="8" />
             </svg>
           </div>
-          <h3 class="areas__title">Tornio</h3>
+          <h3 class="areas__title uppercase">torni</h3>
         </div>
 
         <!-- Rettificatrice -->
@@ -63,7 +63,7 @@
               <path d="M50 13 L50 5" />
             </svg>
           </div>
-          <h3 class="areas__title">Rettificatrice</h3>
+          <h3 class="areas__title uppercase">rettifiche</h3>
         </div>
 
         <!-- Centro di Lavoro CNC -->
@@ -92,7 +92,7 @@
               <line x1="20" y1="50" x2="75" y2="50" stroke-dasharray="2,2" />
             </svg>
           </div>
-          <h3 class="areas__title">Centro di Lavoro</h3>
+          <h3 class="areas__title uppercase">centri di lavoro</h3>
         </div>
 
         <!-- Alesatrice -->
@@ -122,7 +122,7 @@
               <circle cx="30" cy="47.5" r="2" fill="none" />
             </svg>
           </div>
-          <h3 class="areas__title">Alesatrice</h3>
+          <h3 class="areas__title uppercase">alesatrici</h3>
         </div>
 
         <!-- Fresatrice -->
@@ -155,7 +155,7 @@
               <line x1="15" y1="55" x2="85" y2="55" stroke-dasharray="2,2" />
             </svg>
           </div>
-          <h3 class="areas__title">Fresatrice</h3>
+          <h3 class="areas__title uppercase">fresatrici</h3>
         </div>
       </div>
       <hr />

@@ -3,7 +3,10 @@
     <div class="hero__content">
       <!-- Left side - Text -->
       <div class="hero__text" :class="{ 'hero__text--no-intro': !hasIntro }">
-        <p v-if="hasIntro && intro" class="hero__intro">{{ intro }}</p>
+        <h2 v-if="hasIntro && intro" class="hero__intro">{{ intro }}</h2>
+        <h2 v-if="hasIntro && intro2" class="hero__intro hero__intro2">
+          {{ intro2 }}
+        </h2>
         <p v-if="description" class="hero__description">{{ description }}</p>
         <h1 class="hero__title">
           <span
@@ -48,6 +51,10 @@ const props = defineProps({
   },
   // Testo introduttivo
   intro: {
+    type: String,
+    default: "",
+  },
+  intro2: {
     type: String,
     default: "",
   },
@@ -156,9 +163,18 @@ onUnmounted(() => {
     }
   }
 
-  &__intro {
-    font-size: $font-size-sm;
+  &__intro,
+  &__intro2 {
+    text-align: center;
+    font-size: $font-size-2xl;
     color: $color-text-light;
+  }
+
+  &__intro {
+    margin-bottom: $spacing-xs;
+  }
+
+  &__intro2 {
     margin-bottom: $spacing-lg;
   }
 

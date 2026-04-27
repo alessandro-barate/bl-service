@@ -18,9 +18,13 @@
             <span class="about__label">{{ label }}</span>
           </div>
           <div class="about__text">
-            <p v-for="(paragraph, index) in paragraphs" :key="index">
-              {{ paragraph }}
-            </p>
+            <p
+              v-for="(paragraph, index) in paragraphs"
+              :key="index"
+              v-html="
+                typeof paragraph === 'string' ? paragraph : paragraph.text
+              "
+            ></p>
           </div>
         </div>
       </div>
@@ -284,6 +288,10 @@ onMounted(() => {
       &:last-child {
         margin-bottom: 0;
       }
+    }
+
+    :deep(.italic) {
+      font-style: italic;
     }
   }
 }

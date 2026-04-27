@@ -22,7 +22,7 @@
               <a href="tel:+393341823595" class="contact-panel__phone">
                 +39 3341823595
               </a>
-              <p class="contact-panel__sublabel">Centralino</p>
+              <p class="contact-panel__sublabel">Telefono</p>
               <p class="contact-panel__label uppercase">scrivici</p>
               <a
                 href="mailto:blservice.bianchi@gmail.com"

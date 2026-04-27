@@ -22,7 +22,7 @@
         </h2>
         <p class="manufactorings__description">
           La professionalità di Bl Service permette di fornire una vasta gamma
-          di servizi per la Vostra Azienda.
+          di servizi per la Tua Azienda.
         </p>
         <BtnOutline
           :dark="true"

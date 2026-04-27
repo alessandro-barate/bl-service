@@ -39,18 +39,18 @@
         <h2 class="title">
           Una Grande<br />
           varietà di<br />
-          Lavorazioni
+          Revisioni
         </h2>
         <p class="manufactorings__description">
-          La nostra esperienza nelle lavorazioni meccaniche ci permette di
-          operare su una vasta gamma di macchinari e componenti effettuando una
-          grande varietà di lavorazioni.
+          Nel mondo della meccanica,
+          <span class="strong">"Fatto come una volta"</span> è sinonimo di
+          Qualità.
         </p>
         <BtnOutline
           :dark="true"
           @click.prevent="handleNavigate"
           class="uppercase"
-          >le nostre lavorazioni</BtnOutline
+          >le nostre revisioni</BtnOutline
         >
       </div>
     </section>

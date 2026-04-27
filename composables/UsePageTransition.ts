@@ -5,9 +5,9 @@ export const usePageTransition = () => {
   // Mappa dei percorsi e i loro titoli
   const pageTitles: Record<string, string> = {
     "/": "Home",
-    "/lavorazioni": "Le Nostre Lavorazioni",
+    "/revisioni": "Le Nostre Revisioni",
     "/servizi": "I Nostri Servizi",
-    "/bl-service": "BL Service",
+    // "/bl-service": "BL Service",
     "/contatti": "Contatti",
   };
 

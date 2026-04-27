@@ -82,7 +82,7 @@
         <div class="menu-overlay__header">
           <span class="menu-overlay__line"></span>
           <span class="menu-overlay__subtitle"
-            >BL SERVICE - Assistenza meccanica</span
+            >BL SERVICE - Assistenza Meccanica</span
           >
         </div>
 
@@ -124,8 +124,8 @@ const isClosing = ref(false);
 const { navigateWithTransition } = usePageTransition();
 
 const menuItems = [
-  { label: "Lavorazioni", path: "/lavorazioni" },
-  { label: "BL Service", path: "/bl-service", featured: true },
+  { label: "Revisioni", path: "/revisioni" },
+  // { label: "BL Service", path: "/bl-service", featured: true },
   { label: "Servizi", path: "/servizi" },
   { label: "Contatti", path: "/contatti" },
 ];
@@ -772,6 +772,7 @@ onUnmounted(() => {
 
     &__container {
       display: flex;
+      align-items: center;
     }
 
     &.is-scrolled {
@@ -790,6 +791,18 @@ onUnmounted(() => {
 
       .header__menu-btn {
         width: 15%;
+        right: 2.5rem;
+        position: relative;
+      }
+
+      &[id="header-contatti"] .header__menu-btn {
+        @media (min-width: $breakpoint-lg) and (max-width: $breakpoint-xl) {
+          right: 1rem;
+        }
+        @media (min-width: $breakpoint-xl) {
+          right: 0;
+          left: 3rem;
+        }
       }
     }
   }
@@ -822,7 +835,7 @@ onUnmounted(() => {
   }
 
   .menu-overlay__header {
-    top: -0.8rem;
+    top: 3%;
   }
 }
 

@@ -43,7 +43,7 @@ const areas = [
   },
   {
     id: 2,
-    image: "/images/services-page/revisione-cambi-gamma.webp",
+    image: "/images/services-page/manutenzione.webp",
     imageAlt: "Trasformatori Elettrici",
     title: "Revisione",
     subtitle: "BL Service il Fornitore che cercavi",
@@ -55,7 +55,7 @@ const areas = [
   },
   {
     id: 3,
-    image: "/images/services-page/manutenzione.webp",
+    image: "/images/services-page/revisione-cambi-gamma.webp",
     imageAlt: "Stampaggio e Tranceria",
     title: "Manutenzione",
     subtitle: "BL Service quando necessiti di precisione",
@@ -81,10 +81,14 @@ const areas = [
 </script>
 <style lang="scss" scoped>
 :deep(.hero__text) {
-  padding: calc(15rem + 12vw) 2rem 4rem;
+  padding: calc($spacing-8xl + 12vw) 2rem 4rem;
 
   @media (min-width: $breakpoint-lg) {
-    padding: calc(5rem + 15vw) 4rem 6rem;
+    padding: calc(14rem + 1vw) 4rem 1rem;
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    padding: calc(10rem + 1vw) 4rem 15rem;
   }
 }
 
@@ -115,8 +119,15 @@ const areas = [
   }
 }
 
+:deep(.services__title) {
+  @media (max-width: $breakpoint-sm) {
+    font-size: clamp(3rem, 4vw, 3rem);
+  }
+}
+
 :deep(.services__overlay) {
   width: 55%;
+  bottom: 8rem;
 }
 
 :deep(.services__icon) {

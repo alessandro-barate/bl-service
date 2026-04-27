@@ -49,7 +49,7 @@ const onPreloaderComplete = () => {
 };
 
 useHead({
-  title: "BL Service - Assistenza meccanica",
+  title: "BL Service - Assistenza Meccanica",
 });
 </script>
 

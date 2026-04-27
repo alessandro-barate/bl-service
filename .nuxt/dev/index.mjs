@@ -2011,7 +2011,7 @@ async function errorHandler(error, event) {
 
 const rootDir = "C:/Users/utente/Desktop/Miei Progetti/BL Service/bl-service";
 
-const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"description","content":"BL Service - Lavorazioni meccaniche"}],"link":[{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com","crossorigin":""},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"},{"rel":"icon","type":"image/svg+xml","href":"/images/logo/bl-logo-bianco.svg"}],"style":[],"script":[],"noscript":[],"title":"BL Service - Lavorazioni meccaniche"};
+const appHead = {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"name":"description","content":"BL Service - Assistenza Meccanica"}],"link":[{"rel":"preconnect","href":"https://fonts.googleapis.com"},{"rel":"preconnect","href":"https://fonts.gstatic.com","crossorigin":""},{"rel":"stylesheet","href":"https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"},{"rel":"icon","type":"image/svg+xml","href":"/images/logo/bl-logo-bianco.svg"}],"style":[],"script":[],"noscript":[],"title":"BL Service - Assistenza Meccanica"};
 
 const appRootTag = "div";
 
@@ -2111,7 +2111,22 @@ const plugins = [
   _2fMp1pUHyZaUu6ZVG2fKPFET2utk9oPq4mFJPGf3qw
 ];
 
-const assets = {};
+const assets = {
+  "/index.mjs": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"1a010-yuuHr47+18JJbindZWlj02/tjNw\"",
+    "mtime": "2026-04-27T17:11:27.077Z",
+    "size": 106512,
+    "path": "index.mjs"
+  },
+  "/index.mjs.map": {
+    "type": "application/json",
+    "etag": "\"69562-do7d64AyBKgspKkbbUDtnn4p81U\"",
+    "mtime": "2026-04-27T17:11:27.077Z",
+    "size": 431458,
+    "path": "index.mjs.map"
+  }
+};
 
 function readAsset (id) {
   const serverDir = dirname$1(fileURLToPath(globalThis._importMeta_.url));

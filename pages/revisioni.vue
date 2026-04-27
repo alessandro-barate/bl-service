@@ -4,10 +4,10 @@
     <HeroSection
       :hasIntro="false"
       description="La competenza tecnica specifica dei nostri tecnici e gli impianti altamente tecnologici ci consentono di fornire servizi di qualità per tutti i vostri macchinari di lavorazione meccanica."
-      :titleLines="['Tutte le', 'Nostre Lavorazioni']"
+      :titleLines="['Tutte le', 'Nostre Revisioni']"
       :hasSlider="false"
-      image="/images/manufactorings-page/revisione-frizioni.webp"
-      imageAlt="Servizi BL Service"
+      image="/images/manufactorings-page/revisioni-hero.webp"
+      imageAlt="Una delle revisioni fatte da BL Service"
     />
 
     <!-- Service Sections -->
@@ -89,10 +89,16 @@ const details = [
 
 <style lang="scss" scoped>
 :deep(.hero__text) {
-  padding: calc(15rem + 12vw) 2rem 4rem;
+  margin-top: -5rem;
+  padding: calc($spacing-8xl + 12vw) 2rem 4rem;
+  // padding: calc(15rem + 12vw) 2rem 4rem;
 
   @media (min-width: $breakpoint-lg) {
-    padding: calc(5rem + 15vw) 4rem 11rem;
+    padding: calc(10rem + 1vw) 4rem 1rem;
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    padding: calc(2rem + 1vw) 4rem 25rem;
   }
 }
 
