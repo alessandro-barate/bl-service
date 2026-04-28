@@ -37,6 +37,7 @@ export const IconsNumbersIconNumber1: typeof import("../components/icons/numbers
 export const IconsNumbersIconNumber2: typeof import("../components/icons/numbers/IconNumber2.vue")['default']
 export const IconsNumbersIconNumber3: typeof import("../components/icons/numbers/IconNumber3.vue")['default']
 export const IconsNumbersIconNumber4: typeof import("../components/icons/numbers/IconNumber4.vue")['default']
+export const IconsNumbersIconNumber5: typeof import("../components/icons/numbers/IconNumber5.vue")['default']
 export const NuxtWelcome: typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']
 export const NuxtLayout: typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']
 export const NuxtErrorBoundary: typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']
@@ -83,6 +84,7 @@ export const LazyIconsNumbersIconNumber1: LazyComponent<typeof import("../compon
 export const LazyIconsNumbersIconNumber2: LazyComponent<typeof import("../components/icons/numbers/IconNumber2.vue")['default']>
 export const LazyIconsNumbersIconNumber3: LazyComponent<typeof import("../components/icons/numbers/IconNumber3.vue")['default']>
 export const LazyIconsNumbersIconNumber4: LazyComponent<typeof import("../components/icons/numbers/IconNumber4.vue")['default']>
+export const LazyIconsNumbersIconNumber5: LazyComponent<typeof import("../components/icons/numbers/IconNumber5.vue")['default']>
 export const LazyNuxtWelcome: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/welcome.vue")['default']>
 export const LazyNuxtLayout: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-layout")['default']>
 export const LazyNuxtErrorBoundary: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-error-boundary.vue")['default']>

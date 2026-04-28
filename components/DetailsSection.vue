@@ -8,7 +8,18 @@
       <!-- Left side - Image with overlay text -->
       <div class="details__visual">
         <div class="details__image">
-          <img :src="image" :alt="imageAlt" />
+          <video
+            id="video"
+            v-if="video"
+            controls
+            preload="metadata"
+            playsinline
+            muted
+          >
+            <source :src="video.webm" type="video/webm" />
+            <source :src="video.mp4" type="video/mp4" />
+          </video>
+          <img v-else :src="image" :alt="imageAlt" />
         </div>
         <div class="details__overlay" :class="props.class">
           <!-- Se icon è un componente Vue, usa component, altrimenti usa img -->
@@ -55,7 +66,17 @@ const props = defineProps({
   // Path dell'immagine
   image: {
     type: String,
-    required: true,
+    required: false,
+  },
+  //Path per il video
+  video: {
+    type: Object,
+    required: false,
+    default: null,
+    validator: (value) => {
+      if (!value) return true;
+      return value.webm && value.mp4;
+    },
   },
   //Classe per styling
   class: {
@@ -204,7 +225,8 @@ onMounted(() => {
       transition-delay: 0.5s;
     }
 
-    img {
+    img,
+    video {
       width: 100%;
       height: 100%;
       object-fit: cover;

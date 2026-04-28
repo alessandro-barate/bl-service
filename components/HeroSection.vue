@@ -179,7 +179,7 @@ onUnmounted(() => {
   }
 
   &__description {
-    font-size: $font-size-sm;
+    font-size: 0.9rem;
     line-height: 1.8;
     color: $color-text-light;
     margin-bottom: $spacing-3xl;

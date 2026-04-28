@@ -15,6 +15,7 @@
       v-for="detail in details"
       :key="detail.id"
       :image="detail.image"
+      :video="detail.video"
       :imageAlt="detail.imageAlt"
       :title="detail.title"
       :subtitle="detail.subtitle"
@@ -30,12 +31,13 @@ import IconNumber1 from "~/components/icons/numbers/IconNumber1.vue";
 import IconNumber2 from "~/components/icons/numbers/IconNumber2.vue";
 import IconNumber3 from "~/components/icons/numbers/IconNumber3.vue";
 import IconNumber4 from "~/components/icons/numbers/IconNumber4.vue";
+import IconNumber5 from "~/components/icons/numbers/IconNumber5.vue";
 
 const details = [
   {
     id: 1,
-    title: "Ripristino geometrie",
-    subtitle: "Il ripristino geometrie di BL Service",
+    title: "Ripristino geometrico",
+    subtitle: "Il ripristino geometrico di BL Service",
     image: "/images/hero-section/luca-foot.webp",
     class: "manufactorings-width",
     imageAlt: "Servizio riparazione",
@@ -47,9 +49,9 @@ const details = [
   },
   {
     id: 2,
-    title: "Ripristino geometrie",
+    title: "Cambi gamma",
     subtitle: "Il ripristino geometrie di BL Service",
-    image: "/images/hero-section/luca-foot.webp",
+    image: "/images/manufactorings-page/cambio-gamma.webp",
     class: "manufactorings-width",
     imageAlt: "Servizio revisione",
     paragraphs: [
@@ -60,9 +62,12 @@ const details = [
   },
   {
     id: 3,
-    title: "Ripristino geometrie",
+    title: "Ripristino turcite-raschiettatura",
     subtitle: "Il ripristino geometrie di BL Service",
-    image: "/images/hero-section/luca-foot.webp",
+    video: {
+      webm: "/images/manufactorings-page/turcite-raschiettatura.webm",
+      mp4: "/images/manufactorings-page/turcite-raschiettatura.mp4",
+    },
     class: "manufactorings-width",
     imageAlt: "Servizio manutenzione",
     paragraphs: [
@@ -73,7 +78,20 @@ const details = [
   },
   {
     id: 4,
-    title: "Ripristino geometrie",
+    title: "Frizioni",
+    subtitle: "Le revisioni di BL Service sulle frizioni",
+    image: "/images/manufactorings-page/revisione-frizioni.webp",
+    class: "manufactorings-width",
+    imageAlt: "Servizio manutenzione",
+    paragraphs: [
+      "BL Service (idrauliche, meccaniche, elettromagnetiche) pone particolare attenzione alla manutenzione preventiva e programmata dei vostri impianti. Un piano di manutenzione regolare garantisce efficienza, sicurezza e riduzione dei tempi di fermo macchina.",
+      "I nostri programmi di manutenzione personalizzati permettono di pianificare gli interventi in modo da minimizzare l'impatto sulla produzione e massimizzare la durata dei macchinari.",
+    ],
+    icon: IconNumber4,
+  },
+  {
+    id: 5,
+    title: "Tavole rotanti",
     subtitle: "Il ripristino geometrie di BL Service",
     image: "/images/hero-section/luca-foot.webp",
     class: "manufactorings-width",
@@ -82,7 +100,7 @@ const details = [
       "BL Service dispone di un ampio magazzino ricambi originali per garantire interventi rapidi ed efficaci. Forniamo componenti di qualità certificata per assicurare le massime prestazioni dei vostri macchinari.",
       "Il nostro stock include ricambi per tutte le principali marche di macchinari di lavorazione meccanica, con consegne rapide per ridurre al minimo i tempi di attesa.",
     ],
-    icon: IconNumber4,
+    icon: IconNumber5,
   },
 ];
 </script>
@@ -118,6 +136,10 @@ const details = [
   }
 }
 
+:deep(.details__image) {
+  aspect-ratio: 4/6;
+}
+
 :deep(svg) {
   width: 150px;
   height: 150px;
@@ -131,6 +153,11 @@ const details = [
     width: 250px;
     height: 250px;
   }
+}
+
+:deep(#video) {
+  left: 1.9rem;
+  position: relative;
 }
 
 .details-page {
