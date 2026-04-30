@@ -1,4 +1,0 @@
-const app_vue_vue_type_style_index_0_lang = ".page-transition-overlay{align-items:center;background-color:#000;display:flex;height:100%;justify-content:center;left:0;position:fixed;top:0;width:100%;z-index:99999}.page-transition-text{animation:fadeSlideIn 1.2s cubic-bezier(.25,.46,.45,.94);color:#fff;font-size:clamp(2rem,5vw,4rem);font-weight:300;letter-spacing:.1em}@keyframes fadeSlideIn{0%{opacity:0;transform:translate(-50px)}to{opacity:1;transform:translate(0)}}.page-transition-enter-active{animation:slideInFromLeft 1s cubic-bezier(.16,1,.3,1)}.page-transition-leave-active{animation:slideOutToRight 1s cubic-bezier(.7,0,.84,0)}@keyframes slideInFromLeft{0%{transform:translate(-100%)}to{transform:translate(0)}}@keyframes slideOutToRight{0%{transform:translate(0)}to{transform:translate(100%)}}";
-
-export { app_vue_vue_type_style_index_0_lang as a };
-//# sourceMappingURL=entry-styles-2.mjs-B-ZgLclK.mjs.map

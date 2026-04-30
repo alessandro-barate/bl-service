@@ -3,7 +3,7 @@
     <div class="footer__container">
       <!-- Logo -->
       <div class="footer__logo">
-        <img src="../assets/Logo_BLService/SVG/LogoColore.svg" alt="" />
+        <img src="../assets/logo/LogoColore2.svg" alt="" />
       </div>
 
       <!-- Company Info -->
@@ -31,7 +31,7 @@
         <h4 class="footer__title">Website</h4>
         <nav class="footer__nav">
           <NuxtLink to="/">Home</NuxtLink>
-          <NuxtLink to="/lavorazioni">Revisioni</NuxtLink>
+          <NuxtLink to="/revisioni">Revisioni</NuxtLink>
           <NuxtLink to="/servizi">Servizi</NuxtLink>
           <NuxtLink to="/contatti">Contatti</NuxtLink>
         </nav>
