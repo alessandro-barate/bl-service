@@ -31,7 +31,7 @@ const areas = [
   {
     id: 1,
     image: "/images/services-page/riparazione.webp",
-    imageAlt: "Automotive - Cerchione AMG",
+    imageAlt: "",
     title: "Riparazione",
     subtitle: "Il Materiale idoneo per lavorazioni Complesse",
     paragraphs: [
@@ -44,7 +44,7 @@ const areas = [
   {
     id: 2,
     image: "/images/services-page/manutenzione.webp",
-    imageAlt: "Trasformatori Elettrici",
+    imageAlt: "",
     title: "Revisione",
     subtitle: "BL Service il Fornitore che cercavi",
     paragraphs: [
@@ -56,7 +56,7 @@ const areas = [
   {
     id: 3,
     image: "/images/services-page/revisione-cambi-gamma.webp",
-    imageAlt: "Stampaggio e Tranceria",
+    imageAlt: "",
     title: "Manutenzione",
     subtitle: "BL Service quando necessiti di precisione",
     paragraphs: [
@@ -68,7 +68,7 @@ const areas = [
   {
     id: 4,
     image: "/images/quality-section/tornio-circolare.webp",
-    imageAlt: "Stampaggio e Tranceria",
+    imageAlt: "",
     title: "Vendita Ricambi",
     subtitle: "BL Service quando necessiti di precisione",
     paragraphs: [

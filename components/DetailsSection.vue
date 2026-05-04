@@ -44,11 +44,111 @@
             <p v-for="(paragraph, index) in paragraphs" :key="index">
               {{ paragraph }}
             </p>
+            <!-- Mostra il pulsante solo se NON c'è il video E ci sono immagini nella gallery -->
+            <div
+              v-if="!video && galleryImages.length > 0"
+              class="details__button-container"
+            >
+              <button class="details__gallery-button" @click="openGallery">
+                Apri la gallery
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Gallery zoomed -->
+  <Teleport to="body">
+    <Transition name="gallery-fade">
+      <div
+        v-if="isGalleryOpen"
+        class="gallery-modal"
+        @click="closeGallery"
+        :class="{ 'is-closing': isClosing }"
+      >
+        <div class="gallery-modal__overlay"></div>
+
+        <div class="gallery-modal__container" @click.stop>
+          <!-- Close button -->
+          <button
+            class="gallery-modal__close"
+            @click="closeGallery"
+            aria-label="Chiudi gallery"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+
+          <!-- Image display -->
+          <div class="gallery-modal__image-wrapper">
+            <img
+              :src="getCurrentImageSrc()"
+              :alt="getCurrentImageAlt()"
+              class="gallery-modal__image"
+            />
+          </div>
+
+          <!-- Navigation -->
+          <div class="gallery-modal__controls">
+            <button
+              class="gallery-modal__nav gallery-modal__nav--prev"
+              @click="prevImage"
+              :disabled="currentImageIndex === 0"
+              aria-label="Immagine precedente"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+
+            <div class="gallery-modal__counter">
+              {{ currentImageIndex + 1 }} / {{ galleryImages.length }}
+            </div>
+
+            <button
+              class="gallery-modal__nav gallery-modal__nav--next"
+              @click="nextImage"
+              :disabled="currentImageIndex === galleryImages.length - 1"
+              aria-label="Immagine successiva"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </Transition>
+  </Teleport>
+  <!-- END Gallery zoomed -->
 </template>
 
 <script setup>
@@ -109,10 +209,82 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
+  // Array di immagini per la gallery
+  galleryImages: {
+    type: Array,
+    default: () => [],
+    validator: (value) => {
+      return value.every(
+        (img) => typeof img === "string" || (img.src && img.alt),
+      );
+    },
+  },
 });
 
 const sectionRef = ref(null);
 const isVisible = ref(false);
+
+// Gallery state
+const isGalleryOpen = ref(false);
+const isClosing = ref(false);
+const currentImageIndex = ref(0);
+
+// Gallery methods
+const openGallery = () => {
+  isGalleryOpen.value = true;
+  currentImageIndex.value = 0;
+  // Blocca lo scroll del body
+  document.body.style.overflow = "hidden";
+};
+
+const closeGallery = () => {
+  isClosing.value = true;
+  setTimeout(() => {
+    isGalleryOpen.value = false;
+    isClosing.value = false;
+    // Ripristina lo scroll del body
+    document.body.style.overflow = "";
+  }, 300); // Durata della transizione di chiusura
+};
+
+const nextImage = () => {
+  if (currentImageIndex.value < props.galleryImages.length - 1) {
+    currentImageIndex.value++;
+  }
+};
+
+const prevImage = () => {
+  if (currentImageIndex.value > 0) {
+    currentImageIndex.value--;
+  }
+};
+
+const getCurrentImageSrc = () => {
+  const img = props.galleryImages[currentImageIndex.value];
+  return typeof img === "string" ? img : img.src;
+};
+
+const getCurrentImageAlt = () => {
+  const img = props.galleryImages[currentImageIndex.value];
+  return typeof img === "string" ? "" : img.alt || "";
+};
+
+// Keyboard navigation
+const handleKeydown = (e) => {
+  if (!isGalleryOpen.value) return;
+
+  switch (e.key) {
+    case "Escape":
+      closeGallery();
+      break;
+    case "ArrowLeft":
+      prevImage();
+      break;
+    case "ArrowRight":
+      nextImage();
+      break;
+  }
+};
 
 onMounted(() => {
   const observer = new IntersectionObserver(
@@ -141,10 +313,16 @@ onMounted(() => {
     observer.observe(sectionRef.value);
   }
 
+  // Aggiungi listener per la navigazione da tastiera
+  window.addEventListener("keydown", handleKeydown);
+
   onUnmounted(() => {
     if (sectionRef.value) {
       observer.unobserve(sectionRef.value);
     }
+    window.removeEventListener("keydown", handleKeydown);
+    // Cleanup: assicurati che lo scroll sia ripristinato
+    document.body.style.overflow = "";
   });
 });
 </script>
@@ -324,5 +502,188 @@ onMounted(() => {
       }
     }
   }
+
+  &__button-container {
+    width: 100%;
+    text-align: center;
+  }
+
+  &__gallery-button {
+    padding: 1rem;
+    color: #c47369;
+    border: none;
+    margin-top: 1.3rem;
+    font-size: 1rem;
+    letter-spacing: 0.14rem;
+    background-color: unset;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(230, 230, 230);
+      border-radius: 5px;
+      background-color: rgb(26, 26, 26);
+    }
+  }
+}
+
+// Gallery Modal Styles
+.gallery-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(8px);
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    background: $color-dark;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+    @include responsive(lg) {
+      padding: 3rem;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: $color-white;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+    z-index: 10;
+
+    &:hover {
+      color: $color-copper;
+      transform: rotate(90deg);
+    }
+
+    @include responsive(lg) {
+      top: 1.5rem;
+      right: 1.5rem;
+    }
+  }
+
+  &__image-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    min-height: 300px;
+
+    @include responsive(lg) {
+      min-height: 500px;
+    }
+  }
+
+  &__image {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    @include responsive(lg) {
+      gap: 3rem;
+    }
+  }
+
+  &__nav {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: $color-white;
+    cursor: pointer;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+
+    &:hover:not(:disabled) {
+      border-color: $color-copper;
+      color: $color-copper;
+      transform: scale(1.1);
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    @include responsive(lg) {
+      padding: 1rem;
+    }
+  }
+
+  &__counter {
+    color: $color-white;
+    font-size: 1rem;
+    font-weight: $font-weight-medium;
+    min-width: 80px;
+    text-align: center;
+
+    @include responsive(lg) {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+// Transizioni per la modal
+.gallery-fade-enter-active,
+.gallery-fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.gallery-fade-enter-from,
+.gallery-fade-leave-to {
+  opacity: 0;
+}
+
+.gallery-fade-enter-active .gallery-modal__container,
+.gallery-fade-leave-active .gallery-modal__container {
+  transition: transform 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.gallery-fade-enter-from .gallery-modal__container {
+  transform: scale(0.9) translateY(20px);
+}
+
+.gallery-fade-leave-to .gallery-modal__container,
+.gallery-modal.is-closing .gallery-modal__container {
+  transform: scale(0.9) translateY(20px);
 }
 </style>

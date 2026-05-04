@@ -22,6 +22,7 @@
       :class="detail.class"
       :icon="detail.icon"
       :paragraphs="detail.paragraphs"
+      :galleryImages="detail.galleryImages"
     />
   </main>
 </template>
@@ -38,7 +39,7 @@ const details = [
     id: 1,
     title: "Ripristino geometrico",
     subtitle: "Il ripristino geometrico di BL Service",
-    image: "/images/hero-section/luca-foot.webp",
+    image: "/images/manufactorings-page/ripristino-geometrico.webp",
     class: "manufactorings-width",
     imageAlt: "Servizio riparazione",
     paragraphs: [
@@ -46,6 +47,20 @@ const details = [
       "Disponiamo di attrezzature all'avanguardia e di un team esperto in grado di diagnosticare e risolvere qualsiasi problema tecnico, riducendo al minimo i tempi di fermo macchina.",
     ],
     icon: IconNumber1,
+    galleryImages: [
+      {
+        src: "/images/manufactorings-page/pre-1.webp",
+        alt: "",
+      },
+      {
+        src: "/images/manufactorings-page/pre-2.webp",
+        alt: "",
+      },
+      {
+        src: "/images/manufactorings-page/post.webp",
+        alt: "",
+      },
+    ],
   },
   {
     id: 2,
@@ -59,6 +74,21 @@ const details = [
       "Ogni revisione include controlli approfonditi, sostituzione delle parti usurate e ottimizzazione delle prestazioni secondo gli standard del costruttore.",
     ],
     icon: IconNumber2,
+    // Esempio con array di oggetti (src + alt)
+    galleryImages: [
+      {
+        src: "/images/services-page/revisione-teste-cambi-gamma.webp",
+        alt: "Cambio gamma - Dettaglio 1",
+      },
+      {
+        src: "/images/services-page/manutenzione.webp",
+        alt: "Cambio gamma - Dettaglio 2",
+      },
+      {
+        src: "/images/services-page/revisione-cambi-gamma.webp",
+        alt: "Cambio gamma - Dettaglio 2",
+      },
+    ],
   },
   {
     id: 3,
@@ -75,6 +105,8 @@ const details = [
       "I nostri programmi di manutenzione personalizzati permettono di pianificare gli interventi in modo da minimizzare l'impatto sulla produzione e massimizzare la durata dei macchinari.",
     ],
     icon: IconNumber3,
+    // Nessuna galleryImages - il pulsante NON apparirà perché c'è il video
+    galleryImages: [],
   },
   {
     id: 4,
@@ -88,12 +120,15 @@ const details = [
       "I nostri programmi di manutenzione personalizzati permettono di pianificare gli interventi in modo da minimizzare l'impatto sulla produzione e massimizzare la durata dei macchinari.",
     ],
     icon: IconNumber4,
+    galleryImages: [
+      { src: "/images/manufactorings-page/revisione-frizioni.webp", alt: "" },
+    ],
   },
   {
     id: 5,
     title: "Tavole rotanti",
     subtitle: "Il ripristino geometrie di BL Service",
-    image: "/images/hero-section/luca-foot.webp",
+    image: "/images/manufactorings-page/tavola-5.webp",
     class: "manufactorings-width",
     imageAlt: "Vendita ricambi",
     paragraphs: [
@@ -101,6 +136,14 @@ const details = [
       "Il nostro stock include ricambi per tutte le principali marche di macchinari di lavorazione meccanica, con consegne rapide per ridurre al minimo i tempi di attesa.",
     ],
     icon: IconNumber5,
+    galleryImages: [
+      { src: "/images/manufactorings-page/tavola.webp", alt: "" },
+      { src: "/images/manufactorings-page/tavola-2.webp", alt: "" },
+      { src: "/images/manufactorings-page/tavola-3.webp", alt: "" },
+      { src: "/images/manufactorings-page/tavola-4.webp", alt: "" },
+      { src: "/images/manufactorings-page/tavola-5.webp", alt: "" },
+      { src: "/images/manufactorings-page/tavola-6.webp", alt: "" },
+    ],
   },
 ];
 </script>
@@ -109,7 +152,6 @@ const details = [
 :deep(.hero__text) {
   margin-top: -5rem;
   padding: calc($spacing-8xl + 12vw) 2rem 4rem;
-  // padding: calc(15rem + 12vw) 2rem 4rem;
 
   @media (min-width: $breakpoint-lg) {
     padding: calc(10rem + 1vw) 4rem 1rem;
@@ -167,7 +209,6 @@ const details = [
     margin-bottom: 5rem;
   }
 
-  // Applica la classe solo agli overlay con classe manufactorings-width
   :deep(.about__overlay.manufactorings-width) {
     @include responsive(lg) {
       width: 90% !important;
