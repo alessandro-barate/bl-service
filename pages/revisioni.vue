@@ -163,17 +163,29 @@ const details = [
 }
 
 :deep(.details__content) {
+  order: 1;
+  position: relative;
   padding: 0rem 2rem 2rem 2rem;
 
   @media (min-width: $breakpoint-lg) {
+    order: 2;
     padding: 4rem 2rem 2rem 2rem;
+  }
+}
+
+:deep(.details__title) {
+  @media (max-width: $breakpoint-sm) {
+    font-size: clamp(3rem, 4vw, 3rem);
   }
 }
 
 :deep(.details__visual) {
   width: 75%;
+  order: 2;
+  position: relative;
 
   @media (min-width: $breakpoint-lg) {
+    order: 1;
     width: 85%;
   }
 }

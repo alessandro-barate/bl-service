@@ -379,7 +379,6 @@ onMounted(() => {
 
   &__visual {
     width: 83%;
-    position: relative;
   }
 
   &__image {
@@ -595,6 +594,7 @@ onMounted(() => {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 2rem;
     margin-bottom: 2rem;
     min-height: 300px;
 
@@ -626,12 +626,12 @@ onMounted(() => {
     border: 2px solid rgba(255, 255, 255, 0.2);
     color: $color-white;
     cursor: pointer;
-    padding: 0.75rem;
+    padding: 0.3rem;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
 
     &:hover:not(:disabled) {
       border-color: $color-copper;
@@ -645,7 +645,7 @@ onMounted(() => {
     }
 
     @include responsive(lg) {
-      padding: 1rem;
+      padding: 0.3rem;
     }
   }
 

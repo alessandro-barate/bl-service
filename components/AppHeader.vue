@@ -195,11 +195,15 @@ onUnmounted(() => {
   left: 0;
   width: 100%;
   z-index: $z-header;
-  padding: $spacing-md;
+  padding: 0;
   transition:
     // background $transition-base,
     background 0.4s cubic-bezier(0.4, 0, 0.2, 1),
     padding $transition-base;
+
+  @media (min-width: 769px) {
+    padding: 1rem;
+  }
 
   &.is-scrolled {
     background: rgb(255, 255, 255);
