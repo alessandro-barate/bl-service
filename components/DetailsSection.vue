@@ -21,7 +21,10 @@
           </video>
           <img v-else :src="image" :alt="imageAlt" />
         </div>
-        <div class="details__overlay" :class="props.class">
+        <div
+          class="details__overlay"
+          :class="[props.class, { 'margin-bottom': hasMarginBottom }]"
+        >
           <!-- Se icon è un componente Vue, usa component, altrimenti usa img -->
           <component
             v-if="typeof icon !== 'string'"
@@ -209,6 +212,11 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
+  // Aggiunge margin-bottom al details__overlay
+  hasMarginBottom: {
+    type: Boolean,
+    default: false,
+  },
   // Array di immagini per la gallery
   galleryImages: {
     type: Array,
@@ -386,6 +394,7 @@ onMounted(() => {
     overflow: hidden;
     z-index: 2;
     position: relative;
+    display: flex;
 
     // Overlay scuro che copre l'immagine inizialmente
     &::before {
@@ -407,6 +416,7 @@ onMounted(() => {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
       transform: translateX(-30px);
       transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
       transition-delay: 0.3s;
@@ -415,7 +425,7 @@ onMounted(() => {
 
   &__overlay {
     position: relative;
-    bottom: 5rem;
+    bottom: 2rem;
     color: $color-white;
     padding: 0;
     z-index: 2;
@@ -423,6 +433,55 @@ onMounted(() => {
     @include responsive(lg) {
       left: 90%;
       width: 35%;
+      bottom: 5rem;
+    }
+
+    @media (max-width: $breakpoint-lg) {
+      &.margin-bottom {
+        bottom: 1rem;
+      }
+    }
+
+    @media (min-width: $breakpoint-lg) and (max-width: 1100px) {
+      &.margin-bottom {
+        bottom: 4.7rem;
+      }
+    }
+
+    @media (min-width: 1101px) and (max-width: 1195px) {
+      &.margin-bottom {
+        bottom: 4rem;
+      }
+    }
+
+    @media (min-width: 1196px) and (max-width: 1400px) {
+      &.margin-bottom {
+        bottom: 3rem;
+      }
+    }
+
+    @media (min-width: 1401px) and (max-width: 1575px) {
+      &.margin-bottom {
+        bottom: 2.1rem;
+      }
+    }
+
+    @media (min-width: 1576px) and (max-width: 1640px) {
+      &.margin-bottom {
+        bottom: 1.8rem;
+      }
+    }
+
+    @media (min-width: 1641px) and (max-width: 1800px) {
+      &.margin-bottom {
+        bottom: 1rem;
+      }
+    }
+
+    @media (min-width: 1801px) and (max-width: 2000px) {
+      &.margin-bottom {
+        bottom: 0.6rem;
+      }
     }
   }
 

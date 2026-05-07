@@ -1,11 +1,6 @@
 <template>
   <footer class="footer">
     <div class="footer__container">
-      <!-- Logo -->
-      <div class="footer__logo">
-        <img src="../assets/logo/LogoColore2.svg" alt="" />
-      </div>
-
       <!-- Company Info -->
       <div class="footer__column">
         <div class="footer__info">
@@ -38,7 +33,7 @@
       </div>
 
       <!-- Legal -->
-      <div class="footer__column">
+      <div id="last-column" class="footer__column">
         <h4 class="footer__title">Privacy & Cookies</h4>
         <nav class="footer__nav">
           <button @click="openPrivacyPanel">Privacy</button>
@@ -85,9 +80,10 @@ const { openPrivacyPanel } = usePrivacyPanel();
     display: grid;
     grid-template-columns: 1fr;
     gap: $spacing-3xl;
+    text-align: center;
 
     @include responsive(md) {
-      grid-template-columns: auto repeat(4, 1fr);
+      display: flex;
     }
   }
 
@@ -101,6 +97,18 @@ const { openPrivacyPanel } = usePrivacyPanel();
     img {
       width: 100%;
     }
+  }
+
+  &__column {
+    width: 100%;
+
+    @media (min-width: $breakpoint-md) {
+      width: calc(100% / 4);
+    }
+  }
+
+  &__column p {
+    line-height: 1.8;
   }
 
   &__column a {
@@ -118,7 +126,7 @@ const { openPrivacyPanel } = usePrivacyPanel();
 
     p {
       font-size: $font-size-sm;
-      line-height: 1.6;
+      line-height: 2;
       color: $color-text-light;
 
       strong {
@@ -131,6 +139,10 @@ const { openPrivacyPanel } = usePrivacyPanel();
     }
   }
 
+  #last-column .footer__nav {
+    gap: 0.7rem;
+  }
+
   &__nav {
     display: flex;
     flex-direction: column;
@@ -138,6 +150,7 @@ const { openPrivacyPanel } = usePrivacyPanel();
 
     a,
     button {
+      text-align: center !important;
       font-size: 0.875rem;
       color: $color-text-light;
       transition: color $transition-base;
@@ -154,6 +167,7 @@ const { openPrivacyPanel } = usePrivacyPanel();
   }
 
   &__bottom {
+    text-align: center;
     max-width: $container-max;
     margin: 0 auto;
     padding: $spacing-2xl $spacing-xl 0;

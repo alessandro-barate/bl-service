@@ -23,6 +23,7 @@
       :icon="detail.icon"
       :paragraphs="detail.paragraphs"
       :galleryImages="detail.galleryImages"
+      :hasMarginBottom="detail.hasMarginBottom"
     />
   </main>
 </template>
@@ -105,6 +106,7 @@ const details = [
       "I nostri programmi di manutenzione personalizzati permettono di pianificare gli interventi in modo da minimizzare l'impatto sulla produzione e massimizzare la durata dei macchinari.",
     ],
     icon: IconNumber3,
+    hasMarginBottom: true,
     // Nessuna galleryImages - il pulsante NON apparirà perché c'è il video
     galleryImages: [],
   },

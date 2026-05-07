@@ -228,7 +228,7 @@ onMounted(() => {
   }
 
   &__btn {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     background-color: transparent;
     border: 2px solid $color-white;
     color: $color-white;

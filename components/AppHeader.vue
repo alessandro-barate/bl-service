@@ -80,7 +80,6 @@
       <nav class="menu-overlay__panel">
         <!-- Header con linea e sottotitolo -->
         <div class="menu-overlay__header">
-          <span class="menu-overlay__line"></span>
           <span class="menu-overlay__subtitle"
             >BL SERVICE - Assistenza Meccanica</span
           >
@@ -492,7 +491,7 @@ onUnmounted(() => {
   // ── Singola linea (comune a entrambe le versioni) ──
   &__menu-line {
     display: block;
-    width: 100%;
+    width: 80%;
     height: 1px;
     background: $color-dark;
     margin: 17px 0;
@@ -502,6 +501,18 @@ onUnmounted(() => {
     transition:
       transform 0.3s ease 0.5s,
       opacity 0.2s ease 0.4s;
+
+    @media (min-width: 1224px) {
+      width: 70%;
+    }
+
+    @media (min-width: 1280px) {
+      width: 90%;
+    }
+
+    @media (min-width: 1510px) {
+      width: 80%;
+    }
   }
 }
 
@@ -560,17 +571,10 @@ onUnmounted(() => {
       z-index: 3;
     }
 
-    // Linea header
-    .menu-overlay__line {
-      transform: scaleX(1);
-    }
-
     // Sottotitolo
     .menu-overlay__subtitle {
       opacity: 1;
       transform: translateY(0);
-      position: relative;
-      top: -0.5rem;
     }
 
     // Items: appaiono in stagger (delay calcolato inline dallo :style)
@@ -597,10 +601,6 @@ onUnmounted(() => {
       transform-origin: left center; // Si chiude verso sinistra
       transition-duration: 0.8s; // Più tempo per contrarsi completamente
       transition-timing-function: ease-in-out; // Lento-accelera-lento per smooth ending
-    }
-
-    .menu-overlay__line {
-      transition-delay: 0s;
     }
 
     .menu-overlay__subtitle {
@@ -675,11 +675,11 @@ onUnmounted(() => {
   // ── Header con linea + sottotitolo ──
   &__header {
     display: flex;
+    align-items: center;
     gap: $spacing-lg;
     margin-bottom: $spacing-3xl;
     position: relative;
     margin-left: 5rem;
-    top: -0.3rem;
 
     @media (max-width: 1024px) {
       display: none;
@@ -694,6 +694,8 @@ onUnmounted(() => {
     transform-origin: left center;
     // APERTURA: appare con delay 0.6s | CHIUSURA: scompare con delay 0s
     transition: transform 0.5s ease 0.6s;
+    flex-shrink: 0;
+    align-self: center; // Centra la linea verticalmente rispetto al testo
   }
 
   &__subtitle {
@@ -702,6 +704,7 @@ onUnmounted(() => {
     color: $color-text-light;
     opacity: 0;
     transform: translateY(-5px);
+    line-height: 1; // Line-height compatto per testo più vicino alla linea
     // APERTURA: appare con delay 0.65s | CHIUSURA: scompare con delay 0s
     transition:
       opacity 0.4s ease 0.65s,
@@ -805,7 +808,7 @@ onUnmounted(() => {
         }
         @media (min-width: $breakpoint-xl) {
           right: 0;
-          left: 3rem;
+          left: 1rem;
         }
       }
     }
