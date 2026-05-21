@@ -20,12 +20,12 @@
     />
     <AboutSection
       label="L'Azienda"
-      overlayTitle="BL Service - <br/>&laquo;FATTO<br/>COME UNA<br/>VOLTA&raquo;"
+      overlayTitle="&laquo;FATTO<br/>COME UNA<br/>VOLTA&raquo; è sinonimo di garanzia"
       image="/images/about-section/main-image.webp"
       imageAlt="Immagine di un macchinario con dei tubi"
       :paragraphs="[
         {
-          text: `BL Service nasce dall'intraprendenza e la voglia di mettersi in gioco di Luca Bianchi, tecnico specializzato nella COSTRUZIONE, REVISIONE, e MANUTENZIONE di MACCHINE UTENSILI, dove l'estrema passione per l'ingegneria meccanica e la qualità del lavoro si uniscono.`,
+          text: `BL Service nasce dall'intraprendenza e la voglia di mettersi in gioco di Luca Bianchi, tecnico specializzato nella COSTRUZIONE, REVISIONE, e MANUTENZIONE di MACCHINE UTENSILI, con l'estrema passione per l'ingengneria meccanica`,
         },
         {
           text: `Luca - <span class='italic'>&laquo;Ho lavorato come dipendente per 3 noti costruttori di macchine utensili, imparando il mestiere da 'I Grigi'. È grazie a loro se oggi posso garantire un'assistenza tecnica di alto livello, promuovendo qualità e precisione, per fornire un servizio mirato a ridurre realmente il fermo macchina&raquo;</span>.`,

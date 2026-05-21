@@ -3,10 +3,10 @@
     <!-- Hero Section -->
     <HeroSection
       :hasIntro="false"
-      description="La competenza tecnica specifica dei nostri tecnici e gli impianti altamente tecnologici ci consentono di fornire servizi di qualità per tutti i vostri macchinari di lavorazione meccanica."
-      :titleLines="['Tutte le', 'Nostre Revisioni']"
+      description=""
+      :titleLines="['Revisioni']"
       :hasSlider="false"
-      image="/images/manufactorings-page/revisioni-hero.webp"
+      image="/images/carousel-section/giant-camshaft.webp"
       imageAlt="Una delle revisioni fatte da BL Service"
     />
 
@@ -38,6 +38,20 @@ import IconNumber5 from "~/components/icons/numbers/IconNumber5.vue";
 const details = [
   {
     id: 1,
+    title: "Ripristino turcite-Raschiettatura",
+    subtitle: "",
+    video: {
+      webm: "/images/manufactorings-page/turcite-raschiettatura.webm",
+      mp4: "/images/manufactorings-page/turcite-raschiettatura.mp4",
+    },
+    class: "manufactorings-width",
+    imageAlt: "Servizio manutenzione",
+    paragraphs: [""],
+    icon: IconNumber3,
+    hasMarginBottom: true,
+    // Nessuna galleryImages - il pulsante NON apparirà perché c'è il video
+    galleryImages: [],
+
     title: "Ripristino geometrico",
     subtitle: "Il ripristino geometrico di BL Service",
     image: "/images/manufactorings-page/ripristino-geometrico.webp",
@@ -66,14 +80,11 @@ const details = [
   {
     id: 2,
     title: "Cambi gamma",
-    subtitle: "Il ripristino geometrie di BL Service",
+    subtitle: "",
     image: "/images/manufactorings-page/cambio-gamma.webp",
     class: "manufactorings-width",
     imageAlt: "Servizio revisione",
-    paragraphs: [
-      "L'organizzazione BL Service si prende cura dei propri clienti garantendo standard qualitativi elevati. Le nostre revisioni complete assicurano il perfetto funzionamento dei vostri macchinari e ne prolungano la vita operativa.",
-      "Ogni revisione include controlli approfonditi, sostituzione delle parti usurate e ottimizzazione delle prestazioni secondo gli standard del costruttore.",
-    ],
+    paragraphs: ["", ""],
     icon: IconNumber2,
     // Esempio con array di oggetti (src + alt)
     galleryImages: [
@@ -92,35 +103,17 @@ const details = [
     ],
   },
   {
-    id: 3,
-    title: "Ripristino turcite-raschiettatura",
-    subtitle: "Il ripristino geometrie di BL Service",
-    video: {
-      webm: "/images/manufactorings-page/turcite-raschiettatura.webm",
-      mp4: "/images/manufactorings-page/turcite-raschiettatura.mp4",
-    },
-    class: "manufactorings-width",
-    imageAlt: "Servizio manutenzione",
-    paragraphs: [
-      "BL Service pone particolare attenzione alla manutenzione preventiva e programmata dei vostri impianti. Un piano di manutenzione regolare garantisce efficienza, sicurezza e riduzione dei tempi di fermo macchina.",
-      "I nostri programmi di manutenzione personalizzati permettono di pianificare gli interventi in modo da minimizzare l'impatto sulla produzione e massimizzare la durata dei macchinari.",
-    ],
-    icon: IconNumber3,
-    hasMarginBottom: true,
-    // Nessuna galleryImages - il pulsante NON apparirà perché c'è il video
-    galleryImages: [],
+    id: 1,
   },
   {
+    // Togliere tasto
     id: 4,
-    title: "Frizioni",
-    subtitle: "Le revisioni di BL Service sulle frizioni",
+    title: "Frizioni e freni",
+    subtitle: "",
     image: "/images/manufactorings-page/revisione-frizioni.webp",
     class: "manufactorings-width",
     imageAlt: "Servizio manutenzione",
-    paragraphs: [
-      "BL Service (idrauliche, meccaniche, elettromagnetiche) pone particolare attenzione alla manutenzione preventiva e programmata dei vostri impianti. Un piano di manutenzione regolare garantisce efficienza, sicurezza e riduzione dei tempi di fermo macchina.",
-      "I nostri programmi di manutenzione personalizzati permettono di pianificare gli interventi in modo da minimizzare l'impatto sulla produzione e massimizzare la durata dei macchinari.",
-    ],
+    paragraphs: [""],
     icon: IconNumber4,
     galleryImages: [
       { src: "/images/manufactorings-page/revisione-frizioni.webp", alt: "" },
@@ -128,15 +121,12 @@ const details = [
   },
   {
     id: 5,
-    title: "Tavole rotanti",
-    subtitle: "Il ripristino geometrie di BL Service",
+    title: "Tavole rotanti e guarnizioni su misura",
+    subtitle: "",
     image: "/images/manufactorings-page/tavola-5.webp",
     class: "manufactorings-width",
     imageAlt: "Vendita ricambi",
-    paragraphs: [
-      "BL Service dispone di un ampio magazzino ricambi originali per garantire interventi rapidi ed efficaci. Forniamo componenti di qualità certificata per assicurare le massime prestazioni dei vostri macchinari.",
-      "Il nostro stock include ricambi per tutte le principali marche di macchinari di lavorazione meccanica, con consegne rapide per ridurre al minimo i tempi di attesa.",
-    ],
+    paragraphs: [""],
     icon: IconNumber5,
     galleryImages: [
       { src: "/images/manufactorings-page/tavola.webp", alt: "" },
