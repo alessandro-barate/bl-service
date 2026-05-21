@@ -39,52 +39,23 @@ const details = [
   {
     id: 1,
     title: "Ripristino turcite-Raschiettatura",
-    subtitle: "",
     video: {
       webm: "/images/manufactorings-page/turcite-raschiettatura.webm",
       mp4: "/images/manufactorings-page/turcite-raschiettatura.mp4",
     },
     class: "manufactorings-width",
     imageAlt: "Servizio manutenzione",
-    paragraphs: [""],
-    icon: IconNumber3,
+    icon: IconNumber1,
     hasMarginBottom: true,
     // Nessuna galleryImages - il pulsante NON apparirà perché c'è il video
     galleryImages: [],
-
-    title: "Ripristino geometrico",
-    subtitle: "Il ripristino geometrico di BL Service",
-    image: "/images/manufactorings-page/ripristino-geometrico.webp",
-    class: "manufactorings-width",
-    imageAlt: "Servizio riparazione",
-    paragraphs: [
-      "BL Service offre un servizio di riparazione completo per macchinari di lavorazione meccanica. I nostri tecnici specializzati intervengono con rapidità e precisione per garantire la continuità operativa della vostra produzione.",
-      "Disponiamo di attrezzature all'avanguardia e di un team esperto in grado di diagnosticare e risolvere qualsiasi problema tecnico, riducendo al minimo i tempi di fermo macchina.",
-    ],
-    icon: IconNumber1,
-    galleryImages: [
-      {
-        src: "/images/manufactorings-page/pre-1.webp",
-        alt: "",
-      },
-      {
-        src: "/images/manufactorings-page/pre-2.webp",
-        alt: "",
-      },
-      {
-        src: "/images/manufactorings-page/post.webp",
-        alt: "",
-      },
-    ],
   },
   {
     id: 2,
     title: "Cambi gamma",
-    subtitle: "",
     image: "/images/manufactorings-page/cambio-gamma.webp",
     class: "manufactorings-width",
     imageAlt: "Servizio revisione",
-    paragraphs: ["", ""],
     icon: IconNumber2,
     // Esempio con array di oggetti (src + alt)
     galleryImages: [
@@ -103,17 +74,34 @@ const details = [
     ],
   },
   {
-    id: 1,
+    id: 3,
+    title: "Ripristino geometrico",
+    image: "/images/manufactorings-page/ripristino-geometrico.webp",
+    class: "manufactorings-width",
+    imageAlt: "Servizio riparazione",
+    icon: IconNumber3,
+    galleryImages: [
+      {
+        src: "/images/manufactorings-page/pre-1.webp",
+        alt: "",
+      },
+      {
+        src: "/images/manufactorings-page/pre-2.webp",
+        alt: "",
+      },
+      {
+        src: "/images/manufactorings-page/post.webp",
+        alt: "",
+      },
+    ],
   },
   {
     // Togliere tasto
     id: 4,
     title: "Frizioni e freni",
-    subtitle: "",
     image: "/images/manufactorings-page/revisione-frizioni.webp",
     class: "manufactorings-width",
     imageAlt: "Servizio manutenzione",
-    paragraphs: [""],
     icon: IconNumber4,
     galleryImages: [
       { src: "/images/manufactorings-page/revisione-frizioni.webp", alt: "" },
@@ -122,11 +110,9 @@ const details = [
   {
     id: 5,
     title: "Tavole rotanti e guarnizioni su misura",
-    subtitle: "",
     image: "/images/manufactorings-page/tavola-5.webp",
     class: "manufactorings-width",
     imageAlt: "Vendita ricambi",
-    paragraphs: [""],
     icon: IconNumber5,
     galleryImages: [
       { src: "/images/manufactorings-page/tavola.webp", alt: "" },
@@ -161,6 +147,7 @@ const details = [
 
   @media (min-width: $breakpoint-lg) {
     order: 2;
+    margin-top: 15rem;
     padding: 4rem 2rem 2rem 2rem;
   }
 }
@@ -172,7 +159,7 @@ const details = [
 }
 
 :deep(.details__visual) {
-  width: 75%;
+  width: 100%;
   order: 2;
   position: relative;
 

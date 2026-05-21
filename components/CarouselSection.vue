@@ -34,7 +34,7 @@
         </div>
       </div>
     </section>
-    <section class="manufactorings">
+    <!-- <section class="manufactorings">
       <div class="manufactorings__text-container">
         <h2 class="title">
           Una Grande<br />
@@ -53,7 +53,7 @@
           >le nostre revisioni</BtnOutline
         >
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 
@@ -146,10 +146,10 @@ onMounted(() => {
       transform: translateX(-80px);
     }
 
-    .manufactorings {
-      opacity: 0;
-      transform: translateX(80px);
-    }
+    // .manufactorings {
+    //   opacity: 0;
+    //   transform: translateX(80px);
+    // }
   }
 
   &.is-visible {
@@ -158,14 +158,14 @@ onMounted(() => {
       transform: translateX(0);
     }
 
-    .manufactorings {
-      opacity: 1;
-      transform: translateX(0);
-    }
+    // .manufactorings {
+    //   opacity: 1;
+    //   transform: translateX(0);
+    // }
   }
 
   .products {
-    width: 85%;
+    width: 95%;
     padding: $spacing-4xl 0;
     padding-right: $sidebar-width;
     background-color: #1a1a1a;
@@ -177,7 +177,7 @@ onMounted(() => {
       transform 0.8s ease;
 
     @media (min-width: $breakpoint-lg) {
-      width: 60%;
+      width: 98%;
     }
 
     &__carousel-wrapper {
@@ -188,9 +188,14 @@ onMounted(() => {
     }
 
     &__carousel {
+      width: 90%;
       display: flex;
       gap: 2rem;
       animation: scroll 40s linear infinite;
+
+      @media (min-width: $breakpoint-lg) {
+        width: 80%;
+      }
 
       &:hover {
         animation-play-state: paused;
@@ -224,33 +229,33 @@ onMounted(() => {
     }
   }
 
-  .manufactorings {
-    right: -5rem;
-    width: 75%;
-    height: 70vh;
-    background-color: $color-blue;
-    bottom: 12rem;
-    position: relative;
-    opacity: 0;
-    transform: translateX(80px);
-    transition:
-      opacity 0.8s ease,
-      transform 0.8s ease;
+  // .manufactorings {
+  //   right: -5rem;
+  //   width: 75%;
+  //   height: 70vh;
+  //   background-color: $color-blue;
+  //   bottom: 12rem;
+  //   position: relative;
+  //   opacity: 0;
+  //   transform: translateX(80px);
+  //   transition:
+  //     opacity 0.8s ease,
+  //     transform 0.8s ease;
 
-    @media (min-width: $breakpoint-lg) {
-      right: 2rem;
-      width: 40%;
-      bottom: 3rem;
-    }
+  //   @media (min-width: $breakpoint-lg) {
+  //     right: 2rem;
+  //     width: 40%;
+  //     bottom: 3rem;
+  //   }
 
-    &__text-container {
-      color: white;
-      padding: 3rem;
-    }
+  //   &__text-container {
+  //     color: white;
+  //     padding: 3rem;
+  //   }
 
-    &__description {
-      padding: 0rem 2rem 2rem 2rem;
-    }
-  }
+  //   &__description {
+  //     padding: 0rem 2rem 2rem 2rem;
+  //   }
+  // }
 }
 </style>

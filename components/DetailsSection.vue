@@ -15,6 +15,7 @@
             preload="metadata"
             playsinline
             muted
+            loop
           >
             <source :src="video.webm" type="video/webm" />
             <source :src="video.mp4" type="video/mp4" />
@@ -161,11 +162,6 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  // Titolo nell'overlay sopra l'immagine (supporta HTML per <br>)
-  subtitle: {
-    type: String,
-    required: true,
-  },
   // Path dell'immagine
   image: {
     type: String,
@@ -190,12 +186,6 @@ const props = defineProps({
   imageAlt: {
     type: String,
     default: "",
-  },
-  // Array di paragrafi di testo
-  paragraphs: {
-    type: Array,
-    required: true,
-    validator: (value) => value.length > 0,
   },
   // Icona della sezione (può essere un componente Vue o un path stringa)
   icon: {
