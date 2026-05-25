@@ -76,7 +76,7 @@ const details = [
   {
     id: 3,
     title: "Ripristino geometrico",
-    image: "/images/manufactorings-page/ripristino-geometrico.webp",
+    image: "/images/manufactorings-page/riparazione.webp",
     class: "manufactorings-width",
     imageAlt: "Servizio riparazione",
     icon: IconNumber3,
