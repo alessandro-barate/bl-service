@@ -52,7 +52,7 @@
 
 <script setup>
 import { ref, computed } from "vue";
-import { useBtnBorder } from "@/composables/useBtnBorder";
+import { useBtnBorder } from "~/composables/useBtnBorder";
 
 const props = defineProps({
   to: {
